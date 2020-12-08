@@ -1,5 +1,13 @@
 [
   {
+    "priority": 2,
+    "date": "2020-11-10T00:00:00+00:00",
+    "title": "Issue forks",
+    "href": "https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests",
+    "description": "Drupal contributors may now collaborate using git branches and merge requests. Until this day, code collaboration on drupal.org featured uploading patch files.",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "",
     "title": "First Drupalcon. Field API architected.",
@@ -23,22 +31,7 @@
     "description": "",
     "comment": "@todo Date"
   },
-  {
-    "priority": 3,
-    "date": "",
-    "title": "Bluecheese theme introduced for drupal.org",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
-  },
-  {
-    "priority": 2,
-    "date": "",
-    "title": "Issue forks",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
-  },
+
   {
     "priority": 2,
     "date": "",
@@ -49,26 +42,26 @@
   },
   {
     "priority": 1,
-    "date": "",
-    "title": "SA-05 harms lots of sites.",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
+    "date": "2014-10-15T00:00:00+00:00",
+    "title": "SA-CORE-2014-005 - Drupal core - SQL injection",
+    "href": "https://www.drupal.org/forum/newsletters/security-advisories-for-drupal-core/2014-10-15/sa-core-2014-005-drupal-core-sql",
+    "description": "Many thousands of Drupal sites are compromised by Drupal core's first major security vulnerability.",
+    "comment": ""
   },
   {
     "priority": 2,
-    "date": "",
-    "title": "Drupal Security team is formed",
+    "date": "2008-02-13T00:00:00+00:00",
+    "title": "Drupal 6.0 released",
     "href": "",
-    "description": "",
-    "comment": "@todo Date"
+    "description": "This release features a rewritten menu system, and an Update Status module which prompts admins to update their modules, especially after a security release.",
+    "comment": ""
   },
   {
     "priority": 2,
     "date": "2007-01-17T00:00:00+00:00",
     "title": "Drupal 5.0 is released",
     "href": "",
-    "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity.",
+    "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. This release introduces install profiles and a web based installer.",
     "comment": ""
   },
   {
