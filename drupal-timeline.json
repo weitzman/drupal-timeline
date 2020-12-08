@@ -92,7 +92,7 @@
     "date": "2002-06-15T00:00:00+00:00",
     "title": "Drupal 4.0 is released, with a new taxonomy module.",
     "href": "",
-    "description": "Taxonomy module, written by Marco Molinari. Marco wrote it because he needed a way to group forums into categories. Drupal's rich taxonomy system predates foreshadows what became popularly known as tags/labels.",
+    "description": "Taxonomy module, written by Marco Molinari. Marco wrote it because he needed a way to group forums into categories. Drupal's rich taxonomy system foreshadows what will be popularly known as tags/labels.",
     "comment": ""
   },
   {
@@ -100,7 +100,7 @@
     "date": "2001-09-15T00:00:00+00:00",
     "title": "Drupal 3.0 is released.",
     "href": "",
-    "description": "3.0 major had a whopping 6 month development cycle. Nodes are introduced as a building clock for content. They can be specialized into many content types.",
+    "description": "3.0 major had a whopping 6 month development cycle. Nodes are introduced as a building block for content. They can be specialized into many content types.",
     "comment": ""
   },
   {
@@ -116,7 +116,7 @@
     "date": "2001-03-15T00:00:00+00:00",
     "title": "Drupal 1.0 is released",
     "href": "",
-    "description": "A mere 2 months after 1.0, Drupal ships 2.0. Backward compatibility was not yet a concern. The translatioon system is introduced, with its brilliantly simple t() function.",
+    "description": "A mere 2 months after 1.0, Drupal ships 2.0. Backward compatibility was not yet a concern. The translation system is introduced, with its brilliantly simple t() function.",
     "comment": ""
   },
   {
@@ -124,7 +124,7 @@
     "date": "2001-01-15T00:00:00+00:00",
     "title": "Drupal 1.0 is released",
     "href": "",
-    "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. Drupal is modular from the start. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework",
+    "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. Drupal is modular from the start. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework.",
     "comment": ""
   }
 ]
