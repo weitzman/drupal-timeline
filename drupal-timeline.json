@@ -12,7 +12,7 @@
     "date": "2020-06-03T00:00:00+00:00",
     "title": "Drupal 9.0 released",
     "href": "https://www.drupal.org/project/drupal/releases/9.0.0",
-    "description": "The first Drupal release with no new functionality - and thats great! Drupal 8 committed to adding functionality in a backwards compatible manner. Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. This approach balances easy major version major upgrades with a lean codebase.",
+    "description": "The first Drupal release with no new functionality - and thats great! Drupal 8 committed to adding functionality in a backwards compatible manner. Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. This approach balances easy major version major upgrades with a lean codebase. https://celebratedrupal.org/ centralized our virtual parties, as this happened during the dark days of Covid-19.",
     "comment": ""
   },
   {
@@ -132,7 +132,7 @@
     "date": "2006-02-06T00:00:00+00:00",
     "title": "groups.drupal.org is launched",
     "href": "https://groups.drupal.org/helloworld",
-    "description": "Moshe Weitzman introduced this portal for local user groups to build a community. Groups helped the Drupal community grow tighter, and helped newbies climb its learning curve.",
+    "description": "Moshe Weitzman introduced this portal for local user groups to build a community. Groups helped the Drupal community grow tighter, and helped newbies climb its learning curve. Later led by joshk, greggles, and ezra-g.",
     "comment": ""
   },
   {
