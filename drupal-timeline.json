@@ -88,6 +88,14 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2007-11-30T00:00:00+00:00",
+    "title": "Acquia is announced to the world",
+    "href": "https://dri.es/acquia-my-drupal-startup",
+    "description": "Acquia, a startup by Dries Buytaert and Jay Batson, announces its intention to offer commercial support and hosting for Drupal. Acquia continues to be the largest sponsor of Drupal development, and its largest web hosting platform.",
+    "comment": ""
+  },
+  {
     "priority": 2,
     "date": "2007-01-17T00:00:00+00:00",
     "title": "Drupal 5.0 is released",
