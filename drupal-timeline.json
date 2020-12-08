@@ -16,11 +16,19 @@
     "comment": ""
   },
   {
-    "priority": 1,
+    "priority": 3,
     "date": "2015-11-15T00:00:00+00:00",
     "title": "Drupal 8.0 released",
     "href": "https://www.drupal.org/8",
     "description": "Five years in the making, Drupal 8 embraces objects and declarative configuration. Entity API, Twig, and Accessibility are the talk at the worldwide release parties.",
+    "comment": ""
+  },
+  {
+    "priority": 1,
+    "date": "2015-04-09T00:00:00+00:00",
+    "title": "drupal-project demonstrates how to assemble a codebase via Composer",
+    "href": "https://www.drupal.org/8",
+    "description": "webflo showed the world how to build a Drupal codebase with Composer. Its been a slow transition for some, but the days of tarballs are essentially over. drupal.org later built upon this work for its Packagist facade and Composer templates.",
     "comment": ""
   },
   {
