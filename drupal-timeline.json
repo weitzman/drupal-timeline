@@ -220,7 +220,7 @@
     "date": "2001-01-15T00:00:00+00:00",
     "title": "Drupal 1.0 is released",
     "href": "",
-    "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. Drupal is modular from the start. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework. On this very day, Wikipedia is also born!.",
+    "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework. On this very day, Wikipedia is also born. Had that happened 6 months later, it would probably be a Drupal site!.",
     "comment": ""
   }
 ]
