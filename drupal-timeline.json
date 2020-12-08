@@ -8,22 +8,6 @@
     "comment": ""
   },
   {
-    "priority": 1,
-    "date": "",
-    "title": "First Drupalcon. Field API architected.",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
-  },
-  {
-    "priority": 3,
-    "date": "",
-    "title": "Sun Microsystems bailout",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
-  },
-  {
     "priority": 3,
     "date": "2014-10-31T00:00:00+00:00",
     "title": "Australian government standardizes on Drupal. ",
@@ -45,6 +29,14 @@
     "title": "Drupal 6.0 released",
     "href": "",
     "description": "This release features a rewritten menu system, and an Update Status module which prompts admins to update their modules, especially after a security release.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
+    "date": "2007-12-12T00:00:00+00:00",
+    "title": "Sun Microsystems bails out drupal.org",
+    "href": "https://www.drupal.org/forum/general/news-and-announcements/2007-12-12/sun-donates-sunfire-x4200-for-drupalorg",
+    "description": "Drupal.org becomes too popular for its home grown web hosting, and starts throwing errors regularly. Sun Microsystems donates its servers and restores stability to our home.",
     "comment": ""
   },
   {
@@ -73,11 +65,19 @@
   },
   {
     "priority": 2,
-    "date": "2005-05-01T00:00:00+00:00",
+    "date": "2005-08-01T00:00:00+00:00",
     "title": "Drupal security team is formed",
     "href": "",
     "description": "This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage.",
-    "comment": ""
+    "comment": "@todo exact date"
+  },
+  {
+    "priority": 1,
+    "date": "2005-02-13T00:00:00+00:00",
+    "title": "First Drupalcon held in Antwerp.",
+    "href": "https://dri.es/album/drupalcon-antwerp-2005/",
+    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. The most intense discussion is led by JonBob, about a new Content Construction Kit (CCK). This eventually became the Field API.",
+    "comment": "@todo exact Date"
   },
   {
     "priority": 2,
