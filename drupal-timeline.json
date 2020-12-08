@@ -56,6 +56,14 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2010-04-22T00:00:00+00:00",
+    "title": "Drush site aliases added in 3.0 release",
+    "href": "https://www.drupal.org/project/drush/releases/6.x-3.0",
+    "description": "Site aliases provide a way to keep track of and manage remote Drupal sites, making it easy to copy databases from one site to another with the sql-sync command.",
+    "comment": ""
+  },
+  {
     "priority": 2,
     "date": "2010-02-05T00:00:00+00:00",
     "title": "Drupal development moves from CVS to Git",
@@ -73,10 +81,10 @@
   },
   {
     "priority": 3,
-    "date": "2009-01-16T00:00:00+00:00",
-    "title": "Drush 3 is released",
-    "href": "https://www.drupal.org/project/drush/releases/5.x-2.0-alpha2",
-    "description": "Drush is no longer a module, leading to lots of functionality and popularity. Drush becomes the de facto command line tool for Drupal.",
+    "date": "2009-06-09T00:00:00+00:00",
+    "title": "Drush becomes stand-alone tool with 2.0 release",
+    "href": "https://www.drupal.org/project/drush/releases/6.x-2.0",
+    "description": "Drush is no longer a module, leading to lots of functionality and popularity.",
     "comment": ""
   },
   {
@@ -85,6 +93,14 @@
     "title": "Drupal 6.0 released",
     "href": "",
     "description": "This release features a rewritten menu system, and an Update Status module which prompts admins to update their modules, especially after a security release.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
+    "date": "2008-02-11T00:00:00+00:00",
+    "title": "Drush 1.0 released",
+    "href": "https://www.drupal.org/project/drush/releases/5.x-1.0",
+    "description": "Promising 'More Beer, Less Effort', Drush becomes the de facto command line tool for Drupal, streamlining the module installation process and making it much easier to 'Keep Calm and Clear the Cache.'",
     "comment": ""
   },
   {
@@ -220,7 +236,7 @@
     "date": "2001-01-15T00:00:00+00:00",
     "title": "Drupal 1.0 is released",
     "href": "",
-    "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework. On this very day, Wikipedia is also born. Had that happened 6 months later, it would probably be a Drupal site!.",
+    "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. Drupal is modular from the start. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework. On this very day, Wikipedia is also born!.",
     "comment": ""
   }
 ]
