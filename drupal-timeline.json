@@ -56,6 +56,14 @@
     "comment": ""
   },
   {
+    "priority": 4,
+    "date": "2010-04-19T00:00:00+00:00",
+    "title": "Certified to Rock web service launches",
+    "href": "https://twitter.com/certifiedtorock",
+    "description": "Certified To Rock is a new form of certification built to match the unique nature of the Drupal community. Give back more, and your score rises.",
+    "comment": ""
+  },
+  {
     "priority": 3,
     "date": "2009-01-16T00:00:00+00:00",
     "title": "Drush 3 is released",
