@@ -40,6 +40,14 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2009-01-16T00:00:00+00:00",
+    "title": "Drush 3 is released",
+    "href": "https://www.drupal.org/project/drush/releases/5.x-2.0-alpha2",
+    "description": "Drush is no longer a module and becomes the de facto command line tool for Drupal.",
+    "comment": ""
+  },
+  {
     "priority": 2,
     "date": "2008-02-13T00:00:00+00:00",
     "title": "Drupal 6.0 released",
