@@ -74,6 +74,14 @@
   },
   {
     "priority": 2,
+    "date": "2005-05-01T00:00:00+00:00",
+    "title": "Drupal security team is formed",
+    "href": "",
+    "description": "This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage.",
+    "comment": ""
+  },
+  {
+    "priority": 2,
     "date": "2003-05-01T00:00:00+00:00",
     "title": "Drupalers build Deanspace, a semi-official presence for USA presidential candidate Howard Dean.",
     "href": "",
