@@ -48,6 +48,14 @@
     "comment": ""
   },
   {
+    "priority": 2,
+    "date": "2010-02-05T00:00:00+00:00",
+    "title": "Drupal development moves from CVS to Git",
+    "href": "https://groups.drupal.org/plan-Drupal-7-release-party",
+    "description": "More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release.",
+    "comment": ""
+  },
+  {
     "priority": 3,
     "date": "2009-01-16T00:00:00+00:00",
     "title": "Drush 3 is released",
@@ -132,7 +140,7 @@
     "date": "2003-05-01T00:00:00+00:00",
     "title": "Drupalers build Deanspace, a semi-official presence for USA presidential candidate Howard Dean.",
     "href": "",
-    "description": "This was a milestone in the rise of the Internet rise as a political rallying force. It also kicked off a long love affair between Drupal and non-profits.",
+    "description": "This was a milestone in the rise of the Internet for political campaigns and grassroots initiatives. It also kicked off a long love affair between Drupal and non-profits.",
     "comment": ""
   },
   {
