@@ -73,19 +73,11 @@
   },
   {
     "priority": 2,
-    "date": "2001-09-15T00:00:00+00:00",
-    "title": "Drop.org transitions to Drupal.org",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
-  },
-  {
-    "priority": 2,
     "date": "2006-05-01T00:00:00+00:00",
     "title": "Drupal 4.7 is released with a Form API.",
     "href": "",
     "description": "The new Form API by Adrian Rossouw strengthens Drupal's secure-by-default approach. XSS protections, validation of choices, and only processing POST data that was actually on the form.",
-    "comment": "
+    "comment": ""
   },
   {
     "priority": 2,
@@ -109,6 +101,14 @@
     "title": "Drupal 3.0 is released.",
     "href": "",
     "description": "3.0 major had a whopping 6 month development cycle. Nodes are introduced as a building clock for content. They can be specialized into many content types.",
+    "comment": ""
+  },
+  {
+    "priority": 2,
+    "date": "2001-09-10T00:00:00+00:00",
+    "title": "Druplicon is introduced",
+    "href": "",
+    "description": "Drupal's famous logo, featuring infinity eyes and remixed into thousands of variants, is introduced by Steven Wittens and Kristjan Jansen.",
     "comment": ""
   },
   {
