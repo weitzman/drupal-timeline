@@ -128,6 +128,14 @@
     "comment": ""
   },
   {
+    "priority": 2,
+    "date": "2006-02-06T00:00:00+00:00",
+    "title": "groups.drupal.org is launched",
+    "href": "https://groups.drupal.org/helloworld",
+    "description": "Moshe Weitzman introduced this portal for local user groups to build a community. Groups helped the Drupal community grow tighter, and helped newbies climb its learning curve.",
+    "comment": ""
+  },
+  {
     "priority": 4,
     "date": "2006-01-11T00:00:00+00:00",
     "title": "Lullabot podcast is launched",
@@ -148,7 +156,7 @@
     "date": "2005-08-01T00:00:00+00:00",
     "title": "Drupal security team is formed",
     "href": "",
-    "description": "This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage.",
+    "description": "This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage. Future leaders would be Heine, greggles, and mlhess.",
     "comment": "@todo exact date"
   },
   {
@@ -156,7 +164,7 @@
     "date": "2005-02-13T00:00:00+00:00",
     "title": "First Drupalcon held in Antwerp.",
     "href": "https://dri.es/album/drupalcon-antwerp-2005/",
-    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. The most intense discussion is led by JonBob, about a new Content Construction Kit (CCK). This eventually became the Field API.",
+    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. The most important discussion is led by JonBob, about a new Content Construction Kit (CCK). This eventually became the Field API under the leadership of yched and KarenS.",
     "comment": "@todo exact Date"
   },
   {
