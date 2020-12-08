@@ -65,11 +65,11 @@
   },
   {
     "priority": 2,
-    "date": "2001-09-15T00:00:00+00:00",
-    "title": "A very young jQuery is introduced into Drupal, helping propel that project into great success.",
+    "date": "2007-01-17T00:00:00+00:00",
+    "title": "Drupal 5.0 is released",
     "href": "",
-    "description": "",
-    "comment": "@todo Date"
+    "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity.",
+    "comment": ""
   },
   {
     "priority": 2,
