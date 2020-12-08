@@ -81,10 +81,10 @@
   },
   {
     "priority": 3,
-    "date": "2009-01-16T00:00:00+00:00",
-    "title": "Drush 3 is released",
-    "href": "https://www.drupal.org/project/drush/releases/5.x-2.0-alpha2",
-    "description": "Drush is no longer a module, leading to lots of functionality and popularity. Drush becomes the de facto command line tool for Drupal.",
+    "date": "2009-06-09T00:00:00+00:00",
+    "title": "Drush becomes stand-alone tool with 2.0 release",
+    "href": "https://www.drupal.org/project/drush/releases/6.x-2.0",
+    "description": "Drush is no longer a module, helping it install a site, perform DB backups, etc. Drush becomes Drupal's de facto command line tool.",
     "comment": ""
   },
   {
