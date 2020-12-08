@@ -6,7 +6,7 @@ An inspirational example of a timeline comes from [Jetbrain's celebration of PHP
 
 Contributing
 --------------
-Please send PRs to enrich this timeline with more events znd better descriptions.
+Please send PRs to enrich this timeline with more events and better descriptions.
 
 Credits
 -----------
