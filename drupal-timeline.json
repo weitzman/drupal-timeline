@@ -16,7 +16,7 @@
     "comment": ""
   },
   {
-    "priority": 2,
+    "priority": 1,
     "date": "2015-11-15T00:00:00+00:00",
     "title": "Drupal 8.0 released",
     "href": "",
@@ -40,7 +40,7 @@
     "comment": ""
   },
   {
-    "priority": 2,
+    "priority": 1,
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Drupal 7.0 released",
     "href": "https://groups.drupal.org/plan-Drupal-7-release-party",
@@ -88,7 +88,7 @@
     "comment": ""
   },
   {
-    "priority": 2,
+    "priority": 1,
     "date": "2006-05-01T00:00:00+00:00",
     "title": "Drupal 4.7 is released with a Form API.",
     "href": "",
@@ -104,7 +104,15 @@
     "comment": ""
   },
   {
-    "priority": 2,
+    "priority": 3,
+    "date": "2005-12-23T00:00:00+00:00",
+    "title": "'Building Online Communities' is published",
+    "href": "https://www.drupal.org/forum/general/news-and-announcements/2005-12-23/my-drupal-book-has-arrived",
+    "description": "Robert Douglass authors the first Drupal book, recognizing a growing demand for Drupal education.",
+    "comment": ""
+  },
+  {
+    "priority": 1,
     "date": "2005-08-01T00:00:00+00:00",
     "title": "Drupal security team is formed",
     "href": "",
@@ -154,7 +162,7 @@
   {
     "priority": 2,
     "date": "2001-03-15T00:00:00+00:00",
-    "title": "Drupal 1.0 is released",
+    "title": "Drupal 2.0 is released",
     "href": "",
     "description": "A mere 2 months after 1.0, Drupal ships 2.0. Backward compatibility was not yet a concern. The translation system is introduced, with its brilliantly simple t() function.",
     "comment": ""
