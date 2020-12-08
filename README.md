@@ -10,5 +10,5 @@ Please send PRs to enrich this timeline with more events and better descriptions
 
 Credits
 -----------
-Contributors: See @todo url.
+Contributors: See https://github.com/weitzman/drupal-timeline/graphs/contributors
 Maintainer: Moshe Weitzman <weitzman@tejasa.com>
