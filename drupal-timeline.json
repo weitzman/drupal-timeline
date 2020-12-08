@@ -16,6 +16,14 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2019-12-04T00:00:00+00:00",
+    "title": "Composer support added to Drupal Core in 8.8 release",
+    "href": "",
+    "description": "Drupal sites become 'Composer ready', allowing those sites that convert to pull in core updates using Composer.",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "2015-11-15T00:00:00+00:00",
     "title": "Drupal 8.0 released",
