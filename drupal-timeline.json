@@ -25,20 +25,11 @@
   },
   {
     "priority": 3,
-    "date": "",
-    "title": "Drupal Association formed in Europe.",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
-  },
-
-  {
-    "priority": 2,
-    "date": "",
-    "title": "Australian government standardizes on Drupal. A symbol of Drupal's growing popularity with governments all over the world.",
-    "href": "",
-    "description": "",
-    "comment": "@todo Date"
+    "date": "2014-10-31T00:00:00+00:00",
+    "title": "Australian government standardizes on Drupal. ",
+    "href": "https://www.drupal.org/project/govcms  ",
+    "description": "govCMS embodies Drupal's popularity with governments all over the world.",
+    "comment": ""
   },
   {
     "priority": 1,
@@ -62,6 +53,14 @@
     "title": "Drupal 5.0 is released",
     "href": "",
     "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. This release introduces install profiles and a web based installer.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
+    "date": "2006-09-01T00:00:00+00:00",
+    "title": "Drupal VZW formed in Europe.",
+    "href": "",
+    "description": "Drupal's governance formalizes from BDFL to a non-profit model. Led by Jacob Redding, VZW is initially a money manager only. Drupal VZW transforms to the Drupal Association in 2011 and becomes more prominent in promoting Drupal.",
     "comment": ""
   },
   {
