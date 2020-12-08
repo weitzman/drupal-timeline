@@ -1,0 +1,130 @@
+[
+  {
+    "priority": 1,
+    "date": "",
+    "title": "First Drupalcon. Field API architected.",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 3,
+    "date": "",
+    "title": "Sun Microsystems bailout",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 3,
+    "date": "",
+    "title": "Drupal Association formed in Europe.",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 3,
+    "date": "",
+    "title": "Bluecheese theme introduced for drupal.org",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 2,
+    "date": "",
+    "title": "Issue forks",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 2,
+    "date": "",
+    "title": "Australian government standardizes on Drupal. A symbol of Drupal's growing popularity with governments all over the world.",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 1,
+    "date": "",
+    "title": "SA-05 harms lots of sites.",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 2,
+    "date": "",
+    "title": "Drupal Security team is formed",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 2,
+    "date": "2001-09-15T00:00:00+00:00",
+    "title": "A very young jQuery is introduced into Drupal, helping propel that project into great success.",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 2,
+    "date": "2001-09-15T00:00:00+00:00",
+    "title": "Drop.org transitions to Drupal.org",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 2,
+    "date": "2001-09-15T00:00:00+00:00",
+    "title": "Form API",
+    "href": "",
+    "description": "",
+    "comment": "@todo Date"
+  },
+  {
+    "priority": 2,
+    "date": "2003-05-01T00:00:00+00:00",
+    "title": "Drupalers build Deanspace, a semi-official presence for USA presidential candidate Howard Dean. This was a milestone in the Internet rise as a political rallying force.",
+    "href": "",
+    "description": "",
+    "comment": ""
+  },
+  {
+    "priority": 1,
+    "date": "2002-06-15T00:00:00+00:00",
+    "title": "Drupal 4.0 is released. This release features a the taxonomy module, written by Marco Molinari. Marco wrote it because he needed a way to group forums into categories. Drupal's rich taxonomy system predates foreshadows what became popularly known as tags/labels.",
+    "href": "",
+    "description": "",
+    "comment": ""
+  },
+  {
+    "priority": 2,
+    "date": "2001-09-15T00:00:00+00:00",
+    "title": "Drupal 3.0 is released. This major had a whopping 6 month development cycle. Nodes are introduced as a building clock for content. They can be specialized into many content types.",
+    "href": "",
+    "description": "",
+    "comment": ""
+  },
+  {
+    "priority": 2,
+    "date": "2001-03-15T00:00:00+00:00",
+    "title": "Drupal 1.0 is released",
+    "href": "",
+    "description": "A mere 2 months after 1.0, Drupal ships 2.0. Backward compatibility was not yet a concern. The translatioon system is introduced, with its brilliantly simple t() function.",
+    "comment": ""
+  },
+  {
+    "priority": 1,
+    "date": "2001-01-15T00:00:00+00:00",
+    "title": "Drupal 1.0 is released",
+    "href": "",
+    "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. Drupal is modular from the start. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework",
+    "comment": ""
+  }
+]
