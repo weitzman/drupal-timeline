@@ -97,6 +97,14 @@
   },
   {
     "priority": 3,
+    "date": "2006-11-06T00:00:00+00:00",
+    "title": "Views module is released",
+    "href": "https://www.drupal.org/project/views/",
+    "description": "Earl Miles introduces Views, a query builder and list builder UI. Along with CCK, these form the early beating heart of Drupal. Views graduates into Drupal core with D8.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
     "date": "2006-09-01T00:00:00+00:00",
     "title": "Drupal VZW formed in Europe.",
     "href": "",
