@@ -12,7 +12,7 @@
     "date": "2020-06-03T00:00:00+00:00",
     "title": "Drupal 9.0 released",
     "href": "https://www.drupal.org/project/drupal/releases/9.0.0",
-    "description": "The first Drupal release with no new functionality - and thats great! Drupal 8 committed to adding functionality in a backwards compatible manner. Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. This approach balances easy major version major upgrades with a lean codebase. https://celebratedrupal.org/ centralized our virtual parties, as this happened during the dark days of Covid-19.",
+    "description": "The first Drupal release with no new functionality - and that's great! Drupal 8 committed to adding functionality in a backwards compatible manner. Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. This approach balances easy major version major upgrades with a lean codebase. https://celebratedrupal.org/ centralized our virtual parties, as this happened during the dark days of Covid-19.",
     "comment": ""
   },
   {
@@ -40,11 +40,19 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2010-02-05T00:00:00+00:00",
+    "title": "Core Office Hours and Drupalcon Mentoring",
+    "href": "https://www.drupal.org/community/mentoring",
+    "description": "xjm and catch provide core office hours on IRC 12 hours apart, providing global coverage. This generous spirit soon manifests at Drupalcon Denver as Core Mentoring, where newbies are guided up the contribution ladder.",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Drupal 7.0 released",
     "href": "https://groups.drupal.org/plan-Drupal-7-release-party",
-    "description": "More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release.",
+    "description": "More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release, featuring the Seven theme, designed by Mark Boulton and Leisa Reichelt.",
     "comment": ""
   },
   {
