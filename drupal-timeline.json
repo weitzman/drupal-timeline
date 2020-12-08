@@ -57,10 +57,10 @@
   },
   {
     "priority": 3,
-    "date": "2010-02-05T00:00:00+00:00",
-    "title": "Core Office Hours and Drupalcon Mentoring",
-    "href": "http://xjmdrupal.org/review-guide",
-    "description": "xjm and catch provide core office hours on IRC 12 hours apart, providing global coverage. This generous spirit soon manifests at Drupalcon Denver as Core Mentoring, where newbies are guided up the contribution ladder.",
+    "date": "2011-08-08T00:00:00+00:00",
+    "title": "Core Office Hours and DrupalCon Mentoring",
+    "href": "https://www.drupal.org/forum/general/news-and-announcements/2011-08-08/core-office-hours",
+    "description": "xjm and catch begin leading core office hours on IRC 12 hours apart, providing global coverage. This generous spirit soon manifests at DrupalCon Denver as the first Core Mentoring contribution day, where new contributors are guided through their first core issue.",
     "comment": ""
   },
   {
