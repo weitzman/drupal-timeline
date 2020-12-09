@@ -36,7 +36,7 @@
     "date": "2015-09-08T00:00:00+00:00",
     "title": "Cache API boosts Drupal 8 performance",
     "href": "https://www.drupal.org/project/drupal/issues/2429617",
-    "description": "wimleers and fabianx rescue Druapl 8 performance with an API where Drupal caches rendered content, varying the keys as specified by a developer. Cache tags precisely invalidate related content as edits are submitted.",
+    "description": "wimleers and fabianx rescue Drupal 8 performance with an API where Drupal caches rendered content, varying the keys as specified by a developer. Cache tags precisely invalidate related content as edits are submitted.",
     "comment": ""
   },
   {
