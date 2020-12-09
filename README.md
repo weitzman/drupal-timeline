@@ -9,7 +9,16 @@ Notable events in Drupal's history. My hope is that Drupal firms and individuals
 
 Contributing
 --------------
-Please send PRs to enrich this timeline with more events and better dates/descriptions.
+- Please send PRs to enrich this timeline with more events and better dates/descriptions.
+- [Retweet the announcement](https://twitter.com/weitzman/status/1336687675223498754?s=20) for more visibility
+
+Visualizations
+------------
+Anyone who makes a timeline visualization will be listed here. Do it!
+
+- You
+- Us
+- We
 
 Credits
 -----------
