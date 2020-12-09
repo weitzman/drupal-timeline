@@ -88,6 +88,14 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2011-03-08T00:00:00+00:00",
+    "title": "Drupal celebrates its 10 Anniversary in style",
+    "href": "https://dri.es/album/drupalcon-chicago-2011/opening-party-at-field-museum-1",
+    "description": "Drupalcon Chicago culminates in a dinner party at the Field Museum of Natural History. Dining with us in the main hall is Sue, the world's most complete Tyrannosaurus rex. Kudos to Tiffany and George from Palantir for a great Drupalcon and party.",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Drupal 7.0 released",
