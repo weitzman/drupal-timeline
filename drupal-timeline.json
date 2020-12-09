@@ -47,6 +47,12 @@
     "description": "webflo showed the world how to build a Drupal codebase with Composer. Its been a slow transition for some, but the days of tarballs are essentially over. drupal.org later built upon this work for its Packagist facade and Composer templates.",
     "comment": ""
   },
+    "priority": 2,
+    "date": "2015-03-23T00:00:00+00:00",
+    "title": "Drupal core governance overhaul for project sustaibility.",
+    "href": "https://groups.drupal.org/node/462713",
+    "description": "In Drupal 7 and earlier, we relied on heroic efforts of one individual other than Dries to review and manage all core chages. In Drupal 8 we learn that we need a more scalable approach, with different committer roles each responsible for certain aspects of the project, as well as a process for provisionally adding new committers. In Drupal 7, there was one committer othere than Dries. Following this policy's development and deployment, the number increased to 5. In 2020 are about a dozen core committers. ",
+    "comment": ""
   {
     "priority": 3,
     "date": "2014-10-31T00:00:00+00:00",
@@ -61,6 +67,14 @@
     "title": "SA-CORE-2014-005 - Drupal core - SQL injection",
     "href": "https://www.drupal.org/forum/newsletters/security-advisories-for-drupal-core/2014-10-15/sa-core-2014-005-drupal-core-sql",
     "description": "Many thousands of Drupal sites are compromised by Drupal core's first major security vulnerability.",
+    "comment": ""
+  },
+  {
+    "priority": 2
+    "date": "2013-12-05T00:00:00+00:00",
+    "title": "Drupal 8 gets semver, minor release scheduling, and beta requirements policy",
+    "href": "https://dri.es/the-next-step-for-drupal-8-is-a-beta",
+    "description": "Drupal core adopts semantic versioning and a sustainable, predictable minor release schedule, on the assumption that 8.0.0 will be released some day. Fortunatley criteria for a Drupal 8 beta have also just defined, increasing the likelihood that Drupal 8.0.0 might actually be released some day.",
     "comment": ""
   },
   {
