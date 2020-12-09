@@ -44,7 +44,7 @@
     "date": "2015-04-09T00:00:00+00:00",
     "title": "drupal-project demonstrates how to assemble a codebase via Composer",
     "href": "https://www.drupal.org/8",
-    "description": "webflo showed the world how to build a Drupal codebase with Composer. Its been a slow transition for some, but the days of tarballs are essentially over. drupal.org later built upon this work for its Packagist facade and Composer templates.",
+    "description": "webflo showed the world how to build a Drupal codebase with Composer. Prior to this day some sites assembled code with Drush Make. drupal.org later built upon this work for its Packagist facade and Composer templates.",
     "comment": ""
   },
   {
@@ -117,6 +117,14 @@
     "title": "Certified to Rock web service launches",
     "href": "https://twitter.com/certifiedtorock",
     "description": "Certified To Rock is a new form of certification built to match the unique nature of the Drupal community. Give back more, and your score rises.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
+    "date": "2009-09-25T00:00:00+00:00",
+    "title": "Pressflow friendly fork adds DB replication and reverse proxy caching",
+    "href": "http://www.pressflow.org/",
+    "description": "David Strauss and friends share a patchset that helps Drupal scale. Their improvements are later incorporated into Drupal 7.",
     "comment": ""
   },
   {
