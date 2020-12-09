@@ -201,6 +201,14 @@
   },
   {
     "priority": 2,
+    "date": "2006-02-07T00:00:00+00:00",
+    "title": "Drupal Content Creation Kit (CCK) launched by yched, enabling addition of custom fields to nodes using a web browser",
+    "href": "https://drupal.org/project/cck",
+    "description": "The CCK was largely folded into core for Drupal 7, having become an essential component of many D4, D5, and D6 sites. First dev builds tagged by JonBob 4.7-1.x, first stable release 4.7.x-1.0 by KarenS 20 November 2006.",
+    "comment": ""
+  },
+  {
+    "priority": 2,
     "date": "2006-02-06T00:00:00+00:00",
     "title": "groups.drupal.org is launched",
     "href": "https://groups.drupal.org/helloworld",
