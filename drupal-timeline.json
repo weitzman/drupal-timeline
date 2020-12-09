@@ -132,7 +132,7 @@
     "date": "2009-09-25T00:00:00+00:00",
     "title": "Pressflow friendly fork adds DB replication and reverse proxy caching",
     "href": "http://www.pressflow.org/",
-    "description": "David Strauss and friends share a patchset that helps Drupal scale. Their improvements are later incorporated into Drupal 7.",
+    "description": "David Strauss and collaborators maintain a distribution that helps Drupal scale. Their improvements are later incorporated into Drupal 7.",
     "comment": ""
   },
   {
