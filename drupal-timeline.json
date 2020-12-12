@@ -97,6 +97,14 @@
   },
   {
     "priority": 3,
+    "date": "2011-03-10T00:00:00+00:00",
+    "title": "Drupalcon Trivia Night",
+    "href": "https://chicago2011.drupal.org/forum/drupalcon-trivia-night",
+    "description": "Alan Burke proposes an in-person, team based trivia contest on the last night of Drupalcon Chicago. Drupalers have a rollicking good time, and the Drupal Irish host many more trivia nights.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
     "date": "2011-03-08T00:00:00+00:00",
     "title": "Drupal celebrates its 10 Anniversary in style",
     "href": "https://dri.es/album/drupalcon-chicago-2011/opening-party-at-field-museum-1",
