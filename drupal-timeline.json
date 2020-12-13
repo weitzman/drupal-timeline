@@ -56,11 +56,19 @@
     "comment": ""
   },
   {
+    "priority": 4,
+    "date": "2015-05-12T00:00:00+00:00",
+    "title": "Drupalcon Prenote.",
+    "href": "https://www.youtube.com/watch?v=7zvCOKzY3kA",
+    "description": "jam and robertDouglass wake us up early for an infotainment extravaganza featuring Drupal community stars; music and sing-a-longs; bad jokes; tutorials on Git, yodelling, use of the alphabet, or proper beer pouring technique. On this day Drupal dressed up as the blue genie from Aladdin, and belted out a Drupalized Let it Go from Frozen.",
+    "comment": ""
+  },
+  {
     "priority": 2,
     "date": "2015-03-23T00:00:00+00:00",
     "title": "Drupal core governance overhaul for project sustainability.",
     "href": "https://groups.drupal.org/node/462713",
-    "description": "Drupal had always relied on a single release manager to review and merge core changes. OOn this day Drupal embraces multiple committer roles and adds a process for adding new committers. In 2020 are about a dozen core committers.",
+    "description": "Drupal had always relied on a single release manager to review and merge core changes. On this day Drupal embraces multiple committer roles and adds a process for adding new committers. In 2020 are about a dozen core committers.",
     "comment": ""
   },
   {
