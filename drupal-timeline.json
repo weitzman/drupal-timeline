@@ -60,7 +60,7 @@
     "date": "2015-05-12T00:00:00+00:00",
     "title": "Drupalcon Prenote.",
     "href": "https://www.youtube.com/watch?v=7zvCOKzY3kA",
-    "description": "jam and robertDouglass wake us up early for an infotainment extravaganza featuring Drupal community stars; music and sing-a-longs; bad jokes; tutorials on Git, yodelling, use of the alphabet, or proper beer pouring technique. On this day Drupal dressed up as the blue genie from Aladdin, and belted out a Drupalized Let it Go from Frozen.",
+    "description": "jam & robertDouglass wake us up for an infotainment extravaganza featuring sing-a-longs; bad jokes; Git tutorials, yodelling, use of alphabet, or beer pouring technique. On this day we belted out a Drupal flavored Let it Go from Frozen.",
     "comment": ""
   },
   {
@@ -152,6 +152,14 @@
     "comment": ""
   },
   {
+    "priority": 4,
+    "date": "2010-01-10T00:00:00+00:00",
+    "title": "Open Atrium distro by Development Seed",
+    "href": "https://i.pinimg.com/originals/fc/e0/61/fce0616444182df747d3aa673e4b3b4a.png",
+    "description": "An early distro, and a shining light in terms of visual design, user experience, and software architecture.",
+    "comment": ""
+  },
+  {
     "priority": 3,
     "date": "2009-09-25T00:00:00+00:00",
     "title": "Pressflow friendly fork adds DB replication and reverse proxy caching",
@@ -228,7 +236,7 @@
     "date": "2006-02-06T00:00:00+00:00",
     "title": "groups.drupal.org is launched",
     "href": "https://groups.drupal.org/helloworld",
-    "description": "Moshe Weitzman introduced this portal for local user groups to build a community. Groups helped the Drupal community grow tighter, and helped newbies climb its learning curve. Later led by joshk, greggles, and ezra-g.",
+    "description": "Moshe Weitzman introduced this portal for local user groups to have an online rallying place. Groups helped the Drupal community grow tighter, and helped newbies climb its learning curve. Later led by joshk, greggles, and ezra-g.",
     "comment": ""
   },
   {
