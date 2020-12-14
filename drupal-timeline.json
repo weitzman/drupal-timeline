@@ -16,6 +16,14 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2017-03-08T00:00:00+00:00",
+    "title": "Drupal changes backwards compatibility policy after 16 years.",
+    "href": "https://dri.es/making-drupal-upgrades-easy-forever",
+    "description": "Drupal was doing Move Fast and Break Things a few years before Facebook. New features were routinely committed to Drupal without backward compatibility. Recognizing its large installed base, Drupal announces that all changes must be backward compatible, and that major version upgrades will be easy forever.",
+    "comment": ""
+  },
+  {
     "priority": 4,
     "date": "2016-10-06T00:00:00+00:00",
     "title": "PHP 7 is released",
