@@ -273,11 +273,19 @@
   },
   {
     "priority": 1,
-    "date": "2005-02-13T00:00:00+00:00",
+    "date": "2005-02-24T00:00:00+00:00",
     "title": "First Drupalcon held in Antwerp.",
-    "href": "https://dri.es/album/drupalcon-antwerp-2005/",
-    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. The most important discussion is led by JonBob, about a new Content Construction Kit (CCK). This eventually became the Field API under the leadership of yched and KarenS.",
-    "comment": "@todo exact Date"
+    "href": "https://www.drupal.org/developer-sprint-antwerp-2005",
+    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. The most important discussion is led by JonBob, about a new Content Construction Kit (CCK). This eventually became the Field API under the leadership of yched and KarenS. It was called a Developer Sprint. The conference with scheduled presentations [happened at FOSDEM on Feb 26th, 2005](https://www.drupal.org/conference-brussels-2005). [Dries' Album](https://dri.es/album/drupalcon-antwerp-2005/)",
+    "comment": ""
+  },
+  {
+    "priority": 1,
+    "date": "2004-10-29T00:00:00+00:00",
+    "title": "First Drupal t-shirts",
+    "href": "https://www.drupal.org/forum/general/events/2004-10-14/vancouver-canada-drupal-dinner-with-dries-buytaert-and-the",
+    "description": "Dries was visiting Vancouver to present at OOPSLA, The (North American -- sorry Adrian!) Bryght crew of Boris, Roland, Richard in Vancouver, and walkah who flew in from Toronto, organized some meetups and printed t-shirts. The Deanspace crew of drumm, Zack, and Chris Messina et al flew up to meet Dries in person. [Dries Album](https://dri.es/album/vancouver-2004/). [T-shirts on Chris Messina, Richard Eriksson, Boris Mann](https://www.flickr.com/photos/walkah/1121246/)",
+    "comment": "Presentation on 28th, Dinner on 29th, various activities and beer towers"
   },
   {
     "priority": 2,
