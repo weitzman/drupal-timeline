@@ -208,6 +208,14 @@
     "comment": ""
   },
   {
+    "priority": 4,
+    "date": "2007-11-03T00:00:00+00:00",
+    "title": "Bay Area Drupal Camp (BADCamp) unites Drupalers at UC Berkeley.",
+    "href": "https://www.drupal.org/forum/general/events/2007-10-06/bay-area-drupal-camp-badcamp-07-nov-3rd-4th",
+    "description": "This large, annual event remains free to this day. Kudos to Jen Lampton for her many years of organizing.",
+    "comment": ""
+  },
+  {
     "priority": 2,
     "date": "2007-01-17T00:00:00+00:00",
     "title": "Drupal 5.0 is released",
