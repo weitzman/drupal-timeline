@@ -128,6 +128,14 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2011-01-06T00:00:00+00:00",
+    "title": "Automated testing for Drupal Core and Contrib",
+    "href": "https://git.drupalcode.org/project/simpletest/-/commit/c0d244ada87809a5e809b2a872370c9139cd6b88",
+    "description": "After 7 years in Contrib, the simpletest module is added in Drupal 7, along with a substantial test suite. [qa.drupal.org](https://qa.drupal.org/) and then [DrupalCI](https://www.drupal.org/drupalorg/docs/drupal-ci) ensure that each patch passes tests before merging. [Drupal Test Traits](https://gitlab.com/weitzman/drupal-test-traits) later brings this framework to client sites.",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Drupal 7.0 released",
