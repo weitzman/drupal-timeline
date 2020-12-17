@@ -200,11 +200,11 @@
     "comment": ""
   },
   {
-    "priority": 2,
+    "priority": 3,
     "date": "2006-02-07T00:00:00+00:00",
-    "title": "Drupal Content Creation Kit (CCK) launched by yched, enabling addition of custom fields to nodes using a web browser",
+    "title": "Content Creation Kit (CCK) by yched and KarenS, adds custom fields to nodes via the Drupal UI.",
     "href": "https://drupal.org/project/cck",
-    "description": "The CCK was largely folded into core for Drupal 7, having become an essential component of many D4, D5, and D6 sites. First dev builds tagged by JonBob 4.7-1.x, first stable release 4.7.x-1.0 by KarenS 20 November 2006.",
+    "description": "CCK was and is the heart of Drupal's rich content type system. CCK was moved Drupal core in v7, and is now known as the Field API. JonBoxb led a session about it at very first Drupalcon, and made the first iteration in Flexinode module, which later morphed into CCK.",
     "comment": ""
   },
   {
