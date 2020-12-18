@@ -129,6 +129,14 @@
   },
   {
     "priority": 3,
+    "date": "2011-03-07:00:00+00:00",
+    "title": "Drupal Watchdog print magazine",
+    "href": "http://www.drupalwatchdog.net/about",
+    "description": "Tag1 Consulting founded Tag1 Publishing and began publishing and distributing Drupal Watchdog magazine, the first print magazine dedicated entirely to Drupal. The first issue featured Dries on the cover and was freely distributed to all attendees at DrupalCon Chicago in March of 2011. The magazine became available for purchase from bookstores in 2014. The name came from Drupal's hook_watchdog function.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Automated testing for Drupal Core and Contrib",
     "href": "https://git.drupalcode.org/project/simpletest/-/commit/c0d244ada87809a5e809b2a872370c9139cd6b88",
