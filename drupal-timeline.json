@@ -129,7 +129,7 @@
   },
   {
     "priority": 3,
-    "date": "2011-03-07:00:00+00:00",
+    "date": "2011-03-07T00:00:00+00:00",
     "title": "Drupal Watchdog print magazine",
     "href": "http://www.drupalwatchdog.net/about",
     "description": "Drupalcon attendees open their tote bags and find Drupal Watchdog magazine, the first print magazine dedicated entirely to Drupal. The first issue features Dries on the cover. Tag1, the publisher, makes the magazine available for purchase in bookstores in 2014. The name comes from Drupal's hook_watchdog function.",
