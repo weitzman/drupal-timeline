@@ -4,7 +4,7 @@
     "date": "2020-11-10T00:00:00+00:00",
     "title": "Code contribution via issue forks",
     "href": "https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests",
-    "description": "Drupal contributors may now collaborate using git branches and merge requests. Until this day, code collaboration on drupal.org featured uploaded patch files.",
+    "description": "Drupal contributors may now collaborate [using git branches and merge requests](https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests). Until this day, code collaboration on drupal.org featured uploaded patch files.",
     "comment": ""
   },
   {
@@ -12,15 +12,15 @@
     "date": "2020-06-03T00:00:00+00:00",
     "title": "Drupal 9.0 released",
     "href": "https://www.drupal.org/project/drupal/releases/9.0.0",
-    "description": "The first Drupal release with no new functionality - and that's great! Drupal 8 committed to adding functionality in a backwards compatible manner. Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. This approach balances easy major version major upgrades with a lean codebase. https://celebratedrupal.org/ centralized our virtual parties, as this happened during the days of Covid.",
+    "description": "The first Drupal release with no new functionality - and that's great! Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. The [release parties](https://celebratedrupal.org/) were virtual, as this happened during the days of Covid.",
     "comment": ""
   },
   {
     "priority": 3,
     "date": "2017-03-08T00:00:00+00:00",
-    "title": "Drupal changes backwards compatibility policy after 16 years.",
+    "title": "Drupal changes backwards compatibility policy after 16 years",
     "href": "https://dri.es/making-drupal-upgrades-easy-forever",
-    "description": "Drupal was doing Move Fast and Break Things a few years before Facebook. New features were routinely committed to Drupal without backward compatibility. Recognizing its large installed base, Drupal announces that all changes must be backward compatible, and that major version upgrades will be easy forever.",
+    "description": "Drupal was doing [Move Fast and Break Things](https://www.cnet.com/news/zuckerberg-move-fast-and-break-things-isnt-how-we-operate-anymore/) a few years before Facebook. New features were routinely committed to Drupal without backward compatibility. Recognizing its large installed base, Drupal announces that all changes must be backward compatible, and that major version upgrades will be easy forever.",
     "comment": ""
   },
   {
