@@ -66,7 +66,7 @@
   {
     "priority": 4,
     "date": "2015-05-12T00:00:00+00:00",
-    "title": "Drupalcon Prenote.",
+    "title": "Drupalcon Prenote",
     "href": "https://www.youtube.com/watch?v=7zvCOKzY3kA",
     "description": "jam & robertDouglass wake us up for an infotainment extravaganza featuring sing-a-longs; bad jokes; Git tutorials, yodelling, use of alphabet, or beer pouring technique. On this day we belted out a Drupal flavored Let it Go from Frozen.",
     "comment": ""
@@ -74,7 +74,7 @@
   {
     "priority": 2,
     "date": "2015-03-23T00:00:00+00:00",
-    "title": "Drupal core governance overhaul for project sustainability.",
+    "title": "Drupal core governance overhaul for project sustainability",
     "href": "https://groups.drupal.org/node/462713",
     "description": "Drupal had always relied on a single release manager to review and merge core changes. On this day Drupal embraces multiple committer roles and adds a process for adding new committers. In 2020 are about a dozen core committers.",
     "comment": ""
@@ -84,7 +84,7 @@
     "date": "2014-10-31T00:00:00+00:00",
     "title": "Australian government standardizes on Drupal. ",
     "href": "https://www.drupal.org/project/govcms  ",
-    "description": "govCMS embodies Drupal's popularity with governments all over the world.",
+    "description": "govCMS embodies Drupal's popularity with [governments all over the world](https://groups.drupal.org/government-sites).",
     "comment": ""
   },
   {
@@ -226,7 +226,7 @@
   {
     "priority": 4,
     "date": "2007-11-03T00:00:00+00:00",
-    "title": "Bay Area Drupal Camp (BADCamp) unites Drupalers at UC Berkeley.",
+    "title": "Bay Area Drupal Camp (BADCamp) meets at UC Berkeley",
     "href": "https://www.drupal.org/forum/general/events/2007-10-06/bay-area-drupal-camp-badcamp-07-nov-3rd-4th",
     "description": "This large, annual event remains free to this day. Kudos to Jen Lampton for her many years of organizing. Other notable Camps include Design 4 Drupal, Drupal Dev Days, Frontend United, and Midwest Developer Summit",
     "comment": ""
@@ -250,7 +250,7 @@
   {
     "priority": 3,
     "date": "2006-09-01T00:00:00+00:00",
-    "title": "Drupal Association formalizes governance and money management.",
+    "title": "Drupal Association formalizes governance and money management",
     "href": "https://dri.es/drupal-association-launched",
     "description": "Drupal's governance formalizes from BDFL to a non-profit model. Led by Jacob Redding, VZW is initially a money manager only. Drupal VZW transforms into the Drupal Association in 2011 and becomes more prominent in promoting Drupal and runs Drupalcon.",
     "comment": ""
@@ -258,7 +258,7 @@
   {
     "priority": 1,
     "date": "2006-05-01T00:00:00+00:00",
-    "title": "Drupal 4.7 is released with a Form API.",
+    "title": "Drupal 4.7 is released with a Form API",
     "href": "",
     "description": "The new Form API by Adrian Rossouw strengthens Drupal's secure-by-default approach. XSS protections, validation of choices, and only processing POST data that was actually on the form.",
     "comment": ""
@@ -266,9 +266,9 @@
   {
     "priority": 3,
     "date": "2006-02-07T00:00:00+00:00",
-    "title": "Content Creation Kit (CCK) by yched and KarenS, adds custom fields to nodes via the Drupal UI.",
+    "title": "Content Creation Kit (CCK) brings a UI for adding custom fields.",
     "href": "https://drupal.org/project/cck",
-    "description": "CCK was and is the heart of Drupal's rich content type system. CCK moved into Drupal core in v7, and is now known as the Field API. JonBob led a session about it at very first Drupalcon, and made the first iteration in Flexinode module, which later morphed into CCK.",
+    "description": "CCK was incorporated into Drupal 7 as the Field API. JonBob led a session about it at very first Drupalcon, and made the first iteration in Flexinode module. yched and KarenS evolved that work into CCK.",
     "comment": ""
   },
   {
@@ -290,7 +290,7 @@
   {
     "priority": 3,
     "date": "2005-12-23T00:00:00+00:00",
-    "title": "'Building Online Communities' is published",
+    "title": "Building Online Communities book is published",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2005-12-23/my-drupal-book-has-arrived",
     "description": "Robert Douglass authors the first Drupal book, recognizing a growing demand for Drupal education.",
     "comment": ""
@@ -306,31 +306,31 @@
   {
     "priority": 1,
     "date": "2005-02-24T00:00:00+00:00",
-    "title": "First Drupalcon held in Antwerp.",
+    "title": "First Drupalcon held in Antwerp",
     "href": "https://www.drupal.org/developer-sprint-antwerp-2005",
-    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. Marc Canter (Macromedia founder) and Chris Musssina (later invented the #hashtag) attended. The conference with scheduled presentations [happened at FOSDEM on Feb 26th, 2005](https://www.drupal.org/conference-brussels-2005). [Dries' Album](https://dri.es/album/drupalcon-antwerp-2005/)",
+    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. Marc Canter (Macromedia founder) and Chris Musssina (later invented the #hashtag) attended. [Photos by Dries](https://dri.es/album/drupalcon-antwerp-2005/).",
     "comment": ""
   },
   {
     "priority": 2,
     "date": "2003-05-01T00:00:00+00:00",
-    "title": "Drupalers build Deanspace, a semi-official presence for USA presidential candidate Howard Dean.",
+    "title": "Deanspace, a semi-official presence for USA presidential candidate Howard Dean",
     "href": "",
-    "description": "This was a milestone in the rise of the Internet for political campaigns and grassroots initiatives. It also kicked off a long love affair between Drupal and non-profits.",
+    "description": "Deanspace was a milestone in the rise of the Internet for political campaigns and grassroots initiatives. It also kicked off a long love affair between Drupal and non-profits ([Greenpeace](https://www.greenpeace.org/international/), [American Cancer Society](https://secure.acsevents.org/site/SPageServer/?pagename=relay), [Red Nose Day](https://www.comicrelief.com/rednoseday/), ...).",
     "comment": ""
   },
   {
     "priority": 1,
     "date": "2002-06-15T00:00:00+00:00",
-    "title": "Drupal 4.0 is released, with a new taxonomy module.",
+    "title": "Drupal 4.0 is released, with a new taxonomy module",
     "href": "",
-    "description": "Taxonomy module, written by Marco Molinari. Marco wrote it because he needed a way to group forums into categories. Drupal's rich taxonomy system foreshadows what will be popularly known as tags/labels.",
+    "description": "Marco wrote taxonomy because he needed a way to group forums into categories. Drupal's rich taxonomy system foreshadows what will become known as tags/labels in [Delicious](http://del.icio.us/, [Flickr](https://www.flickr.com/), [Twitter](https://twitter.com/home), etc",
     "comment": ""
   },
   {
     "priority": 2,
     "date": "2001-09-15T00:00:00+00:00",
-    "title": "Drupal 3.0 is released.",
+    "title": "Drupal 3.0 is released",
     "href": "",
     "description": "3.0 major had a whopping 6 month development cycle. Nodes are introduced as a building block for content. They can be specialized into many content types.",
     "comment": ""
