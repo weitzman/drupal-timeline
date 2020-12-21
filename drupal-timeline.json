@@ -157,6 +157,7 @@
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Drupal 7.0 released",
     "href": "https://groups.drupal.org/plan-Drupal-7-release-party",
+    "username": "webchick",
     "description": "More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release, featuring the Seven theme, designed by Mark Boulton and Leisa Reichelt.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/7.0.png",
     "comment": ""
@@ -213,7 +214,7 @@
     "priority": 2,
     "date": "2008-02-13T00:00:00+00:00",
     "title": "Drupal 6.0 released",
-    "href": "",
+    "href": "https://www.drupal.org/forum/general/news-and-announcements/2008-02-13/drupal-60-released",
     "description": "This release features a rewritten menu system, and an Update Status module which prompts admins to update their modules, especially after a security release.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/6.0.png",
     "comment": ""
@@ -246,7 +247,9 @@
     "priority": 2,
     "date": "2007-01-17T00:00:00+00:00",
     "title": "Drupal 5.0 is released",
-    "href": "",
+    "username": "drumm",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-3064-1411911925.png?itok=IepxMjFK",
+    "href": "https://www.drupal.org/forum/general/news-and-announcements/2007-01-15/drupal-50-released",
     "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. This release introduces install profiles and a web based installer.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/5.0.png",
     "comment": ""
@@ -271,7 +274,7 @@
     "priority": 1,
     "date": "2006-05-01T00:00:00+00:00",
     "title": "Drupal 4.7 is released with a Form API",
-    "href": "",
+    "href": "https://www.drupal.org/forum/general/news-and-announcements/2006-05-01/drupal-470-released",
     "description": "The new Form API by Adrian Rossouw strengthens Drupal's secure-by-default approach. XSS protections, validation of choices, and only processing POST data that was actually on the form.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/4.7.png",
     "comment": ""
@@ -312,7 +315,7 @@
     "priority": 1,
     "date": "2005-08-01T00:00:00+00:00",
     "title": "Drupal security team is formed",
-    "href": "",
+    "href": "https://www.drupal.org/drupal-security-team",
     "description": "This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage. Future leaders would be Heine, greggles, and mlhess.",
     "comment": "@todo exact date"
   },
@@ -320,15 +323,19 @@
     "priority": 1,
     "date": "2005-02-24T00:00:00+00:00",
     "title": "First Drupalcon held in Antwerp",
+    "username": "jvandyk",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2375-1476405435.jpg?itok=EwzjODeO",
     "href": "https://www.drupal.org/developer-sprint-antwerp-2005",
-    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. Marc Canter (Macromedia founder) and Chris Musssina (later invented the #hashtag) attended. [Photos by Dries](https://dri.es/album/drupalcon-antwerp-2005/).",
+    "description": "Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe. [Marc Canter](https://en.wikipedia.org/wiki/Marc_Canter) (Macromedia founder) and Chris Messsina (aka [FactoryJoe](https://www.drupal.org/user/11639), later invented the #hashtag) attended. [Photos by Dries](https://dri.es/album/drupalcon-antwerp-2005/).",
     "comment": ""
   },
   {
     "priority": 2,
     "date": "2003-05-01T00:00:00+00:00",
     "title": "Deanspace, a semi-official presence for USA presidential candidate Howard Dean",
-    "href": "",
+    "username": "zacker",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2840-1430105266.png?itok=_3vD8cps",
+    "href": "https://sourceforge.net/projects/dean/",
     "description": "Deanspace was a milestone in the rise of the Internet for political campaigns and grassroots initiatives. It also kicked off a long love affair between Drupal and non-profits ([Greenpeace](https://www.greenpeace.org/international/), [American Cancer Society](https://secure.acsevents.org/site/SPageServer/?pagename=relay), [Red Nose Day](https://www.comicrelief.com/rednoseday/), ...).",
     "comment": ""
   },
@@ -336,7 +343,9 @@
     "priority": 1,
     "date": "2002-06-15T00:00:00+00:00",
     "title": "Drupal 4.0 is released, with a new taxonomy module",
-    "href": "",
+    "username": "marco",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
+    "href": "https://git.drupalcode.org/project/drupal/-/blob/4.0.x/CHANGELOG",
     "description": "Marco wrote taxonomy because he needed a way to group forums into categories. Drupal's rich taxonomy system foreshadows what will become known as tags/labels in [Delicious](http://del.icio.us/, [Flickr](https://www.flickr.com/), [Twitter](https://twitter.com/home), etc",
     "comment": ""
   },
@@ -344,7 +353,9 @@
     "priority": 2,
     "date": "2001-09-15T00:00:00+00:00",
     "title": "Drupal 3.0 is released",
-    "href": "",
+    "username": "dries",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1-1401055330.jpg?itok=E9No1cHd",
+    "href": "https://git.drupalcode.org/project/drupal/-/blob/3.0.x/CHANGELOG",
     "description": "3.0 major had a whopping 6 month development cycle. Nodes are introduced as a building block for content. They can be specialized into many content types.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/3.0.png",
     "comment": ""
@@ -353,7 +364,9 @@
     "priority": 2,
     "date": "2001-09-10T00:00:00+00:00",
     "title": "Druplicon is introduced",
-    "href": "",
+    "href": "https://www.agiledrop.com/blog/history-druplicon-famous-drupal-symbol",
+    "username": "UnConeD",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
     "description": "Drupal's famous logo, featuring infinity eyes and remixed into thousands of variants, is introduced by Steven Wittens and Kristjan Jansen.",
     "comment": ""
   },
@@ -361,7 +374,9 @@
     "priority": 2,
     "date": "2001-03-15T00:00:00+00:00",
     "title": "Drupal 2.0 is released",
-    "href": "",
+    "username": "Natrak",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
+    "href": "https://git.drupalcode.org/project/drupal/-/blob/2.0/CHANGELOG",
     "description": "A mere 2 months after 1.0, Drupal ships 2.0. Backward compatibility was not yet a concern. The translation system is introduced, with its brilliantly simple t() function.",
     "comment": ""
   },
@@ -369,7 +384,9 @@
     "priority": 1,
     "date": "2001-01-15T00:00:00+00:00",
     "title": "Drupal 1.0 is released",
-    "href": "",
+    "username": "dries",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1-1401055330.jpg?itok=E9No1cHd",
+    "href": "https://git.drupalcode.org/project/drupal/-/tree/1.0",
     "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework. On this very day, Wikipedia is also born. Had that happened 6 months later, it would probably be a Drupal site!.",
     "comment": ""
   }
