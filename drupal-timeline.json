@@ -8,11 +8,19 @@
     "comment": ""
   },
   {
-    "priority": 2,
+    "priority": 3,
+    "date": "2020-10-24T00:00:00+00:00",
+    "title": "Composer 2.0 released",
+    "href": "https://blog.packagist.com/composer-2-0-is-now-available/",
+    "description": "The package manager that assembles virtually all modern Drupal sites gets a significant performance and memory utilization boost. Developer productivity and mood noticeably improve.",
+    "comment": ""
+  },
+  {
+    "priority": 1,
     "date": "2020-06-03T00:00:00+00:00",
     "title": "Drupal 9.0 released",
     "href": "https://www.drupal.org/project/drupal/releases/9.0.0",
-    "description": "The first Drupal release with no new functionality - and that's great! Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. The [release parties](https://celebratedrupal.org/) were virtual, as this happened during the days of Covid.",
+    "description": "The first Drupal release with no new functionality - and that's great! Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. The [release parties](https://celebratedrupal.org/) were virtual, as this happened during the times of Covid.",
     "comment": ""
   },
   {
@@ -48,7 +56,7 @@
     "comment": ""
   },
   {
-    "priority": 3,
+    "priority": 4,
     "date": "2015-09-08T00:00:00+00:00",
     "title": "Cache API boosts Drupal 8 performance",
     "href": "https://www.drupal.org/project/drupal/issues/2429617",
@@ -112,7 +120,7 @@
     "comment": ""
   },
   {
-    "priority": 3,
+    "priority": 4,
     "date": "2011-03-10T00:00:00+00:00",
     "title": "Drupalcon Trivia Night",
     "href": "https://chicago2011.drupal.org/forum/drupalcon-trivia-night",
@@ -136,7 +144,7 @@
     "comment": ""
   },
   {
-    "priority": 3,
+    "priority": 2,
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Automated testing for Drupal Core and Contrib",
     "href": "https://git.drupalcode.org/project/simpletest/-/commit/c0d244ada87809a5e809b2a872370c9139cd6b88",
@@ -208,7 +216,7 @@
     "comment": ""
   },
   {
-    "priority": 3,
+    "priority": 4,
     "date": "2007-12-12T00:00:00+00:00",
     "title": "Sun Microsystems bails out drupal.org",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2007-12-12/sun-donates-sunfire-x4200-for-drupalorg",
@@ -248,7 +256,7 @@
     "comment": ""
   },
   {
-    "priority": 3,
+    "priority": 2,
     "date": "2006-09-01T00:00:00+00:00",
     "title": "Drupal Association formalizes governance and money management",
     "href": "https://dri.es/drupal-association-launched",
