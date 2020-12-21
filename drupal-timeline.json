@@ -3,6 +3,8 @@
     "priority": 2,
     "date": "2020-11-10T00:00:00+00:00",
     "title": "Code contribution via issue forks",
+    "username": "drumm",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-3064-1411911925.png?itok=IepxMjFK",
     "href": "https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests",
     "description": "Drupal contributors may now collaborate [using git branches and merge requests](https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests). Until this day, code collaboration on drupal.org featured uploaded patch files.",
     "comment": ""
@@ -11,6 +13,8 @@
     "priority": 3,
     "date": "2020-10-24T00:00:00+00:00",
     "title": "Composer 2.0 released",
+    "username": "seldaek",
+    "avatar": "http://nelm.io/images/team/jordi.jpg?v=2",
     "href": "https://blog.packagist.com/composer-2-0-is-now-available/",
     "description": "The package manager that assembles virtually all modern Drupal sites gets a significant performance and memory utilization boost. Developer productivity and mood noticeably improve.",
     "comment": ""
@@ -19,6 +23,8 @@
     "priority": 1,
     "date": "2020-06-03T00:00:00+00:00",
     "title": "Drupal 9.0 released",
+    "username": "xjm",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-65776-1401232682.jpg?itok=5VZxTbDk",
     "href": "https://www.drupal.org/project/drupal/releases/9.0.0",
     "description": "The first Drupal release with no new functionality - and that's great! Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. The [release parties](https://celebratedrupal.org/) were virtual, as this happened during the times of Covid.",
     "comment": ""
@@ -27,6 +33,8 @@
     "priority": 3,
     "date": "2017-03-08T00:00:00+00:00",
     "title": "Drupal changes backwards compatibility policy after 16 years",
+    "username": "catch",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
     "href": "https://dri.es/making-drupal-upgrades-easy-forever",
     "description": "Drupal was doing [Move Fast and Break Things](https://www.cnet.com/news/zuckerberg-move-fast-and-break-things-isnt-how-we-operate-anymore/) a few years before Facebook. New features were routinely committed to Drupal without backward compatibility. Recognizing its large installed base, Drupal announces that all changes must be backward compatible, and that major version upgrades will be easy forever.",
     "comment": ""
@@ -35,6 +43,8 @@
     "priority": 4,
     "date": "2016-10-06T00:00:00+00:00",
     "title": "PHP 7 is released",
+    "username": "dstogov",
+    "avatar": "https://avatars3.githubusercontent.com/u/2510034?s=460&v=4",
     "href": "https://www.jetbrains.com/lp/php-25/#e_2015_12_03",
     "description": "A major language renewal comes with the new Zend Engine 3 (PHPNG), It’s also twice as fast as the previous PHP 5.6 release.",
     "comment": ""
@@ -43,6 +53,8 @@
     "priority": 4,
     "date": "2016-05-11T00:23:00+00:00",
     "title": "Cheney-Stauss Unofficial Drupalcon After Party",
+    "username": "populist",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-58600-1422565687.jpg?itok=57vVFDBk",
     "href": "https://www.youtube.com/watch?v=teBV0EoJJY8",
     "description": "Drupal's fun/art side thrives at these late night Drupalcon parties. This year Drupalers chatted among fire throwers and wild art installations at the Intergalactic Krewe of Chewbacchus in New Orleans.",
     "comment": ""
@@ -51,6 +63,8 @@
     "priority": 1,
     "date": "2015-11-15T00:00:00+00:00",
     "title": "Drupal 8.0 released",
+    "username": "alexpott",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
     "href": "https://www.drupal.org/8",
     "description": "Five years in the making, Drupal 8 embraces objects and declarative configuration. Entity API, Twig, and Accessibility are the talk at the worldwide release parties.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/8.0.png",
@@ -60,6 +74,8 @@
     "priority": 4,
     "date": "2015-09-08T00:00:00+00:00",
     "title": "Cache API boosts Drupal 8 performance",
+    "username": "wimleers",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-99777-1554700990.jpg?itok=YmwkNAn-",
     "href": "https://www.drupal.org/project/drupal/issues/2429617",
     "description": "wimleers and fabianx rescue Drupal 8 performance with an API where Drupal caches rendered content, varying the keys as specified by a developer. Cache tags precisely invalidate related content as edits are submitted.",
     "comment": ""
@@ -68,6 +84,8 @@
     "priority": 3,
     "date": "2015-04-09T00:00:00+00:00",
     "title": "drupal-project demonstrates how to assemble a codebase via Composer",
+    "username": "webflo",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-254778-1401407005.jpg?itok=xYGJ89TH",
     "href": "https://www.drupal.org/8",
     "description": "webflo showed the world how to build a Drupal codebase with Composer. Prior to this day some sites assembled code with Drush Make. drupal.org later built upon this work for its Packagist facade and Composer templates.",
     "comment": ""
@@ -76,6 +94,8 @@
     "priority": 4,
     "date": "2015-05-12T00:00:00+00:00",
     "title": "Drupalcon Prenote",
+    "username": "horncologne",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-76919-1406126613.jpg?itok=31EzJnh6",
     "href": "https://www.youtube.com/watch?v=7zvCOKzY3kA",
     "description": "jam & robertDouglass wake us up for an infotainment extravaganza featuring sing-a-longs; bad jokes; Git tutorials, yodelling, use of alphabet, or beer pouring technique. On this day we belted out a Drupal flavored Let it Go from Frozen.",
     "comment": ""
@@ -158,6 +178,7 @@
     "title": "Drupal 7.0 released",
     "href": "https://groups.drupal.org/plan-Drupal-7-release-party",
     "username": "webchick",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-24967-1400198420.png?itok=4z5iRr5b",
     "description": "More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release, featuring the Seven theme, designed by Mark Boulton and Leisa Reichelt.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/7.0.png",
     "comment": ""
@@ -174,6 +195,8 @@
     "priority": 2,
     "date": "2010-02-05T00:00:00+00:00",
     "title": "Drupal development moves from CVS to Git",
+    "username": "webchick",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-24967-1400198420.png?itok=4z5iRr5b",
     "href": "https://groups.drupal.org/node/48818",
     "description": "webchick opens a two week discussion assessing bzr and git for our next VCS. Then she reviews the discussion and announces that Git has been chosen. This is how bike sheds are overcome.",
     "comment": ""
@@ -183,6 +206,8 @@
     "date": "2010-04-19T00:00:00+00:00",
     "title": "Certified to Rock web service launches",
     "href": "https://twitter.com/certifiedtorock",
+    "username": "coltrane",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-91990-1450304755.jpg?itok=0xZcLlTh",
     "description": "Certified To Rock is a new form of certification built to match the unique nature of the Drupal community. Give back more, and your score rises.",
     "comment": ""
   },
@@ -214,6 +239,8 @@
     "priority": 2,
     "date": "2008-02-13T00:00:00+00:00",
     "title": "Drupal 6.0 released",
+    "username": "gabor hojtsy",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-4166-1591361209.jpg?itok=8M19ha2V",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2008-02-13/drupal-60-released",
     "description": "This release features a rewritten menu system, and an Update Status module which prompts admins to update their modules, especially after a security release.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/6.0.png",
@@ -274,6 +301,8 @@
     "priority": 1,
     "date": "2006-05-01T00:00:00+00:00",
     "title": "Drupal 4.7 is released with a Form API",
+    "username": "killes",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2006-05-01/drupal-470-released",
     "description": "The new Form API by Adrian Rossouw strengthens Drupal's secure-by-default approach. XSS protections, validation of choices, and only processing POST data that was actually on the form.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/4.7.png",
