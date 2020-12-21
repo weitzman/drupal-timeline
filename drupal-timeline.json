@@ -45,6 +45,7 @@
     "title": "Drupal 8.0 released",
     "href": "https://www.drupal.org/8",
     "description": "Five years in the making, Drupal 8 embraces objects and declarative configuration. Entity API, Twig, and Accessibility are the talk at the worldwide release parties.",
+    "thumbnail": "https://github.com/weitzman/drupal-timeline/raw/main/assets/8.0.png",
     "comment": ""
   },
   {
@@ -149,6 +150,7 @@
     "title": "Drupal 7.0 released",
     "href": "https://groups.drupal.org/plan-Drupal-7-release-party",
     "description": "More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release, featuring the Seven theme, designed by Mark Boulton and Leisa Reichelt.",
+    "thumbnail": "https://github.com/weitzman/drupal-timeline/raw/main/assets/7.0.png",
     "comment": ""
   },
   {
@@ -205,6 +207,7 @@
     "title": "Drupal 6.0 released",
     "href": "",
     "description": "This release features a rewritten menu system, and an Update Status module which prompts admins to update their modules, especially after a security release.",
+    "thumbnail": "https://github.com/weitzman/drupal-timeline/raw/main/assets/6.0.png",
     "comment": ""
   },
   {
@@ -237,6 +240,7 @@
     "title": "Drupal 5.0 is released",
     "href": "",
     "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. This release introduces install profiles and a web based installer.",
+    "thumbnail": "https://github.com/weitzman/drupal-timeline/raw/main/assets/5.0.png",
     "comment": ""
   },
   {
@@ -261,6 +265,7 @@
     "title": "Drupal 4.7 is released with a Form API",
     "href": "",
     "description": "The new Form API by Adrian Rossouw strengthens Drupal's secure-by-default approach. XSS protections, validation of choices, and only processing POST data that was actually on the form.",
+    "thumbnail": "https://github.com/weitzman/drupal-timeline/raw/main/assets/4.7.png",
     "comment": ""
   },
   {
@@ -333,6 +338,7 @@
     "title": "Drupal 3.0 is released",
     "href": "",
     "description": "3.0 major had a whopping 6 month development cycle. Nodes are introduced as a building block for content. They can be specialized into many content types.",
+    "thumbnail": "https://github.com/weitzman/drupal-timeline/raw/main/assets/3.0.png",
     "comment": ""
   },
   {
