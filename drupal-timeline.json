@@ -213,10 +213,10 @@
     "priority": 2,
     "date": "2010-02-05T00:00:00+00:00",
     "title": "Drupal development moves from CVS to Git",
-    "username": "webchick",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-24967-1400198420.png?itok=4z5iRr5b",
+    "username": "sdboyer",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-146719-1405525313.png?itok=8xwVrs83",
     "href": "https://groups.drupal.org/node/48818",
-    "description": "webchick opens a two week discussion assessing bzr and git for our next VCS. Then she reviews the discussion and announces that Git has been chosen. This is how bike sheds are overcome.",
+    "description": "webchick opens a two week discussion assessing bzr and git for our next VCS. Then she reviews the discussion and announces that Git has been chosen. This is how bike sheds are overcome. [marvil07](https://www.drupal.org/u/marvil07), [dww](https://www.drupal.org/u/dww), and [eliza411](https://www.drupal.org/u/eliza411) led the implementation known as the Great Git Migration.",
     "comment": ""
   },
   {
