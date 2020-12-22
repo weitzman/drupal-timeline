@@ -322,6 +322,16 @@
     "comment": ""
   },
   {
+    "priority": 2,
+    "date": "2006-11-11T00:00:00+00:00",
+    "title": "Drupal projects gain a formal release system",
+    "username": "dww",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-46549-1402088724.png?itok=zoNlDNJF",
+    "href": "https://www.drupal.org/node/94000",
+    "description": "Drupal contributed projects are able to make tagged releases, ending the era of date-based tarballs and CVS projects inside SVN checkouts. The release system built on prior work to [partition commit access by project owner](https://www.drupal.org/node/63648).",
+    "comment": ""
+  },
+  {
     "priority": 3,
     "date": "2006-11-06T00:00:00+00:00",
     "title": "Views module is released",
