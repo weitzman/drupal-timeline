@@ -150,6 +150,16 @@
   },
   {
     "priority": 4,
+    "date": "2011-10-11T00:00:00+00:00",
+    "title": "Issue following replaces 'subscribe'",
+    "username": "dww",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-46549-1402088724.png?itok=zoNlDNJF",
+    "href": "https://www.drupal.org/forum/general/news-and-announcements/2011-10-11/stop-subscribing-start-following",
+    "description": "Before this change, it was customary to post a comment with only the word <em>subscribe</em> in order to start following an issue. Unfortunately, this marked the issue as new and spammed all other followers. This practice ended when the community used Chip-In to fund a flag module implementation.",
+    "comment": ""
+  },
+  {
+    "priority": 4,
     "date": "2011-03-10T00:00:00+00:00",
     "title": "Drupalcon Trivia Night",
     "username": "alanburke",
@@ -185,7 +195,7 @@
     "username": "boombatower",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-214218-1400198420.jpg?itok=CtFmQed6",
     "href": "https://git.drupalcode.org/project/simpletest/-/commit/c0d244ada87809a5e809b2a872370c9139cd6b88",
-    "description": "After 7 years in Contrib, the simpletest module is added in Drupal 7, along with a substantial test suite. [qa.drupal.org](https://qa.drupal.org/) and then [DrupalCI](https://www.drupal.org/drupalorg/docs/drupal-ci) ensure that each patch passes tests before merging. [Drupal Test Traits](https://gitlab.com/weitzman/drupal-test-traits) later brings this framework to client sites. Other major contributors here were [chx](https://www.drupal.org/u/chx) and [Sun](https://www.drupal.org/u/sun).",
+    "description": "After 7 years in Contrib, the simpletest module is added in Drupal 7, along with a substantial test suite. [qa.drupal.org](https://qa.drupal.org/) and then [DrupalCI](https://www.drupal.org/drupalorg/docs/drupal-ci) ensure that each patch passes tests before merging. [Drupal Test Traits](https://gitlab.com/weitzman/drupal-test-traits) later brings this framework to client sites. Other major contributors here were [chx](https://www.drupal.org/u/chx), [rfay](https://www.drupal.org/u/rfay), and [Sun](https://www.drupal.org/u/sun).",
     "comment": ""
   },
   {
