@@ -46,7 +46,7 @@
     "username": "dstogov",
     "avatar": "https://avatars3.githubusercontent.com/u/2510034?s=460&v=4",
     "href": "https://www.jetbrains.com/lp/php-25/#e_2015_12_03",
-    "description": "A major language renewal comes with the new Zend Engine 3 (PHPNG), It’s also twice as fast as the previous PHP 5.6 release.",
+    "description": "A major language renewal comes with the new Zend Engine 3 ([PHPNG](https://wiki.php.net/phpng)), It’s also twice as fast as the previous PHP 5.6 release.",
     "comment": ""
   },
   {
@@ -56,7 +56,7 @@
     "username": "populist",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-58600-1422565687.jpg?itok=57vVFDBk",
     "href": "https://www.youtube.com/watch?v=teBV0EoJJY8",
-    "description": "Drupal's fun/art side thrives at these late night Drupalcon parties. This year Drupalers chatted among fire throwers and wild art installations at the Intergalactic Krewe of Chewbacchus in New Orleans.",
+    "description": "Drupal's fun/art side thrives at these late night Drupalcon parties. This year Drupalers chatted among fire throwers and wild art installations at the [Intergalactic Krewe of Chewbacchus](https://chewbacchus.org/) in New Orleans.",
     "comment": ""
   },
   {
@@ -66,7 +66,7 @@
     "username": "alexpott",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
     "href": "https://www.drupal.org/8",
-    "description": "Five years in the making, Drupal 8 embraces objects and declarative configuration. Entity API, Twig, and Accessibility are the talk at the worldwide release parties.",
+    "description": "Five years in the making, Drupal 8 embraces objects and declarative configuration. Entity API, Twig, and Accessibility are the talk at the [Celebr8 worldwide release parties](http://celebratedrupal8.com/).",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/8.0.png",
     "comment": ""
   },
@@ -195,7 +195,7 @@
     "href": "https://groups.drupal.org/plan-Drupal-7-release-party",
     "username": "webchick",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-24967-1400198420.png?itok=4z5iRr5b",
-    "description": "More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release, featuring the Seven theme, designed by Mark Boulton and Leisa Reichelt.",
+    "description": "More than [250 parties in over 90 countries](https://groups.drupal.org/plan-Drupal-7-release-party) were held to celebrate this great release. Drupal 7 is still the most popular Drupal release, featuring the Seven theme, designed by [Mark Boulton](https://markboulton.co.uk/) and [Leisa Reichelt](https://au.linkedin.com/in/leisareichelt).",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/7.0.png",
     "comment": ""
   },
@@ -379,7 +379,7 @@
     "username": "robertdouglass",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-5449-1400197006.jpg?itok=QCY5ImU5",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2005-12-23/my-drupal-book-has-arrived",
-    "description": "Robert Douglass authors the first Drupal book, recognizing a growing demand for Drupal education.Later popular books include Pro Drupal Development, Cracking Drupal ([greggles]()), and High Performance Drupal ([nnewton](https://www.drupal.org/u/nnewton), [catch](https://www.drupal.org/u/catch), [jeffsheltren](https://www.drupal.org/u/jeffsheltren)).",
+    "description": "Robert Douglass authors the first Drupal book, recognizing a growing demand for Drupal education.Later popular books include Pro Drupal Development, Cracking Drupal ([greggles](https://www.drupal.org/u/greggles)), and High Performance Drupal ([nnewton](https://www.drupal.org/u/nnewton), [catch](https://www.drupal.org/u/catch), [jeffsheltren](https://www.drupal.org/u/jeffsheltren)).",
     "comment": ""
   },
   {
