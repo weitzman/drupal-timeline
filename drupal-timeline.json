@@ -142,6 +142,8 @@
     "priority": 3,
     "date": "2012-06-01T00:00:00+00:00",
     "title": "Symfony components merged into Drupal",
+    "username": "Crell",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-26398-1400198420.jpg?itok=9SVGQxyz",
     "href": "https://www.drupal.org/project/drupal/issues/1463656",
     "description": "Crell leads a push to replace Drupal's bootstrap with Symfony flavored request handling. This large change nearly assassinated Drupal 8, but the mighty Drop prevailed",
     "comment": ""
@@ -150,6 +152,8 @@
     "priority": 4,
     "date": "2011-03-10T00:00:00+00:00",
     "title": "Drupalcon Trivia Night",
+    "username": "alanburke",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-35997-1401262741.jpg?itok=KZa7uYB2",
     "href": "https://chicago2011.drupal.org/forum/drupalcon-trivia-night",
     "description": "Alan Burke proposes an in-person, team based trivia contest on the last night of Drupalcon Chicago. Drupalers have a jolly time, nobody recalls who wins, and Irish Drupal hosts many more trivia nights.",
     "comment": ""
@@ -158,6 +162,8 @@
     "priority": 3,
     "date": "2011-03-08T00:00:00+00:00",
     "title": "Drupal celebrates its 10 Anniversary in style",
+    "username": "farriss",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-118406-1426779937.jpg?itok=_u0gNFen",
     "href": "https://dri.es/album/drupalcon-chicago-2011/opening-party-at-field-museum-1",
     "description": "Drupalcon Chicago culminates in a dinner party at the Field Museum of Natural History. Dining with us in the main hall is Sue, the world's most complete Tyrannosaurus rex. Kudos to Tiffany and George from Palantir for a great Drupalcon and party.",
     "comment": ""
@@ -166,6 +172,8 @@
     "priority": 3,
     "date": "2011-03-07T00:00:00+00:00",
     "title": "Drupal Watchdog print magazine",
+    "username": "jeremy",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-409-1439386605.jpg?itok=zQmqW0YV",
     "href": "http://www.drupalwatchdog.net/about",
     "description": "Drupalcon attendees open their tote bags and find Drupal Watchdog magazine, the first print magazine dedicated entirely to Drupal. The first issue features Dries on the cover. Tag1, the publisher, makes the magazine available for purchase in bookstores in 2014. The name comes from Drupal's hook_watchdog function.",
     "comment": ""
@@ -174,8 +182,10 @@
     "priority": 2,
     "date": "2011-01-06T00:00:00+00:00",
     "title": "Automated testing for Drupal Core and Contrib",
+    "username": "boombatower",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-214218-1400198420.jpg?itok=CtFmQed6",
     "href": "https://git.drupalcode.org/project/simpletest/-/commit/c0d244ada87809a5e809b2a872370c9139cd6b88",
-    "description": "After 7 years in Contrib, the simpletest module is added in Drupal 7, along with a substantial test suite. [qa.drupal.org](https://qa.drupal.org/) and then [DrupalCI](https://www.drupal.org/drupalorg/docs/drupal-ci) ensure that each patch passes tests before merging. [Drupal Test Traits](https://gitlab.com/weitzman/drupal-test-traits) later brings this framework to client sites.",
+    "description": "After 7 years in Contrib, the simpletest module is added in Drupal 7, along with a substantial test suite. [qa.drupal.org](https://qa.drupal.org/) and then [DrupalCI](https://www.drupal.org/drupalorg/docs/drupal-ci) ensure that each patch passes tests before merging. [Drupal Test Traits](https://gitlab.com/weitzman/drupal-test-traits) later brings this framework to client sites. Other major contributors here were [chx](https://www.drupal.org/u/chx) and [Sun](https://www.drupal.org/u/sun).",
     "comment": ""
   },
   {
@@ -224,7 +234,7 @@
     "date": "2010-01-10T00:00:00+00:00",
     "title": "Open Atrium distro by Development Seed",
     "username": "yhahn",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
+    "avatar": "https://pbs.twimg.com/profile_images/2533427888/eo5j5htdpe602mtasyk8.jpeg",
     "href": "https://i.pinimg.com/originals/fc/e0/61/fce0616444182df747d3aa673e4b3b4a.png",
     "description": "An early distro, and a shining light in terms of visual design, user experience, and software architecture.",
     "comment": ""
@@ -264,6 +274,8 @@
     "priority": 4,
     "date": "2007-12-12T00:00:00+00:00",
     "title": "Sun Microsystems bails out drupal.org",
+    "username": "Amazon",
+    "avatar": "https://live.staticflickr.com/2044/1846941586_f76c821d92_t.jpg",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2007-12-12/sun-donates-sunfire-x4200-for-drupalorg",
     "description": "Drupal.org becomes too popular for its home grown web hosting, and starts throwing errors regularly. Sun Microsystems donates its servers and restores stability to our home.",
     "comment": ""
@@ -272,6 +284,8 @@
     "priority": 3,
     "date": "2007-11-30T00:00:00+00:00",
     "title": "Acquia is announced to the world",
+    "username": "batsonjay",
+    "avatar": "https://pbs.twimg.com/profile_images/793815905201430529/MnJUahHp_400x400.jpg",
     "href": "https://dri.es/acquia-my-drupal-startup",
     "description": "Acquia, a startup by Dries Buytaert and Jay Batson, announces its intention to offer commercial support and hosting for Drupal. Acquia continues to be the largest sponsor of Drupal development, and its largest web hosting platform.",
     "comment": ""
@@ -280,6 +294,8 @@
     "priority": 4,
     "date": "2007-11-03T00:00:00+00:00",
     "title": "Bay Area Drupal Camp (BADCamp) meets at UC Berkeley",
+    "username": "jenlampton",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-85586-1448401745.png?itok=9yG7qIZ3",
     "href": "https://www.drupal.org/forum/general/events/2007-10-06/bay-area-drupal-camp-badcamp-07-nov-3rd-4th",
     "description": "This large, annual event remains free to this day. Kudos to Jen Lampton for her many years of organizing. Other notable Camps include Design 4 Drupal, Drupal Dev Days, Frontend United, and Midwest Developer Summit",
     "comment": ""
@@ -291,7 +307,7 @@
     "username": "drumm",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-3064-1411911925.png?itok=IepxMjFK",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2007-01-15/drupal-50-released",
-    "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. This release introduces install profiles and a web based installer.",
+    "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. This release also introduces install profiles and a web based installer.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/5.0.png",
     "comment": ""
   },
@@ -299,8 +315,10 @@
     "priority": 3,
     "date": "2006-11-06T00:00:00+00:00",
     "title": "Views module is released",
+    "username": "merlinofchaos",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-26979-1449616925.jpg?itok=jJK4hf0A",
     "href": "https://www.drupal.org/project/views/",
-    "description": "Earl Miles introduces Views, a query builder and list builder UI. Along with CCK, these form the early beating heart of Drupal. Views graduates into Drupal core with D8.",
+    "description": "merlinofchaos introduces Views, a list builder/layout UI. Many modules quickly plug into Views both as data providers and layout providers. Along with CCK, these form the early beating heart of Drupal. Views graduates into Drupal core with D8.",
     "comment": ""
   },
   {
@@ -308,7 +326,7 @@
     "date": "2006-09-01T00:00:00+00:00",
     "title": "Drupal Association formalizes governance and money management",
     "username": "jredding",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
+    "avatar": "https://engage.acquia.com/sites/default/files/styles/small_card/public/2020-10/Jacob%20Redding%20(BW).png?itok=kQg2E33M",
     "href": "https://dri.es/drupal-association-launched",
     "description": "Drupal's governance formalizes from BDFL to a non-profit model. Led by Jacob Redding, VZW is initially a money manager only. Drupal VZW transforms into the Drupal Association in 2011 and becomes more prominent in promoting Drupal and runs Drupalcon.",
     "comment": ""
@@ -318,7 +336,7 @@
     "date": "2006-05-01T00:00:00+00:00",
     "title": "Drupal 4.7 is released with a Form API",
     "username": "killes",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
+    "avatar": "https://profile-images.xing.com/images/2c256d32a43988aec0c18806f1ccea01-2/gerhard-killesreiter.1024x1024.jpg",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2006-05-01/drupal-470-released",
     "description": "The new Form API by Adrian Rossouw strengthens Drupal's secure-by-default approach. XSS protections, validation of choices, and only processing POST data that was actually on the form.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/4.7.png",
@@ -361,7 +379,7 @@
     "username": "robertdouglass",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-5449-1400197006.jpg?itok=QCY5ImU5",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2005-12-23/my-drupal-book-has-arrived",
-    "description": "Robert Douglass authors the first Drupal book, recognizing a growing demand for Drupal education.",
+    "description": "Robert Douglass authors the first Drupal book, recognizing a growing demand for Drupal education.Later popular books include Pro Drupal Development, Cracking Drupal ([greggles]()), and High Performance Drupal ([nnewton](https://www.drupal.org/u/nnewton), [catch](https://www.drupal.org/u/catch), [jeffsheltren](https://www.drupal.org/u/jeffsheltren)).",
     "comment": ""
   },
   {
@@ -371,7 +389,7 @@
     "username": "chx",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-9446-1439655464.jpg?itok=OwaItTH7",
     "href": "https://www.drupal.org/drupal-security-team",
-    "description": "This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage. Future leaders would be Heine, greggles, and mlhess.",
+    "description": "This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage. Future leaders would be [Heine](https://www.drupal.org/u/heine), [greggles](https://www.drupal.org/u/greggles), and [mlhess](https://www.drupal.org/u/mlhess).",
     "comment": "@todo exact date"
   },
   {
@@ -399,9 +417,9 @@
     "date": "2002-06-15T00:00:00+00:00",
     "title": "Drupal 4.0 is released, with a new taxonomy module",
     "username": "marco",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
+    "avatar": "https://pbs.twimg.com/profile_images/1904585061/image_400x400.jpg",
     "href": "https://git.drupalcode.org/project/drupal/-/blob/4.0.x/CHANGELOG",
-    "description": "Marco wrote taxonomy because he needed a way to group forums into categories. Drupal's rich taxonomy system foreshadows what will become known as tags/labels in [Delicious](http://del.icio.us/, [Flickr](https://www.flickr.com/), [Twitter](https://twitter.com/home), etc",
+    "description": "Marco wrote taxonomy because he needed a way to group forums into categories. Drupal's rich taxonomy system foreshadows what will become known as tags/labels in [Delicious](http://del.icio.us/), [Flickr](https://www.flickr.com/), [Twitter](https://twitter.com/home), etc",
     "comment": ""
   },
   {
@@ -421,7 +439,7 @@
     "title": "Druplicon is introduced",
     "href": "https://www.agiledrop.com/blog/history-druplicon-famous-drupal-symbol",
     "username": "Steven",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh",
+    "avatar": "https://avatars3.githubusercontent.com/u/172808?s=460&u=f4583a521c727eaefc1544c4401657aa6fdf057c&v=4",
     "description": "Drupal's famous logo, featuring infinity eyes and remixed into thousands of variants, is introduced by Steven Wittens (UnConeD) and Kristjan Jansen.",
     "comment": ""
   },
