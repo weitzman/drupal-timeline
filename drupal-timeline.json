@@ -240,6 +240,16 @@
     "comment": ""
   },
   {
+    "priority": 2,
+    "date": "2009-10-24T00:00:00+00:00",
+    "title": "whitehouse.gov relaunches on Drupal",
+    "href": "https://dri.es/whitehouse-gov-using-drupal",
+    "username": "whitehouse",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2356044-1438715173.jpg?itok=Co8w2Kde",
+    "description": "Barack Obama's administration launches [whitehouse.gov](https://www.whitehouse.gov) and [We the People](https://www.drupal.org/project/petitions), a site where constituents can directly petition the White House for change. The projects are [featured at Drupalcon San Francisco](https://sf2010.drupal.org/conference/sessions/open-source-government.html).",
+    "comment": ""
+  },
+  {
     "priority": 3,
     "date": "2009-09-25T00:00:00+00:00",
     "title": "Pressflow friendly fork adds DB replication and reverse proxy caching",
