@@ -20,6 +20,17 @@
     "comment": ""
   },
   {
+    "priority": 3,
+    "date": "2018-01-18T00:00:00+00:00",
+    "title": "Umami install profile improves out of the box experience",
+    "username": "markconroy",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-336910-1516969518.jpg?itok=NCoP4b7E",
+    "href": "https://www.drupal.org/project/ideas/issues/2847582",
+    "thumbnail": "https://www.drupal.org/files/issues/Captura%20de%20pantalla%202018-01-23%20a%20les%2020.27.29_0.png",
+    "description": "Drupal's initial experience goes from a boring river of news to a food magazine replete with tasty looking recipes. This fine meal was cooked by Out of the Box Initiative led by kjay, markconroy, smaz, and laurii. It shows all of Drupal's spices working together: design, product management, engineeering and accessibility.",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "2020-06-03T00:00:00+00:00",
     "title": "Drupal 9.0 released",
