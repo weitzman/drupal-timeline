@@ -237,7 +237,7 @@
     "username": "sdboyer",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-146719-1405525313.png?itok=8xwVrs83",
     "href": "https://groups.drupal.org/node/48818",
-    "description": "webchick opens a two week discussion assessing bzr and git for our next VCS. Then she reviews the discussion and announces that Git has been chosen. This is how bike sheds are overcome. [marvil07](https://www.drupal.org/u/marvil07), [dww](https://www.drupal.org/u/dww), and [eliza411](https://www.drupal.org/u/eliza411) led the implementation known as the Great Git Migration.",
+    "description": "[webchick](https://www.drupal.org/u/webchick) opens a [two week discussion assessing bzr and git for our next VCS](https://groups.drupal.org/node/48818). Then she reviews the discussion and announces that Git has been chosen. This is how bike sheds are overcome. The initiative is named the The Great Git Migration, and involves integration of several drupal modules, and even a custom SSH daemon to handle drupal.org high load. [sdboyer](https://www.drupal.org/u/sdboyer) leads the initiative, and receives help from lots of people on the implementation. Among them are [chizu](https://www.drupal.org/u/chizu), [dww](https://www.drupal.org/u/dww), [eliza411](https://www.drupal.org/u/eliza411), [halstead](https://www.drupal.org/u/halstead), [marvil07](https://www.drupal.org/u/marvil07), [mikey_p](https://www.drupal.org/u/mikey_p), [mikl](https://www.drupal.org/u/mikl), [neclimdul](https://www.drupal.org/u/neclimdul), and [tizzo](https://www.drupal.org/u/tizzo).",
     "comment": ""
   },
   {
