@@ -16,7 +16,7 @@ Visualizations
 ------------
 Anyone who makes a timeline visualization will be listed here. Do it!
 
-- [vijaycs85](https://vijaycs85.github.io/drupal-history)
+- [DrupalHistory.org](https://drupalhistory.org/)
 - [marvil07](https://misc.marvil07.net/drupal/timeline/timeline.html)
 
 Credits
