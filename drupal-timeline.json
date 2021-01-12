@@ -1,5 +1,15 @@
 [
   {
+    "priority": 4,
+    "date": "2020-11-26T00:00:00+00:00",
+    "title": "PHP 8 is released",
+    "username": "wiifm",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-358731-1574370248.jpg?itok=D8Njwe_f",
+    "href": "https://www.php.net/releases/8.0/en.php",
+    "description": "PHP 8.0 is a major update of the PHP language. It contains many new features and optimizations including named arguments, union types, attributes, constructor property promotion, match expression, nullsafe operator, JIT, and improvements in the type system, error handling, and consistency.",
+    "comment": ""
+  },
+  {
     "priority": 2,
     "date": "2020-11-10T00:00:00+00:00",
     "title": "Code contribution via issue forks",
