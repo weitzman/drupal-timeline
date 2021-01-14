@@ -41,6 +41,16 @@
     "comment": ""
   },
   {
+    "priority": 4,
+    "date": "2020-07-14T00:00:00+00:00",
+    "title": "Drupalcon Global",
+    "username": "betalister",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2516588-1549310508.jpg?itok=83SUF_B4",
+    "href": "https://events.drupal.org/global2020",
+    "description": "Amidst a pandemic, the *Open Source Digital experience conference* itself becomes a digital experience. Speakers, attendees, and sponsors enjoy the interactive chat and video features powered by [Hopin](https://hopin.to/).",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "2020-06-03T00:00:00+00:00",
     "title": "Drupal 9.0 released",
