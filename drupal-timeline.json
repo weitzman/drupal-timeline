@@ -523,5 +523,15 @@
     "href": "https://git.drupalcode.org/project/drupal/-/tree/1.0",
     "description": "Dries Buytaert shares the initial release of his 'dormitory bulletin board'. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework. On this very day, Wikipedia is also born as a bespoke LAMP site. Had that happened 6 months later, it would probably be a Drupal site!.",
     "comment": ""
+  },
+  {
+    "priority": 3,
+    "date": "2010-05-08T00:00:00+00:00",
+    "title": "1st edition of Drupal Dev Days in Munich",
+    "username": "danielnolde",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-79829-1481107121.jpg?itok=mOX5LXxA",
+    "href": "https://groups.drupal.org/node/56118",
+    "description": "First edition of the yearly european event Drupal Dev Days. The event is independently organized in a different country every year and gathers hundreds of developers or contributors.",
+    "comment": ""
   }
 ]
