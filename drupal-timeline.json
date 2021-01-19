@@ -301,6 +301,15 @@
     "comment": ""
   },
   {
+    "priority": 4,
+    "date": "2009-07-15T17:00:00+00:00",
+    "title": "Foundation of German Drupal Association",
+    "username": "hexabinaer",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-258364-1537191016.png?itok=A9e5C7xY",
+    "href": "https://www.drupal.org/drupal-ev",
+    "description": "The non-profit German Drupal Association is founded in Cologne, Germany to foster the software and the community on a regional level. The initial name <em>Drupal-Initiative e. V.</em> was later changed to <em>Drupal e. V. - German Drupal Association</em>.",
+    "comment": ""
+  },  {
     "priority": 3,
     "date": "2009-06-09T00:00:00+00:00",
     "title": "Drush becomes stand-alone tool with 2.0 release",
