@@ -31,6 +31,26 @@
   },
   {
     "priority": 3,
+    "date": "2018-08-16T00:00:00+00:00",
+    "title": "Announcing Drupal + GitLab partnership",
+    "username": "Tim Hestenes Lehnen (hestenet)",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-54034-1493407491.jpg?itok=hZLLZZDW",
+    "href": "https://www.drupal.org/drupalorg/blog/developer-tools-initiative-part-5-gitlab-partnership",
+    "description": "Preparation of migrating our codebases from cgit to GitLab showed a remarkable story of how open-source minded organizations can support each other.\n\nIn contrast with rational arguments suggesting proprietary BitBucket could be a possible winner, the global Drupal community demanded a service provider closer to Drupalʼs key values. At the same time, GitLabʼs management also offered a helping hand to assist the heroic endeavor of migrating thousands of our Git repositories and integrating our development workflows with their functionality.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
+    "date": "2018-08-19T11:47:00+02:00",
+    "title": "The very first merge request opened on Drupal.org",
+    "username": "Tim Hestenes Lehnen (hestenet)",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-54034-1493407491.jpg?itok=hZLLZZDW",
+    "href": "https://git.drupalcode.org/project/drupal/-/merge_requests/1",
+    "description": "Following decades of uploading patches and interdiff files to issue threads, finally, the global Drupal community arrived at a more modern means of coding collaboration: forking branches and opening pull requests via GitLab.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
     "date": "2018-01-18T00:00:00+00:00",
     "title": "Umami install profile improves out of the box experience",
     "username": "markconroy",
@@ -298,6 +318,16 @@
     "username": "david strauss",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-93254-1565639110.jpg?itok=Do8go21I",
     "description": "David Strauss and collaborators maintain a distribution that helps Drupal scale. Their improvements are later incorporated into Drupal 7.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
+    "date": "2009-08-27T00:00:00+00:00",
+    "title": "Localize.drupal.org starts",
+    "href": "https://localize.drupal.org/node/54",
+    "username": "Gábor Hojtsy",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-4166-1591361209.jpg?itok=8M19ha2V",
+    "description": "Launch of this new central web-based translation service meant a great leap towards community collaboration on more consistent, higher quality UI translations for all Drupal projects.",
     "comment": ""
   },
   {
