@@ -302,6 +302,16 @@
   },
   {
     "priority": 3,
+    "date": "2009-08-27T00:00:00+00:00",
+    "title": "Localize.drupal.org starts",
+    "href": "https://localize.drupal.org/node/54",
+    "username": "Gábor Hojtsy",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-4166-1591361209.jpg?itok=8M19ha2V",
+    "description": "Launch of this new central web-based translation service meant a great leap towards community collaboration on more consistent, higher quality UI translations for all Drupal projects.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
     "date": "2009-06-09T00:00:00+00:00",
     "title": "Drush becomes stand-alone tool with 2.0 release",
     "username": "greg1anderson",
