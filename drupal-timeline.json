@@ -161,16 +161,6 @@
   },
   {
     "priority": 2,
-    "date": "2014-12-11T18:00:00+00:00",
-    "title": "Hungarian Drupal Association founded",
-    "username": "Balu Ertl",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1086292-1413736109.png?itok=e10XMthk",
-    "href": "https://egyesulet.drupal.hu/",
-    "description": "Eighteen Hungarian Drupalers decided to mark their local community officially on the Drupal ecosystem map. The non-profit legal entity called “Magyar Drupal Egyesület” (MDE) provides technical support in the local language to anyone using Drupal and organizes regular meetings.",
-    "comment": ""
-  },
-  {
-    "priority": 2,
     "date": "2013-12-05T00:00:00+00:00",
     "title": "Drupal 8 gets semver, minor release scheduling, and beta requirements policy",
     "username": "xjm",
