@@ -368,7 +368,7 @@
     "username": "drumm",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-3064-1411911925.png?itok=IepxMjFK",
     "href": "https://www.drupal.org/forum/general/news-and-announcements/2007-01-15/drupal-50-released",
-    "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. This release also introduces install profiles and a web based installer.",
+    "description": "This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. jQuery adds a second license (MIT+GPL) at Drupal's request. This release also introduces install profiles and a web based installer.",
     "thumbnail": "https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/5.0.png",
     "comment": ""
   },
