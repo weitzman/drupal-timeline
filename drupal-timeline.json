@@ -1,5 +1,15 @@
 [
   {
+    "priority": 1,
+    "date": "2022-12-14T00:00:00+00:00",
+    "title": "Drupal 10 is released",
+    "username": "mherchel",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-118428-1555375519.jpg?itok=rhdsEPN-",
+    "href": "https://www.drupal10party.com/",
+    "description": "Claro administration theme and Olivero default theme, the introduction of CKEditor 5, further jQuery replacements, theme starterkit tools for theme creation, and Symfony 6 under the hood with PHP 8.1 requirement.",
+    "comment": ""
+  },
+  {
     "priority": 4,
     "date": "2020-11-26T00:00:00+00:00",
     "title": "PHP 8 is released",
