@@ -1,6 +1,26 @@
 [
   {
     "priority": 1,
+    "date": "2025-01-15T00:00:00+00:00",
+    "title": "Drupal CMS 1.0 is released",
+    "username": "pameeela",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-118428-1555375519.jpg?itok=rhdsEPN-",
+    "href": "https://celebratedrupal.org//",
+    "description": "Drupal CMS collects all the best modules and their configurations into product thats very usable out of the box.",
+    "comment": ""
+  },
+  {
+    "priority": 1,
+    "date": "2024-8-4T00:00:00+00:00",
+    "title": "Drupal 11 is released",
+    "username": "e0ipso",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-550110-1587845135.png?itok=kRbTHbTD",
+    "href": "https://new.drupal.org/about/11",
+    "description": "Recipes, Workspaces, and Single-Directory Components are launched. They represent a significant shift in how developers and site builders work with Drupal and set the stage for even more significant improvements in future releases. Recipes simplify configurations, Workspaces elevate content collaboration, and Single-Directory Components streamline theme management.",
+    "comment": ""
+  },
+  {
+    "priority": 1,
     "date": "2022-12-14T00:00:00+00:00",
     "title": "Drupal 10 is released",
     "username": "mherchel",
