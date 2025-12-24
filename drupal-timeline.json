@@ -1,11 +1,21 @@
 [
   {
+    "priority": 2,
+    "date": "2025-12-04T00:00:00+00:00",
+    "title": "Drupal Canvas 1.0 is released",
+    "username": "lauriii",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1078742-1523958437.jpg?itok=WzTy2WtG",
+    "href": "https://www.drupal.org/blog/drupal-canvas-is-now-available-inside-drupals-new-visual-page-builder",
+    "description": "Canvas is a new, default visual page builder for Drupal, offering a no-code/low-code drag-and-drop interface for content managers",
+    "comment": ""
+  },
+  {
     "priority": 1,
     "date": "2025-01-15T00:00:00+00:00",
     "title": "Drupal CMS 1.0 is released",
     "username": "pameeela",
     "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1431110-1718842190.png?itok=R6bFzAdz",
-    "href": "https://celebratedrupal.org//",
+    "href": "https://celebratedrupal.org/",
     "description": "Drupal CMS collects all the best modules and their configurations into a product thats very usable out of the box.",
     "comment": ""
   },
