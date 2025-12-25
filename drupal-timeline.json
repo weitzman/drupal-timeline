@@ -155,8 +155,8 @@
     "priority": 4,
     "date": "2015-09-08T00:00:00+00:00",
     "title": "Cache API boosts Drupal 8 performance",
-    "username": "wimleers",
-    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-99777-1554700990.jpg?itok=YmwkNAn-",
+    "username": "wim-leers",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-99777-1680515999.jpg?itok=wtpeHs9r",
     "href": "https://www.drupal.org/project/drupal/issues/2429617",
     "description": "wimleers and fabianx rescue Drupal 8 performance with an API where Drupal caches rendered content, varying the keys as specified by a developer. Cache tags precisely invalidate related content as edits are submitted.",
     "comment": ""
