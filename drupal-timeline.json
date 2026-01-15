@@ -495,6 +495,16 @@
   },
   {
     "priority": 3,
+    "date": "2008-12-10T00:00:00+00:00",
+    "title": "Lullabot hosts the first Do It With Drupal in New Orleans"
+    "username": "jjeff",
+    "avatar": "https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-17190-1424189961.jpg?itok=kaXfcZby",
+    "href": "https://web.archive.org/web/20081217022929/http://www.doitwithdrupal.com/",
+    "description": "Do It With Drupal was a three day conference that paired Lullabot's training expertise with various Drupal contributors' experience to show attendees how to _Do It With Drupal_. The conference was notable for being the first sizable conference targeted at business and commercial users. It was priced accordingly.",
+    "comment": ""
+  },
+  {
+    "priority": 3,
     "date": "2005-12-23T00:00:00+00:00",
     "title": "Building Online Communities book is published",
     "username": "robertdouglass",
