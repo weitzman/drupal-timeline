@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drupal Timeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Legacy Drupal Blue */
+      --drupal-blue-legacy: #0678be;
+
+      /* Modern Drupal Brand Colors (2019+) */
+      --drupal-blue: #009CDE;
+      --drupal-dark-blue: #006AA9;
+      --drupal-navy: #12285F;
+      --drupal-light-blue: #CCEDF9;
+      --drupal-purple: #CCBAF4;
+      --drupal-yellow: #FFC423;
+      --drupal-red: #F46351;
+      --drupal-green: #397618;
+
+      /* Common */
+      --priority-1: #009CDE;
+      --priority-2: #3fa9f5;
+      --priority-3: #7bc9ff;
+      --priority-4: #a8d8ea;
+      --line-color: #ddd;
+      --bg-color: #f9f9f9;
+      --card-bg: #fff;
+      --text-color: #333;
+      --text-muted: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       SCROLL EFFECTS
+       ============================================ */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--drupal-navy), var(--drupal-blue), var(--drupal-light-blue));
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s ease-out;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Initial hidden state for scroll animations */
+    .timeline-item,
+    .year-marker {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .timeline-item:nth-child(even) {
+      transform: translateX(-30px) translateY(20px);
+    }
+
+    .timeline-item:nth-child(odd) {
+      transform: translateX(30px) translateY(20px);
+    }
+
+    .timeline-item.revealed,
+    .year-marker.revealed {
+      opacity: 1;
+      transform: translateY(0) translateX(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .year-marker {
+      transform: scale(0.8) translateY(20px);
+    }
+
+    .year-marker.revealed {
+      transform: scale(1) translateY(0);
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .era-section {
+      opacity: 0;
+    }
+
+    .era-section.revealed {
+      opacity: 1;
+      transition: opacity 0.8s ease-out;
+    }
+
+    .era-transition {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .era-transition.revealed {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Floating year indicator */
+    .floating-year {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--drupal-blue);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      z-index: 99;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .floating-year.visible {
+      opacity: 1;
+    }
+
+    .floating-year.retro {
+      background: #000080;
+      font-family: "Courier New", monospace;
+      border: 2px outset #808080;
+      border-radius: 0;
+    }
+
+    .floating-year.growth {
+      background: var(--drupal-blue-legacy);
+      border-radius: 4px;
+    }
+
+    .floating-year.modern {
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-blue));
+      border-radius: 8px;
+    }
+
+    /* ============================================
+       GLOBAL HEADER (sticky, changes per era)
+       ============================================ */
+    header {
+      background: var(--drupal-blue);
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.5s ease;
+    }
+
+    .logo {
+      height: 40px;
+      margin-bottom: 0.5rem;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+
+    header p {
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .filter-btn.active {
+      background: white;
+      color: var(--drupal-blue);
+    }
+
+    /* ============================================
+       TIMELINE CONTAINER
+       ============================================ */
+    .timeline-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--line-color);
+      transform-origin: top;
+      animation: line-grow 1.5s ease-out forwards;
+    }
+
+    @keyframes line-grow {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+
+    .year-marker {
+      position: relative;
+      margin: 2rem 0 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--drupal-blue);
+    }
+
+    .year-marker::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      background: var(--drupal-blue);
+      border-radius: 50%;
+      border: 3px solid var(--bg-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item.hidden {
+      display: none;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 24px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 2px solid var(--card-bg);
+    }
+
+    .timeline-item[data-priority="1"]::before { background: var(--priority-1); }
+    .timeline-item[data-priority="2"]::before { background: var(--priority-2); }
+    .timeline-item[data-priority="3"]::before { background: var(--priority-3); }
+    .timeline-item[data-priority="4"]::before { background: var(--priority-4); }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-left: 4px solid var(--priority-1);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .timeline-item[data-priority="1"] .card { border-left-color: var(--priority-1); }
+    .timeline-item[data-priority="2"] .card { border-left-color: var(--priority-2); }
+    .timeline-item[data-priority="3"] .card { border-left-color: var(--priority-3); }
+    .timeline-item[data-priority="4"] .card { border-left-color: var(--priority-4); }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .card-title-group {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-title a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      color: var(--drupal-blue);
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .card-meta .username {
+      color: var(--drupal-blue);
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    .card-description a {
+      color: var(--drupal-blue);
+    }
+
+    .card-thumbnail {
+      margin-top: 1rem;
+      border-radius: 4px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 4rem;
+      color: var(--text-muted);
+    }
+
+    .stats {
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ============================================
+       ERA 1: RETRO (pre-2011)
+       Windows 95/Early Web Style
+       ============================================ */
+    .retro-section {
+      background: #c0c0c0;
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='2' fill='%23d0d0d0'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23d0d0d0'/%3E%3C/svg%3E");
+      padding: 2rem 0;
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .retro-section .timeline::before {
+      background: #808080;
+      width: 2px;
+      left: 16px;
+    }
+
+    .retro-header {
+      background: linear-gradient(to right, #000080, #1084d0);
+      border: 2px outset #dfdfdf;
+      padding: 8px 16px;
+      margin-bottom: 1.5rem;
+      margin-left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .retro-header img {
+      height: 32px;
+      filter: none;
+    }
+
+    .retro-header h2 {
+      color: white;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    .retro-header .window-buttons {
+      margin-left: auto;
+      display: flex;
+      gap: 2px;
+    }
+
+    .retro-header .window-btn {
+      width: 16px;
+      height: 14px;
+      background: #c0c0c0;
+      border: 2px outset #dfdfdf;
+      font-size: 10px;
+      line-height: 10px;
+      text-align: center;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+    }
+
+    .era-retro.year-marker {
+      font-family: "Times New Roman", Times, serif;
+      color: #000080;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 #fff;
+      background: linear-gradient(to bottom, #dfdfdf 0%, #c0c0c0 100%);
+      display: inline-block;
+      padding: 2px 12px;
+      border: 2px outset #dfdfdf;
+      margin-left: -8px;
+    }
+
+    .era-retro.year-marker::before {
+      background: #000080;
+      border-radius: 0;
+      width: 10px;
+      height: 10px;
+      border: 2px outset #808080;
+      left: -35px;
+    }
+
+    .era-retro.timeline-item::before {
+      border-radius: 0;
+      width: 8px;
+      height: 8px;
+      background: #000080;
+      border: 1px solid #000;
+    }
+
+    .era-retro .card {
+      border-radius: 0;
+      border: 2px outset #dfdfdf;
+      border-left: 2px outset #dfdfdf;
+      box-shadow: none;
+      background: #efefef;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .era-retro .card::before {
+      content: '';
+      display: block;
+      height: 18px;
+      margin: -1.25rem -1.25rem 1rem -1.25rem;
+      background: linear-gradient(to right, #000080, #1084d0);
+      border-bottom: 2px outset #dfdfdf;
+    }
+
+    .era-retro .card:hover {
+      box-shadow: none;
+      background: #e8e8e8;
+      transform: translateY(-2px);
+    }
+
+    .era-retro .card-title {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 1rem;
+    }
+
+    .era-retro .card-title a {
+      color: #0000EE;
+      text-decoration: underline;
+    }
+
+    .era-retro .card-title a:visited {
+      color: #551A8B;
+    }
+
+    .era-retro .card-title a:hover {
+      color: #FF0000;
+    }
+
+    .era-retro .card-description {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .era-retro .card-description a {
+      color: #0000EE;
+      text-decoration: underline;
+    }
+
+    .era-retro .card-meta {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 11px;
+      color: #333;
+    }
+
+    .era-retro .card-meta .username {
+      color: #0000EE;
+    }
+
+    .era-retro .avatar {
+      border-radius: 0;
+      border: 2px inset #808080;
+      width: 40px;
+      height: 40px;
+    }
+
+    .era-retro .card-thumbnail {
+      border-radius: 0;
+      border: 2px inset #808080;
+    }
+
+    .era-retro[data-priority="1"] .card::before { background: linear-gradient(to right, #000080, #1084d0); }
+    .era-retro[data-priority="2"] .card::before { background: linear-gradient(to right, #006400, #228b22); }
+    .era-retro[data-priority="3"] .card::before { background: linear-gradient(to right, #8b4513, #d2691e); }
+    .era-retro[data-priority="4"] .card::before { background: linear-gradient(to right, #4a4a4a, #808080); }
+
+    .era-retro .card-description::after {
+      content: '';
+      display: block;
+      margin-top: 0.75rem;
+      height: 2px;
+      background: linear-gradient(to right, #808080, #dfdfdf, #808080);
+    }
+
+    .retro-stats {
+      font-family: "Courier New", Courier, monospace;
+      background: #000;
+      color: #0f0;
+      padding: 4px 12px;
+      display: inline-block;
+      border: 2px inset #808080;
+      font-size: 12px;
+      margin-bottom: 1rem;
+      margin-left: 40px;
+    }
+
+    .retro-section::after {
+      content: '[ Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0 ]';
+      display: block;
+      text-align: center;
+      font-family: "Times New Roman", serif;
+      font-size: 11px;
+      color: #666;
+      padding: 1rem;
+      margin-top: 1rem;
+      margin-left: 40px;
+    }
+
+    .era-retro .card-header {
+      border-bottom: 1px solid #808080;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .era-retro[data-priority="1"] .card-title::after {
+      content: 'NEW!';
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 10px;
+      color: #ff0000;
+      font-family: "Comic Sans MS", cursive;
+      animation: blink 1s step-end infinite;
+    }
+
+    /* ============================================
+       ERA 2: GROWTH (2011-2018)
+       Classic Drupal Blue, Professional
+       ============================================ */
+    .growth-section {
+      background: linear-gradient(180deg, #f0f7fc 0%, #f9f9f9 100%);
+      padding: 2rem 0;
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .growth-header {
+      background: var(--drupal-blue-legacy);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      margin-left: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 8px rgba(6, 120, 190, 0.3);
+    }
+
+    .growth-header img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+    }
+
+    .growth-header h2 {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .growth-header p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      margin-left: auto;
+    }
+
+    .growth-section .timeline::before {
+      background: linear-gradient(to bottom, var(--drupal-blue-legacy), #3fa9f5);
+      width: 3px;
+    }
+
+    .era-growth.year-marker {
+      color: var(--drupal-blue-legacy);
+      background: white;
+      padding: 4px 16px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+
+    .era-growth.year-marker::before {
+      background: var(--drupal-blue-legacy);
+      border-color: white;
+    }
+
+    .era-growth.timeline-item::before {
+      background: var(--drupal-blue-legacy);
+    }
+
+    .era-growth .card {
+      border-radius: 4px;
+      border-left: 4px solid var(--drupal-blue-legacy);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .era-growth .card:hover {
+      box-shadow: 0 4px 16px rgba(6, 120, 190, 0.2);
+    }
+
+    .era-growth .card-title a:hover {
+      color: var(--drupal-blue-legacy);
+    }
+
+    .era-growth .card-meta .username {
+      color: var(--drupal-blue-legacy);
+    }
+
+    .era-growth .card-description a {
+      color: var(--drupal-blue-legacy);
+    }
+
+    .era-growth[data-priority="1"] .card { border-left-color: var(--drupal-blue-legacy); }
+    .era-growth[data-priority="2"] .card { border-left-color: #3fa9f5; }
+    .era-growth[data-priority="3"] .card { border-left-color: #7bc9ff; }
+    .era-growth[data-priority="4"] .card { border-left-color: #a8d8ea; }
+
+    /* ============================================
+       ERA 3: MODERN (2019+)
+       New Drupal Brand Identity
+       ============================================ */
+    .modern-section {
+      background: linear-gradient(180deg, var(--drupal-light-blue) 0%, #f9f9f9 30%);
+      padding: 2rem 0;
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      position: relative;
+    }
+
+    .modern-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background-image: url('assets/Drupal_Dynamic Patterns-01.svg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .modern-header {
+      background: linear-gradient(135deg, var(--drupal-navy) 0%, var(--drupal-blue) 100%);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      margin-left: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 8px 32px rgba(18, 40, 95, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .modern-header img {
+      height: 44px;
+      filter: brightness(0) invert(1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .modern-header-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .modern-header h2 {
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .modern-header p {
+      color: var(--drupal-light-blue);
+      font-size: 0.95rem;
+    }
+
+    .modern-header-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,0.15);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .modern-section .timeline::before {
+      background: linear-gradient(to bottom, var(--drupal-navy), var(--drupal-blue), var(--drupal-purple));
+      width: 4px;
+      border-radius: 2px;
+    }
+
+    .era-modern.year-marker {
+      color: var(--drupal-navy);
+      background: white;
+      padding: 6px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(18, 40, 95, 0.15);
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .era-modern.year-marker::before {
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-blue));
+      border-color: white;
+      width: 16px;
+      height: 16px;
+    }
+
+    .era-modern.timeline-item::before {
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-blue));
+      width: 12px;
+      height: 12px;
+    }
+
+    .era-modern .card {
+      border-radius: 12px;
+      border-left: 5px solid var(--drupal-blue);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      background: white;
+    }
+
+    .era-modern .card:hover {
+      box-shadow: 0 8px 32px rgba(18, 40, 95, 0.15);
+      transform: translateY(-6px);
+    }
+
+    .era-modern .card-title {
+      font-weight: 700;
+    }
+
+    .era-modern .card-title a:hover {
+      color: var(--drupal-blue);
+    }
+
+    .era-modern .card-meta .username {
+      color: var(--drupal-blue);
+      font-weight: 500;
+    }
+
+    .era-modern .card-description a {
+      color: var(--drupal-blue);
+      font-weight: 500;
+    }
+
+    .era-modern .avatar {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .era-modern .card-thumbnail {
+      border-radius: 8px;
+    }
+
+    .era-modern[data-priority="1"] .card {
+      border-left-color: var(--drupal-blue);
+      background: linear-gradient(135deg, white 0%, var(--drupal-light-blue) 100%);
+    }
+    .era-modern[data-priority="2"] .card { border-left-color: var(--drupal-dark-blue); }
+    .era-modern[data-priority="3"] .card { border-left-color: var(--drupal-purple); }
+    .era-modern[data-priority="4"] .card { border-left-color: #a8d8ea; }
+
+    /* ============================================
+       ERA TRANSITIONS
+       ============================================ */
+    .era-transition {
+      text-align: center;
+      padding: 3rem 1rem;
+      margin: 0;
+      position: relative;
+    }
+
+    .era-transition::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #999, var(--drupal-blue));
+    }
+
+    .era-transition-content {
+      background: linear-gradient(135deg, #2e5090, var(--drupal-blue-legacy));
+      color: white;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      display: inline-block;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .era-transition-content strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .era-transition.to-modern .era-transition-content {
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-blue));
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(18, 40, 95, 0.3);
+    }
+
+    .era-transition.revealed .era-transition-content {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 4px 20px rgba(6, 120, 190, 0.3); }
+      50% { box-shadow: 0 4px 40px rgba(6, 120, 190, 0.5); }
+    }
+
+    /* ============================================
+       FOOTER / CREDITS
+       ============================================ */
+    .credits {
+      background: var(--drupal-navy);
+      color: white;
+      padding: 3rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .credits-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .credits h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--drupal-light-blue);
+    }
+
+    .credits p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .credits a {
+      color: var(--drupal-light-blue);
+      text-decoration: none;
+    }
+
+    .credits a:hover {
+      text-decoration: underline;
+    }
+
+    .credits-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .credits-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        height: 32px;
+      }
+
+      .timeline {
+        padding-left: 30px;
+      }
+
+      .timeline::before {
+        left: 10px;
+      }
+
+      .timeline-item::before {
+        left: -24px;
+      }
+
+      .year-marker::before {
+        left: -28px;
+      }
+
+      .card-header {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+      }
+
+      .era-transition::before {
+        left: 10px;
+      }
+
+      .retro-header,
+      .growth-header,
+      .modern-header {
+        margin-left: 30px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .growth-header p,
+      .modern-header-badge {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      .floating-year {
+        right: 10px;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="main-header">
+    <img src="assets/Drupal Logo_Horizontal_Blue.svg" alt="Drupal" class="logo" id="header-logo">
+    <p id="header-subtitle">25+ years of Drupal history</p>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Events</button>
+      <button class="filter-btn" data-filter="1">Major Releases</button>
+      <button class="filter-btn" data-filter="2">Important</button>
+      <button class="filter-btn" data-filter="3">Notable</button>
+      <button class="filter-btn" data-filter="4">Other</button>
+    </div>
+  </header>
+
+  <div class="timeline-container">
+    <div class="stats" id="stats"></div>
+    <div class="timeline" id="timeline">
+      <div class="loading">Loading timeline...</div>
+    </div>
+  </div>
+
+  <footer class="credits">
+    <div class="credits-content">
+      <h3>Drupal Timeline</h3>
+      <p>Based on data from <a href="https://github.com/weitzman/drupal-timeline" target="_blank">weitzman/drupal-timeline</a></p>
+      <p>Maintained by Moshe Weitzman and <a href="https://github.com/weitzman/drupal-timeline/graphs/contributors" target="_blank">contributors</a></p>
+      <div class="credits-links">
+        <a href="https://drupalhistory.org/" target="_blank">DrupalHistory.org</a>
+        <a href="https://www.drupal.org/" target="_blank">Drupal.org</a>
+        <a href="https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/drupal-timeline.json" target="_blank">JSON Data (CDN)</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const DATA_URL = 'drupal-timeline.json';
+    const ERA_RETRO_END = 2007;      // Retro era: up to 2007 (before Drupal 6)
+    const ERA_GROWTH_END = 2014;     // Growth era: 2008-2014 (Drupal 6 & 7)
+    // Modern era: 2015+ (Drupal 8+)
+
+    let allEvents = [];
+
+    async function loadTimeline() {
+      try {
+        const response = await fetch(DATA_URL);
+        allEvents = await response.json();
+        renderTimeline(allEvents);
+        setupFilters();
+      } catch (error) {
+        document.getElementById('timeline').innerHTML =
+          `<div class="loading">Error loading timeline: ${error.message}</div>`;
+      }
+    }
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    function getYear(dateString) {
+      return new Date(dateString).getFullYear();
+    }
+
+    function getEra(year) {
+      if (year <= ERA_RETRO_END) return 'retro';
+      if (year <= ERA_GROWTH_END) return 'growth';
+      return 'modern';
+    }
+
+    function parseDescription(text) {
+      if (!text) return '';
+      return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+    }
+
+    function renderTimeline(events) {
+      const container = document.getElementById('timeline');
+      const stats = document.getElementById('stats');
+
+      if (events.length === 0) {
+        container.innerHTML = '<div class="loading">No events match this filter</div>';
+        stats.textContent = '';
+        return;
+      }
+
+      const sorted = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      let html = '';
+      let currentYear = null;
+      let currentEra = null;
+
+      const retroEvents = sorted.filter(e => getYear(e.date) <= ERA_RETRO_END).length;
+      const growthEvents = sorted.filter(e => getYear(e.date) > ERA_RETRO_END && getYear(e.date) <= ERA_GROWTH_END).length;
+      const modernEvents = sorted.filter(e => getYear(e.date) > ERA_GROWTH_END).length;
+
+      sorted.forEach((event, index) => {
+        const year = getYear(event.date);
+        const era = getEra(year);
+
+        // Handle era transitions
+        if (era !== currentEra) {
+          // Close previous era section
+          if (currentEra === 'retro') {
+            html += `</div><!-- end retro-section -->`;
+            html += `
+              <div class="era-transition">
+                <div class="era-transition-content">
+                  <strong>The Drupal 6 Era Begins</strong>
+                  Enterprise adoption accelerates with improved usability and CCK in core
+                </div>
+              </div>
+            `;
+          } else if (currentEra === 'growth') {
+            html += `</div><!-- end growth-section -->`;
+            html += `
+              <div class="era-transition to-modern">
+                <div class="era-transition-content">
+                  <strong>Welcome to Drupal 8</strong>
+                  Symfony, OOP, Twig templating, and a modern architecture
+                </div>
+              </div>
+            `;
+          }
+
+          // Open new era section
+          if (era === 'retro') {
+            html += `
+              <div class="retro-section era-section">
+                <div class="retro-header">
+                  <img src="assets/Drupal Logo_Horizontal_Blue.svg" alt="Drupal">
+                  <h2>The Early Days: Drupal 1–5</h2>
+                  <div class="window-buttons">
+                    <div class="window-btn">_</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                  </div>
+                </div>
+                <div class="retro-stats">&#128187; ${retroEvents} events from the classic era &#128187;</div>
+            `;
+          } else if (era === 'growth') {
+            html += `
+              <div class="growth-section era-section">
+                <div class="growth-header">
+                  <img src="assets/Drupal Logo_Horizontal_Blue.svg" alt="Drupal">
+                  <h2>The Growth Era: Drupal 6 & 7</h2>
+                  <p>${growthEvents} milestones</p>
+                </div>
+            `;
+          } else if (era === 'modern') {
+            html += `
+              <div class="modern-section era-section">
+                <div class="modern-header">
+                  <img src="assets/Drupal Product Logo-CMS-Horizontal-Wordmark-White.svg" alt="Drupal CMS">
+                  <div class="modern-header-text">
+                    <h2>Modern Drupal: 8, 9, 10 & Beyond</h2>
+                    <p>The ambitious open web platform</p>
+                  </div>
+                  <div class="modern-header-badge">${modernEvents} events</div>
+                </div>
+            `;
+          }
+
+          currentEra = era;
+          currentYear = null;
+        }
+
+        // Add year marker
+        if (year !== currentYear) {
+          currentYear = year;
+          const eraClass = `era-${era}`;
+          html += `<div class="year-marker ${eraClass}">${year}</div>`;
+        }
+
+        const avatarHtml = event.avatar
+          ? `<img src="${event.avatar}" alt="${event.username}" class="avatar" loading="lazy">`
+          : '';
+
+        const thumbnailHtml = event.thumbnail
+          ? `<img src="${event.thumbnail}" alt="" class="card-thumbnail" loading="lazy">`
+          : '';
+
+        const titleHtml = event.href
+          ? `<a href="${event.href}" target="_blank">${event.title}</a>`
+          : event.title;
+
+        const eraClass = `era-${era}`;
+
+        html += `
+          <div class="timeline-item ${eraClass}" data-priority="${event.priority}">
+            <div class="card">
+              <div class="card-header">
+                ${avatarHtml}
+                <div class="card-title-group">
+                  <div class="card-title">${titleHtml}</div>
+                  <div class="card-meta">
+                    ${formatDate(event.date)}
+                    ${event.username ? `&middot; <span class="username">@${event.username}</span>` : ''}
+                  </div>
+                </div>
+              </div>
+              <div class="card-description">${parseDescription(event.description)}</div>
+              ${thumbnailHtml}
+            </div>
+          </div>
+        `;
+      });
+
+      // Close final era section
+      if (currentEra) {
+        html += `</div><!-- end ${currentEra}-section -->`;
+      }
+
+      container.innerHTML = html;
+
+      const years = new Set(sorted.map(e => getYear(e.date)));
+      stats.textContent = `${events.length} events spanning ${years.size} years (${Math.min(...years)}–${Math.max(...years)})`;
+
+      // Re-initialize scroll effects
+      setupScrollReveal();
+    }
+
+    function setupFilters() {
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+
+          if (filter === 'all') {
+            renderTimeline(allEvents);
+          } else {
+            const filtered = allEvents.filter(e => e.priority === parseInt(filter));
+            renderTimeline(filtered);
+          }
+        });
+      });
+    }
+
+    loadTimeline();
+
+    // ============================================
+    // SCROLL EFFECTS
+    // ============================================
+
+    function createScrollProgress() {
+      const progress = document.createElement('div');
+      progress.className = 'scroll-progress';
+      document.body.prepend(progress);
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progress.style.width = scrollPercent + '%';
+      });
+    }
+
+    function createFloatingYear() {
+      const floatingYear = document.createElement('div');
+      floatingYear.className = 'floating-year';
+      document.body.appendChild(floatingYear);
+
+      let lastVisibleYear = null;
+      let hideTimeout = null;
+
+      const yearObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const year = entry.target.textContent.trim();
+            const isRetro = entry.target.classList.contains('era-retro');
+            const isGrowth = entry.target.classList.contains('era-growth');
+            const isModern = entry.target.classList.contains('era-modern');
+
+            if (year !== lastVisibleYear) {
+              lastVisibleYear = year;
+              floatingYear.textContent = year;
+              floatingYear.classList.remove('retro', 'growth', 'modern');
+              if (isRetro) floatingYear.classList.add('retro');
+              else if (isGrowth) floatingYear.classList.add('growth');
+              else if (isModern) floatingYear.classList.add('modern');
+
+              floatingYear.classList.add('visible');
+
+              clearTimeout(hideTimeout);
+              hideTimeout = setTimeout(() => {
+                floatingYear.classList.remove('visible');
+              }, 2000);
+            }
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '-40% 0px -40% 0px'
+      });
+
+      setTimeout(() => {
+        document.querySelectorAll('.year-marker').forEach(marker => {
+          yearObserver.observe(marker);
+        });
+      }, 100);
+    }
+
+    function setupScrollReveal() {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      setTimeout(() => {
+        document.querySelectorAll('.timeline-item, .year-marker, .era-transition, .era-section').forEach(el => {
+          revealObserver.observe(el);
+        });
+      }, 100);
+    }
+
+    createScrollProgress();
+    createFloatingYear();
+    setupScrollReveal();
+  </script>
+</body>
+</html>
