@@ -99,13 +99,46 @@
       z-index: -1;
     }
 
-    /* Header with GUI Block styling */
+    /* Header with GUI Block styling - sticky with shrink on scroll */
     .header {
       background: var(--drupal-navy);
       padding: 3rem 1rem;
       text-align: center;
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 200;
       overflow: hidden;
+      transition: padding 0.3s ease;
+    }
+
+    .header.scrolled {
+      padding: 0.75rem 1rem;
+      box-shadow: 0 4px 20px rgba(18, 40, 95, 0.3);
+    }
+
+    .header.scrolled .logo {
+      width: 40px;
+      margin-bottom: 0;
+    }
+
+    .header.scrolled h1 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+    }
+
+    .header.scrolled p {
+      display: none;
+    }
+
+    .header.scrolled .header-gui-block {
+      display: none;
+    }
+
+    .header.scrolled .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
 
     /* Decorative GUI blocks in header */
@@ -192,12 +225,95 @@
       margin: 0 auto;
     }
 
+    /* Year Navigation Sidebar */
+    .year-nav {
+      position: fixed;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 150;
+      background: var(--drupal-white);
+      border-radius: 12px;
+      padding: 0.75rem 0.5rem;
+      box-shadow: 0 4px 20px rgba(18, 40, 95, 0.15);
+      border: 2px solid var(--drupal-light-blue);
+      max-height: 70vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--drupal-light-blue) transparent;
+    }
+
+    .year-nav::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .year-nav::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .year-nav::-webkit-scrollbar-thumb {
+      background: var(--drupal-light-blue);
+      border-radius: 4px;
+    }
+
+    .year-nav-title {
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: var(--drupal-dark-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0 0.5rem 0.5rem;
+      border-bottom: 1px solid var(--drupal-light-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .year-nav-list {
+      list-style: none;
+    }
+
+    .year-nav-item {
+      margin: 0.125rem 0;
+    }
+
+    .year-nav-link {
+      display: block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--drupal-dark-blue);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .year-nav-link:hover {
+      background: var(--drupal-light-blue);
+      color: var(--drupal-navy);
+    }
+
+    .year-nav-link.active {
+      background: var(--drupal-blue);
+      color: var(--drupal-white);
+    }
+
+    .year-nav-link .event-count {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    /* Main content wrapper for sidebar layout */
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
     /* Filter Controls - styled as GUI block */
     .controls {
       background: var(--drupal-white);
       padding: 1rem;
-      position: sticky;
-      top: 0;
       z-index: 100;
       box-shadow: 0 4px 12px rgba(18, 40, 95, 0.15);
       border-bottom: 3px solid var(--drupal-blue);
@@ -252,10 +368,15 @@
 
     /* Main Timeline Container */
     .timeline-container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 2rem 1rem;
       position: relative;
+    }
+
+    /* Year marker for scroll navigation */
+    .year-marker {
+      scroll-margin-top: 120px;
     }
 
     /* Era Sections */
@@ -625,7 +746,35 @@
       color: var(--drupal-dark-blue);
     }
 
-    /* Responsive */
+    /* Responsive - Large screens with sidebar space */
+    @media (min-width: 1200px) {
+      .timeline-container {
+        margin-left: 100px;
+      }
+    }
+
+    /* Responsive - Medium screens */
+    @media (max-width: 1199px) {
+      .year-nav {
+        left: 0.5rem;
+        padding: 0.5rem 0.25rem;
+      }
+
+      .year-nav-title {
+        display: none;
+      }
+
+      .year-nav-link {
+        padding: 0.25rem 0.375rem;
+        font-size: 0.6875rem;
+      }
+
+      .year-nav-link .event-count {
+        display: none;
+      }
+    }
+
+    /* Responsive - Small screens */
     @media (max-width: 768px) {
       .header h1 {
         font-size: 1.75rem;
@@ -636,6 +785,18 @@
       }
 
       .header-gui-block {
+        display: none;
+      }
+
+      .header.scrolled h1 {
+        font-size: 1rem;
+      }
+
+      .header.scrolled .logo {
+        width: 32px;
+      }
+
+      .year-nav {
         display: none;
       }
 
@@ -680,8 +841,12 @@
 
     /* Print Styles */
     @media print {
-      .controls, .footer, .header-gui-block {
+      .controls, .footer, .header-gui-block, .year-nav {
         display: none;
+      }
+
+      .header {
+        position: relative;
       }
 
       .event-card {
@@ -745,6 +910,14 @@
     </div>
   </nav>
 
+  <!-- Year Navigation Sidebar -->
+  <nav class="year-nav" id="year-nav" aria-label="Year navigation">
+    <div class="year-nav-title">Years</div>
+    <ul class="year-nav-list" id="year-nav-list">
+      <!-- Populated by JavaScript -->
+    </ul>
+  </nav>
+
   <main class="timeline-container" id="timeline-container">
     <div class="loading">
       <div class="loading-spinner"></div>
@@ -773,6 +946,7 @@
       filteredEvents: [],
       currentPriority: 'all',
       searchTerm: '',
+      headerHeight: 0,
 
       async init() {
         try {
@@ -783,7 +957,9 @@
           this.filteredEvents = [...this.events];
           this.updateStats();
           this.render();
+          this.renderYearNav();
           this.bindEvents();
+          this.setupScrollHandlers();
         } catch (error) {
           console.error('Error loading timeline:', error);
           document.getElementById('timeline-container').innerHTML = `
@@ -804,6 +980,82 @@
         document.getElementById('total-events').textContent = totalEvents;
         document.getElementById('year-span').textContent = yearSpan;
         document.getElementById('contributors').textContent = contributors;
+      },
+
+      setupScrollHandlers() {
+        const header = document.querySelector('.header');
+        this.headerHeight = header.offsetHeight;
+
+        // Header shrink on scroll
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              if (window.scrollY > this.headerHeight) {
+                header.classList.add('scrolled');
+              } else {
+                header.classList.remove('scrolled');
+              }
+              this.updateActiveYear();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      },
+
+      updateActiveYear() {
+        const yearMarkers = document.querySelectorAll('.year-marker');
+        const yearLinks = document.querySelectorAll('.year-nav-link');
+        let activeYear = null;
+
+        yearMarkers.forEach(marker => {
+          const rect = marker.getBoundingClientRect();
+          if (rect.top <= 200) {
+            activeYear = marker.dataset.year;
+          }
+        });
+
+        yearLinks.forEach(link => {
+          if (link.dataset.year === activeYear) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      },
+
+      renderYearNav() {
+        // Get years from filtered events
+        const yearCounts = {};
+        this.filteredEvents.forEach(event => {
+          const year = new Date(event.date).getFullYear();
+          yearCounts[year] = (yearCounts[year] || 0) + 1;
+        });
+
+        const years = Object.keys(yearCounts).sort((a, b) => a - b);
+        const navList = document.getElementById('year-nav-list');
+
+        navList.innerHTML = years.map(year => `
+          <li class="year-nav-item">
+            <a href="#year-${year}" class="year-nav-link" data-year="${year}">
+              ${year}
+              <span class="event-count">${yearCounts[year]} event${yearCounts[year] > 1 ? 's' : ''}</span>
+            </a>
+          </li>
+        `).join('');
+
+        // Add click handlers for smooth scroll
+        navList.querySelectorAll('.year-nav-link').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const year = link.dataset.year;
+            const target = document.getElementById(`year-${year}`);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
       },
 
       bindEvents() {
@@ -843,6 +1095,7 @@
         });
 
         this.render();
+        this.renderYearNav();
       },
 
       formatDate(dateString) {
@@ -912,11 +1165,20 @@
               <div class="timeline">
           `;
 
+          let currentYear = null;
           era.events.forEach((event, index) => {
             const priorityClass = `priority-${event.priority}`;
             const priorityLabel = event.priority === 1 ? 'Major' : event.priority === 2 ? 'Significant' : '';
+            const eventYear = new Date(event.date).getFullYear();
+
+            // Add year marker for first event of each year
+            const yearMarker = eventYear !== currentYear
+              ? `<div class="year-marker" id="year-${eventYear}" data-year="${eventYear}"></div>`
+              : '';
+            currentYear = eventYear;
 
             html += `
+              ${yearMarker}
               <article class="event-card ${priorityClass}" style="animation-delay: ${index * 0.05}s">
                 <span class="event-card-dot"></span>
                 <time class="event-date">${this.formatDate(event.date)}</time>
