@@ -397,17 +397,17 @@
       border-left-color: #a8d8ea;
     }
 
-    /* Timeline Dot */
+    /* Timeline Dot - centered on line (line is at 8px, 3px wide, so center at 9.5px) */
     .event-card-dot {
       position: absolute;
-      left: -2.5rem;
-      top: 1.5rem;
+      left: calc(-2.5rem + 9.5px);
+      top: 50%;
       width: 12px;
       height: 12px;
       background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-blue));
       border: 2px solid var(--drupal-white);
       border-radius: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       z-index: 1;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
@@ -648,7 +648,7 @@
       }
 
       .event-card-dot {
-        left: -2rem;
+        left: calc(-2rem + 7.5px);
       }
 
       .event-card {
