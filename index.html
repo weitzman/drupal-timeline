@@ -349,92 +349,52 @@
       border-radius: 3px;
     }
 
-    /* Timeline Event Card - GUI Block style */
+    /* Timeline Event Card - Clean style with border accent */
     .event-card {
       position: relative;
       background: var(--drupal-white);
-      border-radius: 16px;
-      padding: 1rem 1.25rem 1.25rem 1.25rem;
+      border-radius: 12px;
+      padding: 1.25rem;
       margin-bottom: 1.5rem;
-      border: 2px solid var(--drupal-blue);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 5px solid var(--drupal-blue);
+      box-shadow: 0 4px 16px rgba(18, 40, 95, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: slideIn 0.3s ease forwards;
       opacity: 0;
     }
 
-    /* GUI Block shadow layer for cards */
-    .event-card::after {
-      content: '';
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      right: -5px;
-      bottom: -5px;
-      border-radius: 16px;
-      border: 2px solid var(--drupal-blue);
-      opacity: 0.25;
-      z-index: -1;
-      transition: opacity 0.2s ease;
-    }
-
     .event-card:hover {
-      transform: translate(2px, -2px);
-    }
-
-    .event-card:hover::after {
-      opacity: 0.4;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(18, 40, 95, 0.15);
     }
 
     @keyframes slideIn {
       from {
         opacity: 0;
-        transform: translateX(-20px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
 
-    /* Priority-based card colors */
+    /* Priority-based card accents */
     .event-card.priority-1 {
-      border-color: var(--drupal-yellow);
-    }
-    .event-card.priority-1::after {
-      border-color: var(--drupal-yellow);
-    }
-    .event-card.priority-1 .gui-controls {
-      color: var(--drupal-yellow);
+      border-left-color: var(--drupal-blue);
+      background: linear-gradient(135deg, var(--drupal-white) 0%, var(--drupal-light-blue) 100%);
     }
 
     .event-card.priority-2 {
-      border-color: var(--drupal-blue);
-    }
-    .event-card.priority-2::after {
-      border-color: var(--drupal-blue);
-    }
-    .event-card.priority-2 .gui-controls {
-      color: var(--drupal-blue);
+      border-left-color: var(--drupal-dark-blue);
     }
 
     .event-card.priority-3 {
-      border-color: var(--drupal-dark-blue);
-    }
-    .event-card.priority-3::after {
-      border-color: var(--drupal-dark-blue);
-    }
-    .event-card.priority-3 .gui-controls {
-      color: var(--drupal-dark-blue);
+      border-left-color: var(--drupal-purple);
     }
 
     .event-card.priority-4 {
-      border-color: var(--drupal-purple);
-    }
-    .event-card.priority-4::after {
-      border-color: var(--drupal-purple);
-    }
-    .event-card.priority-4 .gui-controls {
-      color: var(--drupal-purple);
+      border-left-color: #a8d8ea;
     }
 
     /* Timeline Dot */
@@ -442,24 +402,19 @@
       position: absolute;
       left: -2.5rem;
       top: 1.5rem;
-      width: 14px;
-      height: 14px;
-      background: var(--drupal-white);
-      border: 3px solid var(--drupal-blue);
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-blue));
+      border: 2px solid var(--drupal-white);
       border-radius: 50%;
       transform: translateX(-50%);
       z-index: 1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     .event-card.priority-1 .event-card-dot {
-      width: 18px;
-      height: 18px;
-      background: var(--drupal-yellow);
-      border-color: var(--drupal-navy);
-    }
-
-    .event-card.priority-2 .event-card-dot {
-      background: var(--drupal-light-blue);
+      width: 16px;
+      height: 16px;
     }
 
     /* Event Date */
@@ -510,11 +465,11 @@
     }
 
     .event-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       object-fit: cover;
-      border: 2px solid var(--drupal-light-blue);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .event-username {
@@ -524,11 +479,11 @@
     }
 
     .event-thumbnail {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
       margin-top: 1rem;
-      border: 2px solid var(--drupal-light-blue);
+      border: 1px solid var(--drupal-light-blue);
     }
 
     /* Priority Badges */
@@ -952,11 +907,6 @@
             html += `
               <article class="event-card ${priorityClass}" style="animation-delay: ${index * 0.05}s">
                 <span class="event-card-dot"></span>
-                <div class="gui-controls">
-                  <span class="gui-dot"></span>
-                  <span class="gui-dot"></span>
-                  <span class="gui-dot"></span>
-                </div>
                 <time class="event-date">${this.formatDate(event.date)}</time>
                 <h3 class="event-title">
                   ${event.href ? `<a href="${event.href}" target="_blank" rel="noopener">${event.title}</a>` : event.title}
