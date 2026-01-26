@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drupal Timeline - A History of Drupal</title>
+  <meta name="description" content="An interactive timeline showcasing the history of Drupal from 2001 to present day.">
+
+  <!-- Noto Sans from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* Drupal Brand Colors */
+    :root {
+      --drupal-blue: #009CDE;
+      --drupal-dark-blue: #006AA9;
+      --drupal-navy: #12285F;
+      --drupal-light-blue: #CCEDF9;
+      --drupal-black: #000000;
+      --drupal-white: #FFFFFF;
+      --drupal-purple: #CCBAF4;
+      --drupal-yellow: #FFC423;
+      --drupal-red: #F46351;
+      --drupal-green: #397618;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: linear-gradient(135deg, #12285F 0%, #009CDE 100%);
+      min-height: 100vh;
+      color: var(--drupal-black);
+      line-height: 1.5;
+    }
+
+    /* ===== GUI BLOCK STYLES ===== */
+    /* Control dots - unfilled circles like window controls */
+    .gui-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .gui-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      background: transparent;
+    }
+
+    /* 45° Shadow lines pattern */
+    .gui-shadow-lines {
+      position: absolute;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .gui-shadow-lines::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        currentColor 8px,
+        currentColor 10px
+      );
+      opacity: 0.15;
+    }
+
+    /* GUI Block frame - layered rounded rectangles */
+    .gui-block {
+      position: relative;
+      border-radius: 16px;
+      border: 2px solid;
+    }
+
+    .gui-block::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 16px;
+      border: 2px solid;
+      border-color: inherit;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    /* Header with GUI Block styling */
+    .header {
+      background: var(--drupal-navy);
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative GUI blocks in header */
+    .header-gui-block {
+      position: absolute;
+      border: 2px solid;
+      border-radius: 12px;
+      opacity: 0.2;
+    }
+
+    .header-gui-block::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 12px;
+      border: 2px solid;
+      border-color: inherit;
+    }
+
+    .header-gui-block.block-1 {
+      width: 120px;
+      height: 80px;
+      top: 20px;
+      left: 5%;
+      border-color: var(--drupal-blue);
+      transform: rotate(-5deg);
+    }
+
+    .header-gui-block.block-2 {
+      width: 100px;
+      height: 60px;
+      top: 40px;
+      right: 8%;
+      border-color: var(--drupal-yellow);
+      transform: rotate(8deg);
+    }
+
+    .header-gui-block.block-3 {
+      width: 80px;
+      height: 50px;
+      bottom: 30px;
+      left: 10%;
+      border-color: var(--drupal-red);
+      transform: rotate(3deg);
+    }
+
+    .header-gui-block.block-4 {
+      width: 90px;
+      height: 55px;
+      bottom: 20px;
+      right: 12%;
+      border-color: var(--drupal-purple);
+      transform: rotate(-7deg);
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .header h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--drupal-white);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header p {
+      color: var(--drupal-light-blue);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Filter Controls - styled as GUI block */
+    .controls {
+      background: var(--drupal-white);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(18, 40, 95, 0.15);
+      border-bottom: 3px solid var(--drupal-blue);
+    }
+
+    .controls-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--drupal-blue);
+      background: var(--drupal-white);
+      color: var(--drupal-blue);
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background: var(--drupal-light-blue);
+    }
+
+    .filter-btn.active {
+      background: var(--drupal-blue);
+      color: var(--drupal-white);
+    }
+
+    .search-box {
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--drupal-light-blue);
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      width: 200px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-box:focus {
+      border-color: var(--drupal-blue);
+    }
+
+    /* Main Timeline Container */
+    .timeline-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+
+    /* Era Sections */
+    .era-section {
+      margin-bottom: 3rem;
+    }
+
+    /* Era Header - GUI Block style */
+    .era-header {
+      background: var(--drupal-white);
+      padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      border: 2px solid var(--drupal-navy);
+    }
+
+    .era-header::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 16px;
+      border: 2px solid var(--drupal-navy);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .era-header .gui-controls {
+      color: var(--drupal-navy);
+    }
+
+    .era-section.early .era-header {
+      border-color: var(--drupal-purple);
+    }
+    .era-section.early .era-header::before {
+      border-color: var(--drupal-purple);
+    }
+    .era-section.early .gui-controls {
+      color: var(--drupal-purple);
+    }
+
+    .era-section.growth .era-header {
+      border-color: var(--drupal-yellow);
+    }
+    .era-section.growth .era-header::before {
+      border-color: var(--drupal-yellow);
+    }
+    .era-section.growth .gui-controls {
+      color: var(--drupal-yellow);
+    }
+
+    .era-section.modern .era-header {
+      border-color: var(--drupal-blue);
+    }
+    .era-section.modern .era-header::before {
+      border-color: var(--drupal-blue);
+    }
+    .era-section.modern .gui-controls {
+      color: var(--drupal-blue);
+    }
+
+    .era-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--drupal-navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .era-subtitle {
+      color: var(--drupal-dark-blue);
+      font-size: 0.875rem;
+    }
+
+    /* Timeline Line */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--drupal-blue), var(--drupal-dark-blue));
+      border-radius: 3px;
+    }
+
+    /* Timeline Event Card - GUI Block style */
+    .event-card {
+      position: relative;
+      background: var(--drupal-white);
+      border-radius: 16px;
+      padding: 1rem 1.25rem 1.25rem 1.25rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid var(--drupal-blue);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: slideIn 0.3s ease forwards;
+      opacity: 0;
+    }
+
+    /* GUI Block shadow layer for cards */
+    .event-card::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 16px;
+      border: 2px solid var(--drupal-blue);
+      opacity: 0.25;
+      z-index: -1;
+      transition: opacity 0.2s ease;
+    }
+
+    .event-card:hover {
+      transform: translate(2px, -2px);
+    }
+
+    .event-card:hover::after {
+      opacity: 0.4;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Priority-based card colors */
+    .event-card.priority-1 {
+      border-color: var(--drupal-yellow);
+    }
+    .event-card.priority-1::after {
+      border-color: var(--drupal-yellow);
+    }
+    .event-card.priority-1 .gui-controls {
+      color: var(--drupal-yellow);
+    }
+
+    .event-card.priority-2 {
+      border-color: var(--drupal-blue);
+    }
+    .event-card.priority-2::after {
+      border-color: var(--drupal-blue);
+    }
+    .event-card.priority-2 .gui-controls {
+      color: var(--drupal-blue);
+    }
+
+    .event-card.priority-3 {
+      border-color: var(--drupal-dark-blue);
+    }
+    .event-card.priority-3::after {
+      border-color: var(--drupal-dark-blue);
+    }
+    .event-card.priority-3 .gui-controls {
+      color: var(--drupal-dark-blue);
+    }
+
+    .event-card.priority-4 {
+      border-color: var(--drupal-purple);
+    }
+    .event-card.priority-4::after {
+      border-color: var(--drupal-purple);
+    }
+    .event-card.priority-4 .gui-controls {
+      color: var(--drupal-purple);
+    }
+
+    /* Timeline Dot */
+    .event-card-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 1.5rem;
+      width: 14px;
+      height: 14px;
+      background: var(--drupal-white);
+      border: 3px solid var(--drupal-blue);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .event-card.priority-1 .event-card-dot {
+      width: 18px;
+      height: 18px;
+      background: var(--drupal-yellow);
+      border-color: var(--drupal-navy);
+    }
+
+    .event-card.priority-2 .event-card-dot {
+      background: var(--drupal-light-blue);
+    }
+
+    /* Event Date */
+    .event-date {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-dark-blue));
+      color: var(--drupal-white);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Event Title */
+    .event-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--drupal-navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .event-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .event-title a:hover {
+      color: var(--drupal-blue);
+    }
+
+    /* Event Description */
+    .event-description {
+      color: #444;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Event Meta */
+    .event-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .event-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--drupal-light-blue);
+    }
+
+    .event-username {
+      font-size: 0.8125rem;
+      color: var(--drupal-dark-blue);
+      font-weight: 500;
+    }
+
+    .event-thumbnail {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      margin-top: 1rem;
+      border: 2px solid var(--drupal-light-blue);
+    }
+
+    /* Priority Badges */
+    .priority-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-left: auto;
+    }
+
+    .priority-1 .priority-badge {
+      background: var(--drupal-yellow);
+      color: var(--drupal-navy);
+    }
+
+    .priority-2 .priority-badge {
+      background: var(--drupal-light-blue);
+      color: var(--drupal-dark-blue);
+    }
+
+    /* Footer - GUI Block style */
+    .footer {
+      background: var(--drupal-navy);
+      color: var(--drupal-white);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative shadow lines in footer */
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(0, 156, 222, 0.05) 20px,
+        rgba(0, 156, 222, 0.05) 22px
+      );
+      pointer-events: none;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: var(--drupal-light-blue);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--drupal-yellow);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer p {
+      font-size: 0.875rem;
+      color: var(--drupal-light-blue);
+      opacity: 0.8;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--drupal-white);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 3px solid var(--drupal-blue);
+    }
+
+    .stats-bar span {
+      display: inline-block;
+      margin: 0 1rem;
+      color: var(--drupal-navy);
+      font-weight: 500;
+    }
+
+    .stats-bar strong {
+      color: var(--drupal-blue);
+      font-size: 1.25rem;
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--drupal-white);
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid var(--drupal-light-blue);
+      border-top-color: var(--drupal-blue);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--drupal-white);
+      border-radius: 16px;
+      border: 2px solid var(--drupal-blue);
+      margin: 2rem 0;
+    }
+
+    .no-results h3 {
+      color: var(--drupal-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results p {
+      color: var(--drupal-dark-blue);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.75rem;
+      }
+
+      .header p {
+        font-size: 1rem;
+      }
+
+      .header-gui-block {
+        display: none;
+      }
+
+      .timeline {
+        padding-left: 2rem;
+      }
+
+      .timeline::before {
+        left: 6px;
+      }
+
+      .event-card-dot {
+        left: -2rem;
+      }
+
+      .event-card {
+        padding: 0.875rem 1rem 1rem 1rem;
+      }
+
+      .event-title {
+        font-size: 1rem;
+      }
+
+      .controls-inner {
+        flex-direction: column;
+      }
+
+      .search-box {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .gui-controls {
+        margin-bottom: 8px;
+      }
+
+      .gui-dot {
+        width: 8px;
+        height: 8px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .controls, .footer, .header-gui-block {
+        display: none;
+      }
+
+      .event-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+
+      .event-card::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <!-- Decorative GUI Blocks -->
+    <div class="header-gui-block block-1"></div>
+    <div class="header-gui-block block-2"></div>
+    <div class="header-gui-block block-3"></div>
+    <div class="header-gui-block block-4"></div>
+
+    <div class="header-content">
+      <svg class="logo" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+        <!-- Official Drupal Drop -->
+        <path fill="#FFFFFF" d="M806.6,369.2c-0.6-1.1-1.1-1.7-2.2-2.8C750,305.3,672.8,218.7,617.2,157c-17.2-18.3-34.4-36.7-50.5-55.5
+          c-3.9-4.4-7.2-8.9-11.1-13.3c-3.3-3.3-5-5.6-5-5.6h0.6c-18.9-22.2-33.9-47.2-44.4-73.9L504,2.6c0-0.6-0.6-0.6-1.1-1.1
+          c-0.6,0-1.7-0.6-2.2-0.6H500c-1.1,0-1.7,0.6-2.2,0.6c-0.6,0.6-0.6,0.6-1.1,1.1l-2.8,6.1c-11.1,26.7-26.1,51.6-44.4,73.9h0.6
+          c0,0-1.7,2.2-5,5.6c-3.9,4.4-7.2,8.9-11.1,13.3c-16.7,18.9-33.3,37.2-50.5,55.5C328,218.6,250.2,305.3,195.8,366.4
+          c-0.6,1.1-1.1,1.7-2.2,2.8C-12,643,211.2,866.3,211.2,866.3h-0.6c66.1,76.6,159.9,123.8,260.5,131.1c8.9,1.1,18.3,1.7,28.3,1.7h0.6
+          c9.4,0,18.9-0.6,28.3-1.7c101.1-7.2,194.4-54.4,260.5-131.1h-0.6C788.8,866.3,1012.1,643,806.6,369.2z M328.4,561.9l-5,7.8l-0.6,0.6
+          c-37.8,45.5-60,94.4-67.2,142.7c-1.1,6.1-6.7,10-12.2,8.9c-3.9-0.6-6.7-3.3-8.3-6.7c-10-23.3-16.7-47.8-20-72.8
+          C202.3,554.1,229,477,285.6,410.9c22.8-26.1,45.5-52.2,68.3-78.3c3.9-4.4,10.6-5,15-1.1l0,0c0.6,0.6,0.6,0.6,1.1,1.1
+          c18.3,21.1,42.2,48.3,68.9,79.4c3.3,3.9,3.3,10,0,14.4c-36.7,43.9-75.5,90.5-110.5,135L328.4,561.9L328.4,561.9z M643.8,790.7
+          L643.8,790.7c-21.1,55.5-62.8,88.9-121.6,98.3c-83.9,12.8-162.2-44.4-174.9-128.3c0-1.1,0-1.7-0.6-2.8
+          c-6.7-47.2,7.8-88.9,38.3-124.4c35.5-41.7,113.9-138.3,115-140l0,0c1.7,1.7,85,105.5,116.1,142.2C655.5,681.9,665,734.6,643.8,790.7
+          z M767.7,703.5L767.7,703.5c-0.6,1.7-1.7,3.9-2.2,5.6c-2.2,5.6-8.3,8.3-13.9,6.1c-3.3-1.7-6.1-4.4-6.7-8.3
+          c-7.8-46.7-30-93.3-66.1-137.2l-0.6-0.6l-3.3-5l-2.2-2.8c-28.9-36.7-181.6-215.5-248.3-293.8c-3.3-3.9-3.3-10,0-14.4
+          c22.2-24.4,44.4-48.9,66.1-73.9c3.9-4.4,10.6-4.4,15-0.6l0.6,0.6c10,10.6,19.4,21.1,28.9,32.2c60.5,67.8,121.6,134.4,180.5,202.7
+          C789.9,500.3,807.1,599.1,767.7,703.5z"/>
+      </svg>
+      <h1>Drupal Timeline</h1>
+      <p>Celebrating over two decades of building an open web for everyone</p>
+    </div>
+  </header>
+
+  <div class="stats-bar">
+    <span><strong id="total-events">0</strong> Events</span>
+    <span><strong id="year-span">0</strong> Years of History</span>
+    <span><strong id="contributors">0</strong> Contributors</span>
+  </div>
+
+  <nav class="controls">
+    <div class="controls-inner">
+      <button class="filter-btn active" data-priority="all">All Events</button>
+      <button class="filter-btn" data-priority="1">Major Milestones</button>
+      <button class="filter-btn" data-priority="2">Significant</button>
+      <button class="filter-btn" data-priority="3">Notable</button>
+      <button class="filter-btn" data-priority="4">Community</button>
+      <input type="text" class="search-box" placeholder="Search events..." id="search-input">
+    </div>
+  </nav>
+
+  <main class="timeline-container" id="timeline-container">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading Drupal history...</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/weitzman/drupal-timeline">GitHub Repository</a>
+        <a href="https://drupal.org">Drupal.org</a>
+        <a href="https://drupalhistory.org">DrupalHistory.org</a>
+      </div>
+      <p>Data maintained by the Drupal community. <a href="https://github.com/weitzman/drupal-timeline/blob/main/LICENSE">MIT License</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Embedded timeline data for GitHub Pages compatibility
+    const TIMELINE_DATA = [{"priority":2,"date":"2025-12-04T00:00:00+00:00","title":"Drupal Canvas 1.0 is released","username":"lauriii","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1078742-1523958437.jpg?itok=WzTy2WtG","href":"https://www.drupal.org/blog/drupal-canvas-is-now-available-inside-drupals-new-visual-page-builder","description":"Canvas is a new, default visual page builder for Drupal, offering a no-code/low-code drag-and-drop interface for content managers","comment":""},{"priority":1,"date":"2025-01-15T00:00:00+00:00","title":"Drupal CMS 1.0 is released","username":"pameeela","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1431110-1718842190.png?itok=R6bFzAdz","href":"https://celebratedrupal.org/","description":"Drupal CMS collects all the best modules and their configurations into a product thats very usable out of the box.","comment":""},{"priority":1,"date":"2024-08-04T00:00:00+00:00","title":"Drupal 11 is released","username":"e0ipso","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-550110-1587845135.png?itok=kRbTHbTD","href":"https://new.drupal.org/about/11","description":"Recipes, Workspaces, and Single-Directory Components are launched. They represent a significant shift in how developers and site builders work with Drupal and set the stage for even more significant improvements in future releases. Recipes simplify configurations, Workspaces elevate content collaboration, and Single-Directory Components streamline theme management.","comment":""},{"priority":1,"date":"2022-12-14T00:00:00+00:00","title":"Drupal 10 is released","username":"mherchel","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-118428-1555375519.jpg?itok=rhdsEPN-","href":"https://www.drupal10party.com/","description":"Claro administration theme and Olivero default theme, the introduction of CKEditor 5, further jQuery replacements, theme starterkit tools for theme creation, and Symfony 6 under the hood with PHP 8.1 requirement.","comment":""},{"priority":4,"date":"2020-11-26T00:00:00+00:00","title":"PHP 8 is released","username":"wiifm","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-358731-1574370248.jpg?itok=D8Njwe_f","href":"https://www.php.net/releases/8.0/en.php","description":"PHP 8.0 is a major update of the PHP language. It contains many new features and optimizations including named arguments, union types, attributes, constructor property promotion, match expression, nullsafe operator, JIT, and improvements in the type system, error handling, and consistency.","comment":""},{"priority":2,"date":"2020-11-10T00:00:00+00:00","title":"Code contribution via issue forks","username":"drumm","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-3064-1641944732.png?itok=YgnB-FI9","href":"https://www.drupal.org/docs/develop/git/using-git-to-contribute-to-drupal/creating-issue-forks-and-merge-requests","description":"Drupal contributors may now collaborate using git branches and merge requests. Until this day, code collaboration on drupal.org featured uploaded patch files.","comment":""},{"priority":3,"date":"2020-10-24T00:00:00+00:00","title":"Composer 2.0 released","username":"seldaek","avatar":"https://avatars1.githubusercontent.com/u/183678?s=460&u=5c0668a9af3d21ce3153666e4546d881216346bf&v=4","href":"https://blog.packagist.com/composer-2-0-is-now-available/","description":"The package manager that assembles virtually all modern Drupal sites gets a significant performance and memory utilization boost. Developer productivity and mood noticeably improve.","comment":""},{"priority":3,"date":"2018-01-18T00:00:00+00:00","title":"Umami install profile improves out of the box experience","username":"markconroy","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-336910-1516969518.jpg?itok=NCoP4b7E","href":"https://www.drupal.org/project/ideas/issues/2847582","thumbnail":"https://www.drupal.org/files/issues/Captura%20de%20pantalla%202018-01-23%20a%20les%2020.27.29_0.png","description":"Drupal's initial experience goes from a boring river of news to a food magazine replete with tasty looking recipes. This fine meal was cooked by the Out of the Box Initiative led by kjay, markconroy, smaz, and laurii. It shows all of Drupal's spices working together: design, product management, engineering and accessibility.","comment":""},{"priority":4,"date":"2020-07-14T00:00:00+00:00","title":"Drupalcon Global","username":"betalister","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2516588-1549310508.jpg?itok=83SUF_B4","href":"https://events.drupal.org/global2020","description":"Amidst a pandemic, the Open Source Digital experience conference itself becomes a digital experience. Speakers, attendees, and sponsors enjoy the interactive chat and video features powered by Hopin.","comment":""},{"priority":1,"date":"2020-06-03T00:00:00+00:00","title":"Drupal 9.0 released","username":"xjm","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-65776-1401232682.jpg?itok=5VZxTbDk","href":"https://www.drupal.org/project/drupal/releases/9.0.0","description":"The first Drupal release with no new functionality - and that's great! Drupal 9 has the same functionality as Drupal 8.9, but without a lot of backward compatibility code. The release parties were virtual, as this happened during the times of Covid.","comment":""},{"priority":3,"date":"2017-03-08T00:00:00+00:00","title":"Drupal changes backwards compatibility policy after 16 years","username":"catch","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh","href":"https://dri.es/making-drupal-upgrades-easy-forever","description":"Drupal was doing Move Fast and Break Things a few years before Facebook. New features were routinely committed to Drupal without backward compatibility. Recognizing its large installed base, Drupal announces that all changes must be backward compatible, and that major version upgrades will be easy forever.","comment":""},{"priority":4,"date":"2016-10-06T00:00:00+00:00","title":"PHP 7 is released","username":"dstogov","avatar":"https://avatars3.githubusercontent.com/u/2510034?s=460&v=4","href":"https://www.jetbrains.com/lp/php-25/#e_2015_12_03","description":"A major language renewal comes with the new Zend Engine 3 (PHPNG), It's also twice as fast as the previous PHP 5.6 release.","comment":""},{"priority":3,"date":"2016-05-14T00:23:00+00:00","title":"Drupal Diversity & Inclusion Founded","username":"sparklingrobots","avatar":"https://www.drupaldiversity.com/sites/default/files/inline-images/DSC_2303.JPG","href":"https://www.drupaldiversity.com","description":"After a DrupalCon New Orleans session on diversity led by Nikki Stevens and Karyn Cassio, Drupal Diversity & Inclusion was founded by Nikki Stevens and members of the community to advocate for diversity, equity, and inclusion.","comment":""},{"priority":4,"date":"2016-05-11T00:23:00+00:00","title":"Cheney-Strauss Unofficial Drupalcon After Party","username":"populist","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-58600-1422565687.jpg?itok=57vVFDBk","href":"https://www.youtube.com/watch?v=teBV0EoJJY8","description":"Drupal's fun/art side thrives at these late night Drupalcon parties. This year Drupalers chatted among fire throwers and wild art installations at the Intergalactic Krewe of Chewbacchus in New Orleans.","comment":""},{"priority":1,"date":"2015-11-15T00:00:00+00:00","title":"Drupal 8.0 released","username":"alexpott","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh","href":"https://www.drupal.org/8","description":"Five years in the making, Drupal 8 embraces objects and declarative configuration. Entity API, Twig, and Accessibility are the talk at the Celebr8 worldwide release parties.","thumbnail":"https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/8.0.png","comment":""},{"priority":4,"date":"2015-09-08T00:00:00+00:00","title":"Cache API boosts Drupal 8 performance","username":"wim-leers","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-99777-1680515999.jpg?itok=wtpeHs9r","href":"https://www.drupal.org/project/drupal/issues/2429617","description":"wimleers and fabianx rescue Drupal 8 performance with an API where Drupal caches rendered content, varying the keys as specified by a developer. Cache tags precisely invalidate related content as edits are submitted.","comment":""},{"priority":3,"date":"2015-04-09T00:00:00+00:00","title":"drupal-project demonstrates how to assemble a codebase via Composer","username":"webflo","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-254778-1401407005.jpg?itok=xYGJ89TH","href":"https://www.drupal.org/8","description":"webflo showed the world how to build a Drupal codebase with Composer. Prior to this day some sites assembled code with Drush Make. drupal.org later built upon this work for its Packagist facade and Composer templates.","comment":""},{"priority":4,"date":"2015-05-12T00:00:00+00:00","title":"Drupalcon Prenote","username":"horncologne","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-76919-1406126613.jpg?itok=31EzJnh6","href":"https://www.youtube.com/watch?v=7zvCOKzY3kA","description":"jam & robertDouglass wake us up for an infotainment extravaganza featuring sing-a-longs; bad jokes; Git tutorials, yodelling, use of alphabet, or beer pouring technique. On this day we belted out a Drupal flavored Let it Go from Frozen.","comment":""},{"priority":2,"date":"2015-03-23T00:00:00+00:00","title":"Drupal core governance overhaul for project sustainability","username":"Dries","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1-1401055330.jpg?itok=E9No1cHd","href":"https://groups.drupal.org/node/462713","description":"Drupal had always relied on a single release manager to review and merge core changes. On this day Drupal embraces multiple committer roles and adds a process for adding new committers. In 2020 are about a dozen core committers.","comment":""},{"priority":3,"date":"2014-10-31T00:00:00+00:00","title":"Australian government standardizes on Drupal.","username":"kimpepper","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-370574-1721179883.png?itok=tNCvSuq_","href":"https://www.drupal.org/project/govcms","description":"govCMS embodies Drupal's popularity with governments all over the world.","comment":""},{"priority":1,"date":"2014-10-15T00:00:00+00:00","title":"SA-CORE-2014-005 - Drupal core - SQL injection","href":"https://www.drupal.org/forum/newsletters/security-advisories-for-drupal-core/2014-10-15/sa-core-2014-005-drupal-core-sql","description":"Many thousands of Drupal sites are compromised by Drupal core's first major security vulnerability.","comment":""},{"priority":2,"date":"2013-12-05T00:00:00+00:00","title":"Drupal 8 gets semver, minor release scheduling, and beta requirements policy","username":"xjm","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-65776-1401232682.jpg?itok=5VZxTbDk","href":"https://dri.es/the-next-step-for-drupal-8-is-a-beta","description":"Drupal core adopts semantic versioning and a sustainable, predictable minor release schedule.","comment":""},{"priority":3,"date":"2012-06-01T00:00:00+00:00","title":"Symfony components merged into Drupal","username":"Crell","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-26398-1400198420.jpg?itok=9SVGQxyz","href":"https://www.drupal.org/project/drupal/issues/1463656","description":"Crell leads a push to replace Drupal's bootstrap with Symfony flavored request handling. This large change nearly assassinated Drupal 8, but the mighty Drop prevailed","comment":""},{"priority":4,"date":"2011-10-11T00:00:00+00:00","title":"Issue following replaces 'subscribe'","username":"dww","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-46549-1402088724.png?itok=zoNlDNJF","href":"https://www.drupal.org/forum/general/news-and-announcements/2011-10-11/stop-subscribing-start-following","description":"Before this change, it was customary to post a comment with only the word subscribe in order to start following an issue. Unfortunately, this marked the issue as new and spammed all other followers. This practice ended when the community used Chip-In to fund a flag module implementation.","comment":""},{"priority":4,"date":"2011-03-10T00:00:00+00:00","title":"Drupalcon Trivia Night","username":"alanburke","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-35997-1401262741.jpg?itok=KZa7uYB2","href":"https://chicago2011.drupal.org/forum/drupalcon-trivia-night","description":"Alan Burke proposes an in-person, team based trivia contest on the last night of Drupalcon Chicago. Drupalers have a jolly time, nobody recalls who wins, and Irish Drupal hosts many more trivia nights.","comment":""},{"priority":3,"date":"2011-03-08T00:00:00+00:00","title":"Drupal celebrates its 10 Anniversary in style","username":"farriss","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-118406-1719950505.jpg?itok=IfF9XM-c","href":"https://dri.es/album/drupalcon-chicago-2011/opening-party-at-field-museum-1","description":"Drupalcon Chicago culminates in a dinner party at the Field Museum of Natural History. Dining with us in the main hall is Sue, the world's most complete Tyrannosaurus rex. Kudos to Tiffany and George from Palantir for a great Drupalcon and party.","comment":""},{"priority":3,"date":"2011-03-07T00:00:00+00:00","title":"Drupal Watchdog print magazine","username":"jeremy","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-409-1615883780.jpg?itok=wRmVcaCQ","href":"http://www.drupalwatchdog.net/about","description":"Drupalcon attendees open their tote bags and find Drupal Watchdog magazine, the first print magazine dedicated entirely to Drupal. The first issue features Dries on the cover. Tag1, the publisher, makes the magazine available for purchase in bookstores in 2014. The name comes from Drupal's hook_watchdog function.","comment":""},{"priority":2,"date":"2011-01-06T00:00:00+00:00","title":"Automated testing for Drupal Core and Contrib","username":"boombatower","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-214218-1400198420.jpg?itok=CtFmQed6","href":"https://git.drupalcode.org/project/simpletest/-/commit/c0d244ada87809a5e809b2a872370c9139cd6b88","description":"After 7 years in Contrib, the simpletest module is added in Drupal 7, along with a substantial test suite. qa.drupal.org and then DrupalCI ensure that each patch passes tests before merging. Drupal Test Traits later brings this framework to client sites.","comment":""},{"priority":1,"date":"2011-01-06T00:00:00+00:00","title":"Drupal 7.0 released","href":"https://groups.drupal.org/plan-Drupal-7-release-party","username":"webchick","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-24967-1628129044.jpg?itok=1qyjAYBr","description":"More than 250 parties in over 90 countries were held to celebrate this great release. Drupal 7 is still the most popular Drupal release, featuring the Seven theme, designed by Mark Boulton and Leisa Reichelt.","thumbnail":"https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/7.0.png","comment":""},{"priority":3,"date":"2011-08-08T00:00:00+00:00","title":"Core Office Hours and DrupalCon Mentoring","username":"yesCT","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-258568-1488543869.png?itok=bXbUCiQB","href":"https://www.drupal.org/forum/general/news-and-announcements/2011-08-08/core-office-hours","description":"xjm and catch begin leading core office hours on IRC 12 hours apart, providing global coverage. This generous spirit soon manifests at DrupalCon Denver as the first Core Mentoring contribution day, where new contributors are guided through their first core issue. YesCT later leads this effort.","comment":""},{"priority":2,"date":"2010-02-05T00:00:00+00:00","title":"Drupal development moves from CVS to Git","username":"sdboyer","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-146719-1405525313.png?itok=8xwVrs83","href":"https://groups.drupal.org/node/48818","description":"webchick opens a two week discussion assessing bzr and git for our next VCS. Then she reviews the discussion and announces that Git has been chosen. This is how bike sheds are overcome. The initiative is named the The Great Git Migration.","comment":""},{"priority":4,"date":"2010-04-19T00:00:00+00:00","title":"Certified to Rock web service launches","href":"https://twitter.com/certifiedtorock","username":"coltrane","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-91990-1450304755.jpg?itok=0xZcLlTh","description":"Certified To Rock is a new form of certification built to match the unique nature of the Drupal community. Give back more, and your score rises.","comment":""},{"priority":4,"date":"2010-01-10T00:00:00+00:00","title":"Open Atrium distro by Development Seed","username":"yhahn","avatar":"https://pbs.twimg.com/profile_images/2533427888/eo5j5htdpe602mtasyk8.jpeg","href":"https://i.pinimg.com/originals/fc/e0/61/fce0616444182df747d3aa673e4b3b4a.png","description":"An early distro, and a shining light in terms of visual design, user experience, and software architecture.","comment":""},{"priority":2,"date":"2009-10-24T00:00:00+00:00","title":"whitehouse.gov relaunches on Drupal","href":"https://dri.es/whitehouse-gov-using-drupal","username":"whitehouse","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2356044-1438715173.jpg?itok=Co8w2Kde","description":"Barack Obama's administration launches whitehouse.gov and We the People, a site where constituents can directly petition the White House for change.","comment":""},{"priority":3,"date":"2009-09-25T00:00:00+00:00","title":"Pressflow friendly fork adds DB replication and reverse proxy caching","href":"http://www.pressflow.org/","username":"david strauss","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-93254-1565639110.jpg?itok=Do8go21I","description":"David Strauss and collaborators maintain a distribution that helps Drupal scale. Their improvements are later incorporated into Drupal 7.","comment":""},{"priority":3,"date":"2009-08-27T00:00:00+00:00","title":"Localize.drupal.org starts","href":"https://localize.drupal.org/node/54","username":"Gábor Hojtsy","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-4166-1591361209.jpg?itok=8M19ha2V","description":"Launch of this new central web-based translation service meant a great leap towards community collaboration on more consistent, higher quality UI translations for all Drupal projects.","comment":""},{"priority":3,"date":"2009-06-09T00:00:00+00:00","title":"Drush becomes stand-alone tool with 2.0 release","username":"greg1anderson","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-438598-1429137703.jpg?itok=OW3zkQKw","href":"https://www.drupal.org/project/drush/releases/6.x-2.0","description":"Drush is no longer a module, helping it install a site, perform DB backups, etc. Drush becomes Drupal's de facto command line tool.","comment":""},{"priority":2,"date":"2008-02-13T00:00:00+00:00","title":"Drupal 6.0 released","username":"gabor hojtsy","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-4166-1591361209.jpg?itok=8M19ha2V","href":"https://www.drupal.org/forum/general/news-and-announcements/2008-02-13/drupal-60-released","description":"This release features a rewritten menu system, and an Update Status module which prompts admins to update their modules, especially after a security release.","thumbnail":"https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/6.0.png","comment":""},{"priority":4,"date":"2007-12-12T00:00:00+00:00","title":"Sun Microsystems bails out drupal.org","username":"Amazon","avatar":"https://live.staticflickr.com/2044/1846941586_f76c821d92_t.jpg","href":"https://www.drupal.org/forum/general/news-and-announcements/2007-12-12/sun-donates-sunfire-x4200-for-drupalorg","description":"Drupal.org becomes too popular for its home grown web hosting, and starts throwing errors regularly. Sun Microsystems donates its servers and restores stability to our home.","comment":""},{"priority":3,"date":"2007-11-30T00:00:00+00:00","title":"Acquia is announced to the world","username":"batsonjay","avatar":"https://avatars3.githubusercontent.com/u/552327?s=460&v=4","href":"https://dri.es/acquia-my-drupal-startup","description":"Acquia, a startup by Dries Buytaert and Jay Batson, announces its intention to offer commercial support and hosting for Drupal. Acquia continues to be the largest sponsor of Drupal development, and its largest web hosting platform.","comment":""},{"priority":4,"date":"2007-11-03T00:00:00+00:00","title":"Bay Area Drupal Camp (BADCamp) meets at UC Berkeley","username":"jenlampton","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-85586-1448401745.png?itok=9yG7qIZ3","href":"https://www.drupal.org/forum/general/events/2007-10-06/bay-area-drupal-camp-badcamp-07-nov-3rd-4th","description":"This large, annual event remains free to this day. Kudos to Jen Lampton for her many years of organizing. Other notable Camps include Design 4 Drupal, Drupal Dev Days, Frontend United, and Midwest Developer Summit","comment":""},{"priority":2,"date":"2007-01-17T00:00:00+00:00","title":"Drupal 5.0 is released","username":"drumm","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-3064-1411911925.png?itok=IepxMjFK","href":"https://www.drupal.org/forum/general/news-and-announcements/2007-01-15/drupal-50-released","description":"This release incorporates jQuery, a young open source project. Drupal's support helps jQuery gain attention and then it rises to huge popularity. jQuery adds a second license (MIT+GPL) at Drupal's request. This release also introduces install profiles and a web based installer.","thumbnail":"https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/5.0.png","comment":""},{"priority":2,"date":"2006-11-11T00:00:00+00:00","title":"Drupal projects gain a formal release system","username":"dww","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-46549-1402088724.png?itok=zoNlDNJF","href":"https://www.drupal.org/node/94000","description":"Drupal contributed projects are able to make tagged releases, ending the era of date-based tarballs and CVS projects inside SVN checkouts.","comment":""},{"priority":3,"date":"2006-11-06T00:00:00+00:00","title":"Views module is released","username":"merlinofchaos","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-26979-1449616925.jpg?itok=jJK4hf0A","href":"https://www.drupal.org/project/views/","description":"merlinofchaos introduces Views, a list builder/layout UI. Many modules quickly plug into Views both as data providers and layout providers. Along with CCK, these form the early beating heart of Drupal. Views graduates into Drupal core with D8.","comment":""},{"priority":2,"date":"2006-09-01T00:00:00+00:00","title":"Drupal Association formalizes governance and money management","username":"jredding","avatar":"https://engage.acquia.com/sites/default/files/styles/small_card/public/2020-10/Jacob%20Redding%20(BW).png?itok=kQg2E33M","href":"https://dri.es/drupal-association-launched","description":"Drupal's governance formalizes from BDFL to a non-profit model. Led by Jacob Redding, VZW is initially a money manager only. Drupal VZW transforms into the Drupal Association in 2011 and becomes more prominent in promoting Drupal and runs Drupalcon.","comment":""},{"priority":1,"date":"2006-05-01T00:00:00+00:00","title":"Drupal 4.7 is released with a Form API","username":"killes","avatar":"https://profile-images.xing.com/images/2c256d32a43988aec0c18806f1ccea01-2/gerhard-killesreiter.1024x1024.jpg","href":"https://www.drupal.org/forum/general/news-and-announcements/2006-05-01/drupal-470-released","description":"The new Form API by Adrian Rossouw strengthens Drupal's secure-by-default approach. XSS protections, validation of choices, and only processing POST data that was actually on the form.","thumbnail":"https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/4.7.png","comment":""},{"priority":3,"date":"2006-02-07T00:00:00+00:00","title":"Content Creation Kit (CCK) brings a UI for adding custom fields.","username":"yched","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-39567-1401268939.jpg?itok=oADgCk3p","href":"https://drupal.org/project/cck","description":"CCK was incorporated into Drupal 7 as the Field API. JonBob led a session about it at very first Drupalcon, and made the first iteration in Flexinode module. yched and KarenS evolved that work into CCK.","comment":""},{"priority":2,"date":"2006-02-06T00:00:00+00:00","title":"groups.drupal.org is launched","username":"moshe weitzman","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-23-1400198420.jpg?itok=oHubZd8u","href":"https://groups.drupal.org/helloworld","description":"Moshe Weitzman introduced this portal for local user groups to have an online rallying place. Groups helped the Drupal community grow tighter, and helped newbies climb its learning curve.","comment":""},{"priority":4,"date":"2006-01-11T00:00:00+00:00","title":"Lullabot podcast is launched","username":"jjeff","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-17190-1424189961.jpg?itok=kaXfcZby","href":"https://www.lullabot.com/podcasts/drupalizeme-podcast/drupal-podcast-no-1","description":"This podcast, founded by Jeff Robbins, still runs today. This marks a growth in the marketing and communication of Drupal.","comment":""},{"priority":3,"date":"2008-12-10T00:00:00+00:00","title":"Lullabot hosts the first Do It With Drupal in New Orleans","username":"jjeff","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-17190-1424189961.jpg?itok=kaXfcZby","href":"https://web.archive.org/web/20081217022929/http://www.doitwithdrupal.com/","description":"Do It With Drupal was a three day conference that paired Lullabot's training expertise with various Drupal contributors' experience to show attendees how to Do It With Drupal. The conference was notable for being the first sizable conference targeted at business and commercial users.","comment":""},{"priority":3,"date":"2005-12-23T00:00:00+00:00","title":"Building Online Communities book is published","username":"robertdouglass","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-5449-1400197006.jpg?itok=QCY5ImU5","href":"https://www.drupal.org/forum/general/news-and-announcements/2005-12-23/my-drupal-book-has-arrived","description":"Robert Douglass authors the first Drupal book, recognizing a growing demand for Drupal education.","comment":""},{"priority":1,"date":"2005-08-01T00:00:00+00:00","title":"Drupal security team is formed","username":"chx","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-9446-1439655464.jpg?itok=OwaItTH7","href":"https://www.drupal.org/drupal-security-team","description":"This volunteer team is first led by chx. The team dutifully protects Drupal core and all the contrib modules that opt into its coverage.","comment":""},{"priority":1,"date":"2005-02-24T00:00:00+00:00","title":"First Drupalcon held in Antwerp","username":"jvandyk","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2375-1476405435.jpg?itok=EwzjODeO","href":"https://www.drupal.org/developer-sprint-antwerp-2005","description":"Drupal enthusiasts meet in person for the first time. Amazingly, 45 people fly to Antwerp from all over the globe.","comment":""},{"priority":2,"date":"2003-05-01T00:00:00+00:00","title":"Deanspace provides Drupal tools for supporters of USA presidential candidate Howard Dean","username":"zacker","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-2840-1430105266.png?itok=_3vD8cps","href":"https://sourceforge.net/projects/dean/","description":"Deanspace was a milestone in the rise of the Internet for political campaigns and grassroots initiatives. It also kicked off a long love affair between Drupal and non-profits.","comment":""},{"priority":1,"date":"2002-06-15T00:00:00+00:00","title":"Drupal 4.0 is released, with a new taxonomy module","username":"marco","avatar":"https://avatars2.githubusercontent.com/u/527826?s=400&v=4","href":"https://git.drupalcode.org/project/drupal/-/blob/4.0.x/CHANGELOG","description":"Marco wrote taxonomy because he needed a way to group forums into categories. Drupal's rich taxonomy system foreshadows what will become known as tags/labels.","comment":""},{"priority":2,"date":"2001-09-15T00:00:00+00:00","title":"Drupal 3.0 is released","username":"Dries","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1-1401055330.jpg?itok=E9No1cHd","href":"https://git.drupalcode.org/project/drupal/-/blob/3.0.x/CHANGELOG","description":"3.0 major had a whopping 6 month development cycle. Nodes are introduced as a building block for content. They can be specialized into many content types.","thumbnail":"https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/assets/3.0.png","comment":""},{"priority":2,"date":"2001-09-10T00:00:00+00:00","title":"Druplicon is introduced","href":"https://www.agiledrop.com/blog/history-druplicon-famous-drupal-symbol","username":"Steven","avatar":"https://avatars3.githubusercontent.com/u/172808?s=460&u=f4583a521c727eaefc1544c4401657aa6fdf057c&v=4","description":"Drupal's famous logo, featuring infinity eyes and remixed into thousands of variants, is introduced by Steven Wittens (UnConeD) and Kristjan Jansen.","comment":""},{"priority":2,"date":"2001-03-15T00:00:00+00:00","title":"Drupal 2.0 is released","username":"Kjartan","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/default-avatar.png?itok=pCwA0iJh","href":"https://git.drupalcode.org/project/drupal/-/blob/2.0/CHANGELOG","description":"A mere 2 months after 1.0, Drupal ships 2.0. Backward compatibility was not yet a concern. The translation system is introduced, with its brilliantly simple t() function.","comment":""},{"priority":1,"date":"2001-01-15T00:00:00+00:00","title":"Drupal 1.0 is released","username":"Dries","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-1-1401055330.jpg?itok=E9No1cHd","href":"https://git.drupalcode.org/project/drupal/-/tree/1.0","description":"Dries Buytaert shares the initial release of his 'dormitory bulletin board'. It includes 18 files that are called modules. It features a hook system where modules interact with each other and the core framework. On this very day, Wikipedia is also born as a bespoke LAMP site.","comment":""},{"priority":3,"date":"2010-05-08T00:00:00+00:00","title":"1st edition of Drupal Dev Days in Munich","username":"danielnolde","avatar":"https://www.drupal.org/files/styles/grid-2-2x-square/public/user-pictures/picture-79829-1481107121.jpg?itok=mOX5LXxA","href":"https://groups.drupal.org/node/56118","description":"First edition of the yearly european event Drupal Dev Days. The event is independently organized in a different country every year and gathers hundreds of developers or contributors.","comment":""}];
+
+    // Drupal Timeline Application
+    const TimelineApp = {
+      events: [],
+      filteredEvents: [],
+      currentPriority: 'all',
+      searchTerm: '',
+
+      init() {
+        this.events = [...TIMELINE_DATA];
+        this.events.sort((a, b) => new Date(b.date) - new Date(a.date));
+        this.filteredEvents = [...this.events];
+        this.updateStats();
+        this.render();
+        this.bindEvents();
+      },
+
+      updateStats() {
+        const totalEvents = this.events.length;
+        const dates = this.events.map(e => new Date(e.date).getFullYear());
+        const yearSpan = Math.max(...dates) - Math.min(...dates);
+        const contributors = new Set(this.events.filter(e => e.username).map(e => e.username)).size;
+
+        document.getElementById('total-events').textContent = totalEvents;
+        document.getElementById('year-span').textContent = yearSpan;
+        document.getElementById('contributors').textContent = contributors;
+      },
+
+      bindEvents() {
+        // Priority filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            this.currentPriority = btn.dataset.priority;
+            this.filterEvents();
+          });
+        });
+
+        // Search input
+        const searchInput = document.getElementById('search-input');
+        let debounceTimer;
+        searchInput.addEventListener('input', (e) => {
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => {
+            this.searchTerm = e.target.value.toLowerCase();
+            this.filterEvents();
+          }, 300);
+        });
+      },
+
+      filterEvents() {
+        this.filteredEvents = this.events.filter(event => {
+          const matchesPriority = this.currentPriority === 'all' ||
+            event.priority === parseInt(this.currentPriority);
+
+          const matchesSearch = !this.searchTerm ||
+            event.title.toLowerCase().includes(this.searchTerm) ||
+            (event.description && event.description.toLowerCase().includes(this.searchTerm)) ||
+            (event.username && event.username.toLowerCase().includes(this.searchTerm));
+
+          return matchesPriority && matchesSearch;
+        });
+
+        this.render();
+      },
+
+      formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      },
+
+      getEra(year) {
+        if (year < 2006) return { name: 'early', title: 'The Early Years', subtitle: '2001-2005: Foundation and Community Building' };
+        if (year < 2016) return { name: 'growth', title: 'Growth Era', subtitle: '2006-2015: Enterprise Adoption and Expansion' };
+        return { name: 'modern', title: 'Modern Era', subtitle: '2016-Present: Innovation and Evolution' };
+      },
+
+      stripHtml(html) {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || '';
+      },
+
+      render() {
+        const container = document.getElementById('timeline-container');
+
+        if (this.filteredEvents.length === 0) {
+          container.innerHTML = `
+            <div class="no-results">
+              <h3>No events found</h3>
+              <p>Try adjusting your filters or search term.</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Group events by era
+        const eras = {};
+        this.filteredEvents.forEach(event => {
+          const year = new Date(event.date).getFullYear();
+          const era = this.getEra(year);
+          if (!eras[era.name]) {
+            eras[era.name] = { ...era, events: [] };
+          }
+          eras[era.name].events.push(event);
+        });
+
+        // Render eras in order
+        const eraOrder = ['modern', 'growth', 'early'];
+        let html = '';
+
+        eraOrder.forEach(eraName => {
+          if (!eras[eraName]) return;
+          const era = eras[eraName];
+
+          html += `
+            <section class="era-section ${era.name}">
+              <div class="era-header">
+                <div class="gui-controls">
+                  <span class="gui-dot"></span>
+                  <span class="gui-dot"></span>
+                  <span class="gui-dot"></span>
+                </div>
+                <h2 class="era-title">${era.title}</h2>
+                <p class="era-subtitle">${era.subtitle}</p>
+              </div>
+              <div class="timeline">
+          `;
+
+          era.events.forEach((event, index) => {
+            const priorityClass = `priority-${event.priority}`;
+            const priorityLabel = event.priority === 1 ? 'Major' : event.priority === 2 ? 'Significant' : '';
+
+            html += `
+              <article class="event-card ${priorityClass}" style="animation-delay: ${index * 0.05}s">
+                <span class="event-card-dot"></span>
+                <div class="gui-controls">
+                  <span class="gui-dot"></span>
+                  <span class="gui-dot"></span>
+                  <span class="gui-dot"></span>
+                </div>
+                <time class="event-date">${this.formatDate(event.date)}</time>
+                <h3 class="event-title">
+                  ${event.href ? `<a href="${event.href}" target="_blank" rel="noopener">${event.title}</a>` : event.title}
+                </h3>
+                <p class="event-description">${this.stripHtml(event.description || '')}</p>
+                <div class="event-meta">
+                  ${event.avatar ? `<img src="${event.avatar}" alt="${event.username || 'Contributor'}" class="event-avatar" loading="lazy" onerror="this.style.display='none'">` : ''}
+                  ${event.username ? `<span class="event-username">@${event.username}</span>` : ''}
+                  ${priorityLabel ? `<span class="priority-badge">${priorityLabel}</span>` : ''}
+                </div>
+                ${event.thumbnail ? `<img src="${event.thumbnail}" alt="${event.title}" class="event-thumbnail" loading="lazy">` : ''}
+              </article>
+            `;
+          });
+
+          html += `
+              </div>
+            </section>
+          `;
+        });
+
+        container.innerHTML = html;
+      }
+    };
+
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', () => {
+      TimelineApp.init();
+    });
+  </script>
+</body>
+</html>
