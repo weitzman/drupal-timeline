@@ -821,7 +821,7 @@
 
       init() {
         this.events = [...TIMELINE_DATA];
-        this.events.sort((a, b) => new Date(b.date) - new Date(a.date));
+        this.events.sort((a, b) => new Date(a.date) - new Date(b.date));
         this.filteredEvents = [...this.events];
         this.updateStats();
         this.render();
@@ -924,7 +924,7 @@
         });
 
         // Render eras in order
-        const eraOrder = ['modern', 'growth', 'early'];
+        const eraOrder = ['early', 'growth', 'modern'];
         let html = '';
 
         eraOrder.forEach(eraName => {
