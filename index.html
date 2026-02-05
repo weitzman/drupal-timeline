@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drupal Timeline - A History of Drupal</title>
+  <meta name="description" content="An interactive timeline showcasing the history of Drupal from 2001 to present day.">
+
+  <!-- Noto Sans from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* Drupal Brand Colors */
+    :root {
+      --drupal-blue: #009CDE;
+      --drupal-dark-blue: #006AA9;
+      --drupal-navy: #12285F;
+      --drupal-light-blue: #CCEDF9;
+      --drupal-black: #000000;
+      --drupal-white: #FFFFFF;
+      --drupal-purple: #CCBAF4;
+      --drupal-yellow: #FFC423;
+      --drupal-red: #F46351;
+      --drupal-green: #397618;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: linear-gradient(135deg, #12285F 0%, #009CDE 100%);
+      min-height: 100vh;
+      color: var(--drupal-black);
+      line-height: 1.5;
+    }
+
+    /* ===== GUI BLOCK STYLES ===== */
+    /* Control dots - unfilled circles like window controls */
+    .gui-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .gui-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      background: transparent;
+    }
+
+    /* 45° Shadow lines pattern */
+    .gui-shadow-lines {
+      position: absolute;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .gui-shadow-lines::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        currentColor 8px,
+        currentColor 10px
+      );
+      opacity: 0.15;
+    }
+
+    /* GUI Block frame - layered rounded rectangles */
+    .gui-block {
+      position: relative;
+      border-radius: 16px;
+      border: 2px solid;
+    }
+
+    .gui-block::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 16px;
+      border: 2px solid;
+      border-color: inherit;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    /* Header with GUI Block styling - sticky with shrink on scroll */
+    .header {
+      background: var(--drupal-navy);
+      padding: 3rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      overflow: hidden;
+      transition: padding 0.3s ease;
+    }
+
+    .header.scrolled {
+      padding: 0.75rem 1rem;
+      box-shadow: 0 4px 20px rgba(18, 40, 95, 0.3);
+    }
+
+    .header.scrolled .logo {
+      width: 40px;
+      margin-bottom: 0;
+    }
+
+    .header.scrolled h1 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+    }
+
+    .header.scrolled p {
+      display: none;
+    }
+
+    .header.scrolled .header-gui-block {
+      display: none;
+    }
+
+    .header.scrolled .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* Decorative GUI blocks in header */
+    .header-gui-block {
+      position: absolute;
+      border: 2px solid;
+      border-radius: 12px;
+      opacity: 0.2;
+    }
+
+    .header-gui-block::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 12px;
+      border: 2px solid;
+      border-color: inherit;
+    }
+
+    .header-gui-block.block-1 {
+      width: 120px;
+      height: 80px;
+      top: 20px;
+      left: 5%;
+      border-color: var(--drupal-blue);
+      transform: rotate(-5deg);
+    }
+
+    .header-gui-block.block-2 {
+      width: 100px;
+      height: 60px;
+      top: 40px;
+      right: 8%;
+      border-color: var(--drupal-yellow);
+      transform: rotate(8deg);
+    }
+
+    .header-gui-block.block-3 {
+      width: 80px;
+      height: 50px;
+      bottom: 30px;
+      left: 10%;
+      border-color: var(--drupal-red);
+      transform: rotate(3deg);
+    }
+
+    .header-gui-block.block-4 {
+      width: 90px;
+      height: 55px;
+      bottom: 20px;
+      right: 12%;
+      border-color: var(--drupal-purple);
+      transform: rotate(-7deg);
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .header h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--drupal-white);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header p {
+      color: var(--drupal-light-blue);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Year Navigation Sidebar */
+    .year-nav {
+      position: fixed;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 150;
+      background: var(--drupal-white);
+      border-radius: 12px;
+      padding: 0.75rem 0.5rem;
+      box-shadow: 0 4px 20px rgba(18, 40, 95, 0.15);
+      border: 2px solid var(--drupal-light-blue);
+      max-height: 70vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--drupal-light-blue) transparent;
+    }
+
+    .year-nav::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .year-nav::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .year-nav::-webkit-scrollbar-thumb {
+      background: var(--drupal-light-blue);
+      border-radius: 4px;
+    }
+
+    .year-nav-title {
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: var(--drupal-dark-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0 0.5rem 0.5rem;
+      border-bottom: 1px solid var(--drupal-light-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .year-nav-list {
+      list-style: none;
+    }
+
+    .year-nav-item {
+      margin: 0.125rem 0;
+    }
+
+    .year-nav-link {
+      display: block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--drupal-dark-blue);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .year-nav-link:hover {
+      background: var(--drupal-light-blue);
+      color: var(--drupal-navy);
+    }
+
+    .year-nav-link.active {
+      background: var(--drupal-blue);
+      color: var(--drupal-white);
+    }
+
+    .year-nav-link .event-count {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    /* Main content wrapper for sidebar layout */
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Filter Controls - styled as GUI block */
+    .controls {
+      background: var(--drupal-white);
+      padding: 1rem;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(18, 40, 95, 0.15);
+      border-bottom: 3px solid var(--drupal-blue);
+    }
+
+    .controls-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--drupal-blue);
+      background: var(--drupal-white);
+      color: var(--drupal-blue);
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background: var(--drupal-light-blue);
+    }
+
+    .filter-btn.active {
+      background: var(--drupal-blue);
+      color: var(--drupal-white);
+    }
+
+    .search-box {
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--drupal-light-blue);
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      width: 200px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-box:focus {
+      border-color: var(--drupal-blue);
+    }
+
+    /* Main Timeline Container */
+    .timeline-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 2rem 1rem;
+      position: relative;
+    }
+
+    /* Year marker for scroll navigation */
+    .year-marker {
+      scroll-margin-top: 120px;
+    }
+
+    /* Era Sections */
+    .era-section {
+      margin-bottom: 3rem;
+    }
+
+    /* Era Header - GUI Block style */
+    .era-header {
+      background: var(--drupal-white);
+      padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      border: 2px solid var(--drupal-navy);
+    }
+
+    .era-header::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 16px;
+      border: 2px solid var(--drupal-navy);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .era-header .gui-controls {
+      color: var(--drupal-navy);
+    }
+
+    .era-section.early .era-header {
+      border-color: var(--drupal-purple);
+    }
+    .era-section.early .era-header::before {
+      border-color: var(--drupal-purple);
+    }
+    .era-section.early .gui-controls {
+      color: var(--drupal-purple);
+    }
+
+    .era-section.growth .era-header {
+      border-color: var(--drupal-yellow);
+    }
+    .era-section.growth .era-header::before {
+      border-color: var(--drupal-yellow);
+    }
+    .era-section.growth .gui-controls {
+      color: var(--drupal-yellow);
+    }
+
+    .era-section.modern .era-header {
+      border-color: var(--drupal-blue);
+    }
+    .era-section.modern .era-header::before {
+      border-color: var(--drupal-blue);
+    }
+    .era-section.modern .gui-controls {
+      color: var(--drupal-blue);
+    }
+
+    .era-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--drupal-navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .era-subtitle {
+      color: var(--drupal-dark-blue);
+      font-size: 0.875rem;
+    }
+
+    /* Timeline Line */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--drupal-blue), var(--drupal-dark-blue));
+      border-radius: 3px;
+    }
+
+    /* Timeline Event Card - Clean style with border accent */
+    .event-card {
+      position: relative;
+      background: var(--drupal-white);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid var(--drupal-blue);
+      box-shadow: 0 4px 16px rgba(18, 40, 95, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideIn 0.3s ease forwards;
+      opacity: 0;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(18, 40, 95, 0.15);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Priority-based card accents */
+    .event-card.priority-1 {
+      border-left-color: var(--drupal-blue);
+      background: linear-gradient(135deg, var(--drupal-white) 0%, var(--drupal-light-blue) 100%);
+    }
+
+    .event-card.priority-2 {
+      border-left-color: var(--drupal-dark-blue);
+    }
+
+    .event-card.priority-3 {
+      border-left-color: var(--drupal-purple);
+    }
+
+    .event-card.priority-4 {
+      border-left-color: #a8d8ea;
+    }
+
+    /* Timeline Dot - centered on line (line is at 8px, 3px wide, so center at 9.5px) */
+    .event-card-dot {
+      position: absolute;
+      left: calc(-2.5rem + 9.5px);
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-blue));
+      border: 2px solid var(--drupal-white);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .event-card.priority-1 .event-card-dot {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Event Date */
+    .event-date {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--drupal-navy), var(--drupal-dark-blue));
+      color: var(--drupal-white);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Event Title */
+    .event-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--drupal-navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .event-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .event-title a:hover {
+      color: var(--drupal-blue);
+    }
+
+    /* Event Description */
+    .event-description {
+      color: #444;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Event Meta */
+    .event-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .event-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .event-username {
+      font-size: 0.8125rem;
+      color: var(--drupal-dark-blue);
+      font-weight: 500;
+    }
+
+    .event-thumbnail {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 1rem;
+      border: 1px solid var(--drupal-light-blue);
+    }
+
+    /* Priority Badges */
+    .priority-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-left: auto;
+    }
+
+    .priority-1 .priority-badge {
+      background: var(--drupal-yellow);
+      color: var(--drupal-navy);
+    }
+
+    .priority-2 .priority-badge {
+      background: var(--drupal-light-blue);
+      color: var(--drupal-dark-blue);
+    }
+
+    /* Footer - GUI Block style */
+    .footer {
+      background: var(--drupal-navy);
+      color: var(--drupal-white);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative shadow lines in footer */
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(0, 156, 222, 0.05) 20px,
+        rgba(0, 156, 222, 0.05) 22px
+      );
+      pointer-events: none;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: var(--drupal-light-blue);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--drupal-yellow);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer p {
+      font-size: 0.875rem;
+      color: var(--drupal-light-blue);
+      opacity: 0.8;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--drupal-white);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 3px solid var(--drupal-blue);
+    }
+
+    .stats-bar span {
+      display: inline-block;
+      margin: 0 1rem;
+      color: var(--drupal-navy);
+      font-weight: 500;
+    }
+
+    .stats-bar strong {
+      color: var(--drupal-blue);
+      font-size: 1.25rem;
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--drupal-white);
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid var(--drupal-light-blue);
+      border-top-color: var(--drupal-blue);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--drupal-white);
+      border-radius: 16px;
+      border: 2px solid var(--drupal-blue);
+      margin: 2rem 0;
+    }
+
+    .no-results h3 {
+      color: var(--drupal-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results p {
+      color: var(--drupal-dark-blue);
+    }
+
+    /* Responsive - Large screens with sidebar space */
+    @media (min-width: 1200px) {
+      .timeline-container {
+        margin-left: 100px;
+      }
+    }
+
+    /* Responsive - Medium screens */
+    @media (max-width: 1199px) {
+      .year-nav {
+        left: 0.5rem;
+        padding: 0.5rem 0.25rem;
+      }
+
+      .year-nav-title {
+        display: none;
+      }
+
+      .year-nav-link {
+        padding: 0.25rem 0.375rem;
+        font-size: 0.6875rem;
+      }
+
+      .year-nav-link .event-count {
+        display: none;
+      }
+    }
+
+    /* Responsive - Small screens */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.75rem;
+      }
+
+      .header p {
+        font-size: 1rem;
+      }
+
+      .header-gui-block {
+        display: none;
+      }
+
+      .header.scrolled h1 {
+        font-size: 1rem;
+      }
+
+      .header.scrolled .logo {
+        width: 32px;
+      }
+
+      .year-nav {
+        display: none;
+      }
+
+      .timeline {
+        padding-left: 2rem;
+      }
+
+      .timeline::before {
+        left: 6px;
+      }
+
+      .event-card-dot {
+        left: calc(-2rem + 7.5px);
+      }
+
+      .event-card {
+        padding: 0.875rem 1rem 1rem 1rem;
+      }
+
+      .event-title {
+        font-size: 1rem;
+      }
+
+      .controls-inner {
+        flex-direction: column;
+      }
+
+      .search-box {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .gui-controls {
+        margin-bottom: 8px;
+      }
+
+      .gui-dot {
+        width: 8px;
+        height: 8px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .controls, .footer, .header-gui-block, .year-nav {
+        display: none;
+      }
+
+      .header {
+        position: relative;
+      }
+
+      .event-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+
+      .event-card::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <!-- Decorative GUI Blocks -->
+    <div class="header-gui-block block-1"></div>
+    <div class="header-gui-block block-2"></div>
+    <div class="header-gui-block block-3"></div>
+    <div class="header-gui-block block-4"></div>
+
+    <div class="header-content">
+      <svg class="logo" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+        <!-- Official Drupal Drop -->
+        <path fill="#FFFFFF" d="M806.6,369.2c-0.6-1.1-1.1-1.7-2.2-2.8C750,305.3,672.8,218.7,617.2,157c-17.2-18.3-34.4-36.7-50.5-55.5
+          c-3.9-4.4-7.2-8.9-11.1-13.3c-3.3-3.3-5-5.6-5-5.6h0.6c-18.9-22.2-33.9-47.2-44.4-73.9L504,2.6c0-0.6-0.6-0.6-1.1-1.1
+          c-0.6,0-1.7-0.6-2.2-0.6H500c-1.1,0-1.7,0.6-2.2,0.6c-0.6,0.6-0.6,0.6-1.1,1.1l-2.8,6.1c-11.1,26.7-26.1,51.6-44.4,73.9h0.6
+          c0,0-1.7,2.2-5,5.6c-3.9,4.4-7.2,8.9-11.1,13.3c-16.7,18.9-33.3,37.2-50.5,55.5C328,218.6,250.2,305.3,195.8,366.4
+          c-0.6,1.1-1.1,1.7-2.2,2.8C-12,643,211.2,866.3,211.2,866.3h-0.6c66.1,76.6,159.9,123.8,260.5,131.1c8.9,1.1,18.3,1.7,28.3,1.7h0.6
+          c9.4,0,18.9-0.6,28.3-1.7c101.1-7.2,194.4-54.4,260.5-131.1h-0.6C788.8,866.3,1012.1,643,806.6,369.2z M328.4,561.9l-5,7.8l-0.6,0.6
+          c-37.8,45.5-60,94.4-67.2,142.7c-1.1,6.1-6.7,10-12.2,8.9c-3.9-0.6-6.7-3.3-8.3-6.7c-10-23.3-16.7-47.8-20-72.8
+          C202.3,554.1,229,477,285.6,410.9c22.8-26.1,45.5-52.2,68.3-78.3c3.9-4.4,10.6-5,15-1.1l0,0c0.6,0.6,0.6,0.6,1.1,1.1
+          c18.3,21.1,42.2,48.3,68.9,79.4c3.3,3.9,3.3,10,0,14.4c-36.7,43.9-75.5,90.5-110.5,135L328.4,561.9L328.4,561.9z M643.8,790.7
+          L643.8,790.7c-21.1,55.5-62.8,88.9-121.6,98.3c-83.9,12.8-162.2-44.4-174.9-128.3c0-1.1,0-1.7-0.6-2.8
+          c-6.7-47.2,7.8-88.9,38.3-124.4c35.5-41.7,113.9-138.3,115-140l0,0c1.7,1.7,85,105.5,116.1,142.2C655.5,681.9,665,734.6,643.8,790.7
+          z M767.7,703.5L767.7,703.5c-0.6,1.7-1.7,3.9-2.2,5.6c-2.2,5.6-8.3,8.3-13.9,6.1c-3.3-1.7-6.1-4.4-6.7-8.3
+          c-7.8-46.7-30-93.3-66.1-137.2l-0.6-0.6l-3.3-5l-2.2-2.8c-28.9-36.7-181.6-215.5-248.3-293.8c-3.3-3.9-3.3-10,0-14.4
+          c22.2-24.4,44.4-48.9,66.1-73.9c3.9-4.4,10.6-4.4,15-0.6l0.6,0.6c10,10.6,19.4,21.1,28.9,32.2c60.5,67.8,121.6,134.4,180.5,202.7
+          C789.9,500.3,807.1,599.1,767.7,703.5z"/>
+      </svg>
+      <h1>Drupal Timeline</h1>
+      <p>Celebrating over two decades of building an open web for everyone</p>
+    </div>
+  </header>
+
+  <div class="stats-bar">
+    <span><strong id="total-events">0</strong> Events</span>
+    <span><strong id="year-span">0</strong> Years of History</span>
+    <span><strong id="contributors">0</strong> Contributors</span>
+  </div>
+
+  <nav class="controls">
+    <div class="controls-inner">
+      <button class="filter-btn active" data-priority="all">All Events</button>
+      <button class="filter-btn" data-priority="1">Major Milestones</button>
+      <button class="filter-btn" data-priority="2">Significant</button>
+      <button class="filter-btn" data-priority="3">Notable</button>
+      <button class="filter-btn" data-priority="4">Community</button>
+      <input type="text" class="search-box" placeholder="Search events..." id="search-input">
+    </div>
+  </nav>
+
+  <!-- Year Navigation Sidebar -->
+  <nav class="year-nav" id="year-nav" aria-label="Year navigation">
+    <div class="year-nav-title">Years</div>
+    <ul class="year-nav-list" id="year-nav-list">
+      <!-- Populated by JavaScript -->
+    </ul>
+  </nav>
+
+  <main class="timeline-container" id="timeline-container">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading Drupal history...</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/weitzman/drupal-timeline">GitHub Repository</a>
+        <a href="https://drupal.org">Drupal.org</a>
+        <a href="https://drupalhistory.org">DrupalHistory.org</a>
+      </div>
+      <p>Data maintained by the Drupal community. <a href="https://github.com/weitzman/drupal-timeline/blob/main/LICENSE">MIT License</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Drupal Timeline Application
+    // Data loaded from: https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/drupal-timeline.json
+    const TIMELINE_CDN_URL = 'https://cdn.jsdelivr.net/gh/weitzman/drupal-timeline/drupal-timeline.json';
+
+    const TimelineApp = {
+      events: [],
+      filteredEvents: [],
+      currentPriority: 'all',
+      searchTerm: '',
+      headerHeight: 0,
+
+      async init() {
+        try {
+          const response = await fetch(TIMELINE_CDN_URL);
+          if (!response.ok) throw new Error('Failed to fetch timeline data');
+          this.events = await response.json();
+          this.events.sort((a, b) => new Date(a.date) - new Date(b.date));
+          this.filteredEvents = [...this.events];
+          this.updateStats();
+          this.render();
+          this.renderYearNav();
+          this.bindEvents();
+          this.setupScrollHandlers();
+        } catch (error) {
+          console.error('Error loading timeline:', error);
+          document.getElementById('timeline-container').innerHTML = `
+            <div class="no-results">
+              <h3>Unable to load timeline</h3>
+              <p>Could not fetch data from the Drupal timeline. Please try again later.</p>
+            </div>
+          `;
+        }
+      },
+
+      updateStats() {
+        const totalEvents = this.events.length;
+        const dates = this.events.map(e => new Date(e.date).getFullYear());
+        const yearSpan = Math.max(...dates) - Math.min(...dates);
+        const contributors = new Set(this.events.filter(e => e.username).map(e => e.username)).size;
+
+        document.getElementById('total-events').textContent = totalEvents;
+        document.getElementById('year-span').textContent = yearSpan;
+        document.getElementById('contributors').textContent = contributors;
+      },
+
+      setupScrollHandlers() {
+        const header = document.querySelector('.header');
+        this.headerHeight = header.offsetHeight;
+
+        // Header shrink on scroll
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              if (window.scrollY > this.headerHeight) {
+                header.classList.add('scrolled');
+              } else {
+                header.classList.remove('scrolled');
+              }
+              this.updateActiveYear();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      },
+
+      updateActiveYear() {
+        const yearMarkers = document.querySelectorAll('.year-marker');
+        const yearLinks = document.querySelectorAll('.year-nav-link');
+        let activeYear = null;
+
+        yearMarkers.forEach(marker => {
+          const rect = marker.getBoundingClientRect();
+          if (rect.top <= 200) {
+            activeYear = marker.dataset.year;
+          }
+        });
+
+        yearLinks.forEach(link => {
+          if (link.dataset.year === activeYear) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      },
+
+      renderYearNav() {
+        // Get years from filtered events
+        const yearCounts = {};
+        this.filteredEvents.forEach(event => {
+          const year = new Date(event.date).getFullYear();
+          yearCounts[year] = (yearCounts[year] || 0) + 1;
+        });
+
+        const years = Object.keys(yearCounts).sort((a, b) => a - b);
+        const navList = document.getElementById('year-nav-list');
+
+        navList.innerHTML = years.map(year => `
+          <li class="year-nav-item">
+            <a href="#year-${year}" class="year-nav-link" data-year="${year}">
+              ${year}
+              <span class="event-count">${yearCounts[year]} event${yearCounts[year] > 1 ? 's' : ''}</span>
+            </a>
+          </li>
+        `).join('');
+
+        // Add click handlers for smooth scroll
+        navList.querySelectorAll('.year-nav-link').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const year = link.dataset.year;
+            const target = document.getElementById(`year-${year}`);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      },
+
+      bindEvents() {
+        // Priority filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            this.currentPriority = btn.dataset.priority;
+            this.filterEvents();
+          });
+        });
+
+        // Search input
+        const searchInput = document.getElementById('search-input');
+        let debounceTimer;
+        searchInput.addEventListener('input', (e) => {
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => {
+            this.searchTerm = e.target.value.toLowerCase();
+            this.filterEvents();
+          }, 300);
+        });
+      },
+
+      filterEvents() {
+        this.filteredEvents = this.events.filter(event => {
+          const matchesPriority = this.currentPriority === 'all' ||
+            event.priority === parseInt(this.currentPriority);
+
+          const matchesSearch = !this.searchTerm ||
+            event.title.toLowerCase().includes(this.searchTerm) ||
+            (event.description && event.description.toLowerCase().includes(this.searchTerm)) ||
+            (event.username && event.username.toLowerCase().includes(this.searchTerm));
+
+          return matchesPriority && matchesSearch;
+        });
+
+        this.render();
+        this.renderYearNav();
+      },
+
+      formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      },
+
+      getEra(year) {
+        if (year < 2006) return { name: 'early', title: 'The Early Years', subtitle: '2001-2005: Foundation and Community Building' };
+        if (year < 2016) return { name: 'growth', title: 'Growth Era', subtitle: '2006-2015: Enterprise Adoption and Expansion' };
+        return { name: 'modern', title: 'Modern Era', subtitle: '2016-Present: Innovation and Evolution' };
+      },
+
+      stripHtml(html) {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || '';
+      },
+
+      render() {
+        const container = document.getElementById('timeline-container');
+
+        if (this.filteredEvents.length === 0) {
+          container.innerHTML = `
+            <div class="no-results">
+              <h3>No events found</h3>
+              <p>Try adjusting your filters or search term.</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Group events by era
+        const eras = {};
+        this.filteredEvents.forEach(event => {
+          const year = new Date(event.date).getFullYear();
+          const era = this.getEra(year);
+          if (!eras[era.name]) {
+            eras[era.name] = { ...era, events: [] };
+          }
+          eras[era.name].events.push(event);
+        });
+
+        // Render eras in order
+        const eraOrder = ['early', 'growth', 'modern'];
+        let html = '';
+
+        eraOrder.forEach(eraName => {
+          if (!eras[eraName]) return;
+          const era = eras[eraName];
+
+          html += `
+            <section class="era-section ${era.name}">
+              <div class="era-header">
+                <div class="gui-controls">
+                  <span class="gui-dot"></span>
+                  <span class="gui-dot"></span>
+                  <span class="gui-dot"></span>
+                </div>
+                <h2 class="era-title">${era.title}</h2>
+                <p class="era-subtitle">${era.subtitle}</p>
+              </div>
+              <div class="timeline">
+          `;
+
+          let currentYear = null;
+          era.events.forEach((event, index) => {
+            const priorityClass = `priority-${event.priority}`;
+            const priorityLabel = event.priority === 1 ? 'Major' : event.priority === 2 ? 'Significant' : '';
+            const eventYear = new Date(event.date).getFullYear();
+
+            // Add year marker for first event of each year
+            const yearMarker = eventYear !== currentYear
+              ? `<div class="year-marker" id="year-${eventYear}" data-year="${eventYear}"></div>`
+              : '';
+            currentYear = eventYear;
+
+            html += `
+              ${yearMarker}
+              <article class="event-card ${priorityClass}" style="animation-delay: ${index * 0.05}s">
+                <span class="event-card-dot"></span>
+                <time class="event-date">${this.formatDate(event.date)}</time>
+                <h3 class="event-title">
+                  ${event.href ? `<a href="${event.href}" target="_blank" rel="noopener">${event.title}</a>` : event.title}
+                </h3>
+                <p class="event-description">${this.stripHtml(event.description || '')}</p>
+                <div class="event-meta">
+                  ${event.avatar ? `<img src="${event.avatar}" alt="${event.username || 'Contributor'}" class="event-avatar" loading="lazy" onerror="this.style.display='none'">` : ''}
+                  ${event.username ? `<span class="event-username">@${event.username}</span>` : ''}
+                  ${priorityLabel ? `<span class="priority-badge">${priorityLabel}</span>` : ''}
+                </div>
+                ${event.thumbnail ? `<img src="${event.thumbnail}" alt="${event.title}" class="event-thumbnail" loading="lazy">` : ''}
+              </article>
+            `;
+          });
+
+          html += `
+              </div>
+            </section>
+          `;
+        });
+
+        container.innerHTML = html;
+      }
+    };
+
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', () => {
+      TimelineApp.init();
+    });
+  </script>
+</body>
+</html>
